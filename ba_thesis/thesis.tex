@@ -53,7 +53,7 @@ The Ethereum network with the Ethereum Virtual Machine, or EVM\cite{evm}, (whose
 These kinds of applications are called Decentralized applications or Dapps\cite{dapps}, because they are built on top of a decentralized network such as  Ethereum.
 
 \section{Goals}
-The goals of this Thesis are:  study and provide a better understanding of how Dapps are built, which technology is used, and the development of a Dapp that uses well-known DeFi\cite{defi} protocols to let users access permissionless financial services such as lending and borrowing.
+The goals of this Thesis are:  study and provide a better understanding of how Dapps are built, which technology is used, and the development of a Dapp that uses well-known DeFi\cite{defi} protocols to let users access permissionless financial services such as lending and borrowing of crypto assets.
 
 \section{Thesis Structure}
 The Thesis is divided into the following chapters:
@@ -71,33 +71,43 @@ The Thesis is divided into the following chapters:
 %%%%% Chapter
 \chapter{Fundamentals} \label{ch:background}
 
-\section{Blockchain} \label{}
-\subsection{Cryptography}
-\subsubsection{Cryptographic hash functions}
-\subsubsection{Merkle tree}
-\subsection{Consensus Mechanism}
-\subsection{Bitcoin}
-asdfasdf~\cite{bitcoin}
+\section{Blockchain} \label{sec:bc}
+A blockchain is a type of database, which stores data in blocks. These blocks are chronologically ordered by discrete timestamps and linked to each other using cryptographic hash functions. Commonly, a blockchain is used as a public distributed ledger of transactions records, shared and synchronized by a per-to-per network, where every party can participate in the validation of new blocks based on a consensus protocol.
+The idea of a cryptographically secured chain of blocks was originally presented by Haber and Stornetta\cite{time-stamp} in 1991. However, the implementation and adoption of this technology started with the conception of the bitcoin cryptocurrency whitepaper\cite{bitcoin} in 2008. \\\\Depending on the blockchain implementation, block contents can be different. A block usually has a timestamp, the payload data, and the hash value of the previous block in the chain. The way that a blockchain ensures the security and keeps the integrity of the data is through cryptographic hash functions\cite{wiki:chf}, and Merkle trees\cite{merkle}.
+
+\subsection{Cryptographic hash functions}
+A cryptographic hash function\cite{wiki:chf} maps a given data of variable size to a fixed length \emph{n}-bit string called hash value. $ H : \{0,1\}^* \to \{0,1\}^n $ Such hash functions have the following properties:
+\begin{enumerate}
+	\item \textbf{Preimage resistance}: For a hash value \emph{h}, it should be necessary $ O(2^n) $ computation power in order to obtain an \emph{x} such that $ H(x)=h $.~~In other words, it should be a one-way function.
+	
+	\item \textbf{Second preimage resistance}: For an input $x_1$ and its hash value $h_1$, it should be necessary $ O(2^n) $ computation power in order to obtain a $x_2$ such that $H(x_2)=h_1$
+	
+	\item \textbf{Collision resistance}: Given $x_1, x_2 $ It should be necessary $ O(2^\frac{n}{2}) $ compute power such that $H(x_1) = H(x_2)$
+	
+\end{enumerate}
+
+Such properties prevent attackers from modifying existing blocks keeping the blockchain intact. For example, the bitcoin network uses the SHA-256 hash function to validate a block, and append it to the chain. This means once a consensus among all the participants is done, and a new block is added, it will be required $ O(2^{256}) $ computation power to tamper with the blockchain. (In other words, it is nearly impossible to manipulate an added block as a result of the tremendous computer power that would be needed.)
+
+\subsection{Merkle tree}
+\subsection{Consensus Protocol}
+The consensus protocol of a blockchain network gives a specific rule for verifying whether a transaction is valid or not. As mentioned in~\ref{sec:bc}, any participant or node of the network, depending on the blockchain type, can append a new block. For the reason that blockchains typically do not have a centralized authority validating transactions, participants on the blockchain must verify any transaction according to the set of rules or consensus protocol of the blockchain. The most common consensus mechanisms nowadays are:
+\begin{itemize}
+	\item[] \textbf{Proof of work (PoW)}
+	In a PoW blockchain, nodes have to solve a cryptographic task in order to validate a block, the first node to find a solution can submit the transaction. Most of the first blockchains in the space use proof-of-work-based protocols; for example, Bitcoin uses PoW based on the cryptographic hash function SHA-256.	
+	\item[] \textbf{Proof of state (PoS)}
+	In a PoS blockchain, the entity that can validate a transaction is randomly selected, depending on the "stake" that a node has on the network. Since nodes have a large stake in the blockchain, they will pursue the integrity of the network.
+
+\end{itemize}
+
 
 \section{Ethereum}
 \subsection{Ethereum Virtual Machine (EVM)}
 \subsection{Smart Contracts}
+\subsection{Solidity}
+\subsection{Tokens}
 \subsection{Decentralized Applications (Dapps)}
 
-\begin{table}
-\centering
-\begin{tabular}{|l||l|l|}
-\hline
-\multicolumn{1}{|c|}{\textbf{Plattform}} & 
-\multicolumn{1}{|c|}{\textbf{\LaTeX-Distribution}} & 
-\multicolumn{1}{|c|}{\textbf{Editor}} \\\hline\hline
-Linux/Unix & TeX Live & Texmaker \\\hline
-MacOSX     & TeX Live & Texmaker \\\hline
-Windows    & MiKTeX   & Texmaker \\\hline   
-\end{tabular}
-\caption{\LaTeX-Distributionen und Editor je Plattform}
-\label{tab:disteditplattform}
-\end{table}
+
 
 
 
