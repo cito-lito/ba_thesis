@@ -76,13 +76,15 @@ A blockchain is a type of database, which stores data in blocks. These blocks ar
 The idea of a cryptographically secured chain of blocks was originally presented by Haber and Stornetta\cite{time-stamp} in 1991. However, the implementation and adoption of this technology started with the conception of the bitcoin cryptocurrency whitepaper\cite{bitcoin} in 2008. \\\\Depending on the blockchain implementation, block contents can be different. A block usually has a timestamp, the payload data, and the hash value of the previous block in the chain. The way that a blockchain ensures the security and keeps the integrity of the data is through cryptographic hash functions\cite{wiki:chf}, and Merkle trees\cite{merkle}.
 
 \subsection{Cryptographic hash functions}
-A cryptographic hash function\cite{wiki:chf} maps a given data of variable size to a fixed length \emph{n}-bit string called hash value. $ H : \{0,1\}^* \to \{0,1\}^n $ Such hash functions have the following properties:
+A cryptographic hash function\cite{chf} maps a given data of variable size to a fixed length \emph{n}-bit string called hash value. $ H : \{0,1\}^* \to \{0,1\}^n $ Such hash functions have the following properties:
 \begin{enumerate}
+		
+	\item \textbf{Collision resistance}: Given $x_1, x_2 $ It should be necessary $ O(2^\frac{n}{2}) $ compute power such that $H(x_1) = H(x_2)$
+	
 	\item \textbf{Preimage resistance}: For a hash value \emph{h}, it should be necessary $ O(2^n) $ computation power in order to obtain an \emph{x} such that $ H(x)=h $.~~In other words, it should be a one-way function.
 	
 	\item \textbf{Second preimage resistance}: For an input $x_1$ and its hash value $h_1$, it should be necessary $ O(2^n) $ computation power in order to obtain a $x_2$ such that $H(x_2)=h_1$
-	
-	\item \textbf{Collision resistance}: Given $x_1, x_2 $ It should be necessary $ O(2^\frac{n}{2}) $ compute power such that $H(x_1) = H(x_2)$
+
 	
 \end{enumerate}
 
@@ -98,6 +100,7 @@ The consensus protocol of a blockchain network gives a specific rule for verifyi
 	In a PoS blockchain, the entity that can validate a transaction is randomly selected, depending on the "stake" that a node has on the network. Since nodes have a large stake in the blockchain, they will pursue the integrity of the network.
 
 \end{itemize}
+\subsection{Elliptic Curve Cryptography, Public/Private Key}
 
 
 \section{Ethereum}
@@ -107,43 +110,33 @@ The consensus protocol of a blockchain network gives a specific rule for verifyi
 \subsection{Tokens}
 \subsection{Decentralized Applications (Dapps)}
 
-
-
-
-
-
-
-\begin{figure}[htp]
-\centering
-\includegraphics[width=.9\textwidth]{images/cids}
-\caption{Dateien zur Erstellung des Templates}
-\label{fig:templateprozess}
-\end{figure}
-
-
+%%%%%%%%%%%% FIGURE
+%\begin{figure}[htp]
+%\centering
+%\includegraphics[width=.9\textwidth]{images/cids}
+%\caption{Dateien zur Erstellung des Templates}
+%\label{fig:templateprozess}
+%\end{figure}
 
 %%%%%
 %%%%% Chapter
-\chapter{State of the Art, Protocols to be used} \label{ch:soa}
-
+\chapter{State of the Art / DeFi   ???  , Protocols to be used} \label{ch:soa}
 
 %%%%%
 %%%%% Chapter
 \chapter{Application requirements} \label{ch:appreq}
 
-
-\section{Listings} \label{sec:listings}
-
-\begin{listing}[htbp]
-\begin{lstlisting}
-def ggt(x, y):
-    while x != 0:
-        x,y = y%x, x
-    return y
-\end{lstlisting}
-\caption{ggT --- kurz und gut}
-\label{code:ggt}
-\end{listing}
+%\section{Listings} \label{sec:listings}
+%\begin{listing}[htbp]
+%\begin{lstlisting}
+%def ggt(x, y):
+%    while x != 0:
+%        x,y = y%x, x
+%    return y
+%\end{lstlisting}
+%\caption{ggT --- kurz und gut}
+%\label{code:ggt}
+%\end{listing}
 
 
 %%%%%
