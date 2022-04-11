@@ -21,20 +21,7 @@
 \include{vorspann} % Titelseite, Erklärungen, etc.
 
 \begin{abstract} 
-\LaTeX\ bietet Buchdruckqualität für jedermann.
-Wir zeigen anhand dieses durch persönliche Präferenzen geprägtes Template, 
-wie man Buchdruckqualität für eine Abschlussarbeit einfach erreichen kann.
-Dazu werden beispielhaft Lösungen zu üblichen Fragestellungen im Dokument 
-vorgestellt.
-Zunächst benötigt man ein passendes \LaTeX\ System mit einigen 
-installierten Erweiterungspaketen, das es erlaubt das Template zu 
-übersetzen. 
-Neben den grundlegenden For\-ma\-tie\-rungs\-möglich\-keiten mit \LaTeX\ wird 
-insbesondere das Erstellen und Einbinden von Grafiken, Listings und 
-mathematischen Formeln gezeigt.
-Des Weiteren werden Literatur- und andere Verzeichnisse eingebunden.
-Nicht zuletzt finden sich auch sachdienliche Hinweise zum
-Schreiben und Zitieren von Literatur.
+abstract
 \end{abstract}
 
 \tableofcontents
@@ -49,18 +36,18 @@ Schreiben und Zitieren von Literatur.
 
 \section{Motivation}
 In the last years' blockchain technology has gained a lot of traction and many developers are willing to build applications on top of this technology.
-The Ethereum network with the Ethereum Virtual Machine, or EVM\cite{evm}, (whose state is validated and copied by every node of the network) offers a new way of application development. Meaning that developers can now implement some functionality and deploy it to a public EVM blockchain, making the code/functionality tamper-resistant; in addition, the implemented functionality (or smart contract) can be called by any participant or other code/contracts within the network. This composability allows anyone to interact with already deployed contracts and build other applications on top of them. 
-These kinds of applications are called Decentralized applications or Dapps\cite{dapps}, because they are built on top of a decentralized network such as  Ethereum.
+The Ethereum network with the Ethereum Virtual Machine, or EVM~\ref{sec:evm}, (whose state is validated and copied by every node of the network) offers a new way of application development. Meaning that developers can now implement some functionality and deploy it to a public EVM blockchain, making the code/functionality tamper-resistant; in addition, the implemented functionality (or smart contract) can be called by any participant or other code/contracts within the network. This composability allows anyone to interact with already deployed contracts and build other applications on top of them. 
+These kinds of applications are called Decentralized applications or Dapps~\ref{sec:dapps}, because they are built on top of a decentralized network such as  Ethereum.
 
 \section{Goals}
-The goals of this Thesis are:  study and provide a better understanding of how Dapps are built, which technology is used, and the development of a Dapp that uses well-known DeFi\cite{defi} protocols to let users access permissionless financial services such as lending and borrowing of crypto assets.
+The goals of this Thesis are:  study and provide a better understanding of; how Dapps are built, which technology is used, and the development of a Dapp that uses well-known DeFi~\ref{ch:defi} protocols to let users access to permissionless financial services such as lending and borrowing of crypto assets.
 
 \section{Thesis Structure}
 The Thesis is divided into the following chapters:
 \begin{itemize}
 	
 	\item \textbf{Chapter ~\ref{ch:background} - Fundamentals}, gives a technical overwiev of the blockchain technology and the Ethereum network.
-	\item \textbf{Chapter ~\ref{ch:soa}} ...
+	\item \textbf{Chapter ~\ref{ch:defi}} ...
 	\item \textbf{Chapter ~\ref{ch:appreq}} ...
 	\item \textbf{Chapter ~\ref{ch:impl}} ...
 	\item \textbf{Chapter ~\ref{ch:conclusion}} ...
@@ -72,11 +59,23 @@ The Thesis is divided into the following chapters:
 \chapter{Fundamentals} \label{ch:background}
 
 \section{Blockchain} \label{sec:bc}
-A blockchain is a type of database, which stores data in blocks. These blocks are chronologically ordered by discrete timestamps and linked to each other using cryptographic hash functions. Commonly, a blockchain is used as a public distributed ledger of transactions records, shared and synchronized by a per-to-per network, where every party can participate in the validation of new blocks based on a consensus protocol.
-The idea of a cryptographically secured chain of blocks was originally presented by Haber and Stornetta\cite{time-stamp} in 1991. However, the implementation and adoption of this technology started with the conception of the bitcoin cryptocurrency whitepaper\cite{bitcoin} in 2008. \\\\Depending on the blockchain implementation, block contents can be different. A block usually has a timestamp, the payload data, and the hash value of the previous block in the chain. The way that a blockchain ensures the security and keeps the integrity of the data is through cryptographic hash functions\cite{wiki:chf}, and Merkle trees\cite{merkle}.
+A blockchain\cite{book:bc}\cite{article:bc} is a type of database, which stores data in blocks. These blocks are chronologically ordered by discrete timestamps and linked to each other using cryptographic hash functions. Commonly, a blockchain is used as a public distributed ledger of transactions records, shared and synchronized by a per-to-per network, where every party can participate in the validation of new blocks based on a consensus protocol, see~\ref{sec:cp}.
+The idea of a cryptographically secured chain of blocks was originally presented by Haber and Stornetta\cite{time-stamp} in 1991. However, the implementation and adoption of this technology started with the conception of the bitcoin cryptocurrency whitepaper\cite{bitcoin} in 2008.
 
-\subsection{Cryptographic hash functions}
-A cryptographic hash function\cite{chf} maps a given data of variable size to a fixed length \emph{n}-bit string called hash value. $ H : \{0,1\}^* \to \{0,1\}^n $ Such hash functions have the following properties:
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./images/blockchain}
+	\caption{View of two blocks in a blockchain}
+	\label{fig:bc}
+\end{figure}
+
+Depending on the blockchain implementation, block contents can be different. A block usually has a timestamp, the data or transactions record, and the hash value of the previous block in the chain, see figure~\ref{fig:bc}. The way that a blockchain ensures the security and keeps the integrity of the data is through cryptographic hash functions\cite{chf}, and Merkle trees\cite{merkle}.
+In addition, determined by who can participate in the consensus protocol, blockchain networks can be divided into two groups: permissionless and permissioned blockchains. This Thesis will be focused on permissionless blockchains that use an EVM, such as the Ethereum network.
+
+
+
+\subsection{Cryptographic hash functions}\label{sec:chf}
+A cryptographic hash function\cite{chf}\cite{book:chf} maps a given data of variable size to a fixed length \emph{n}-bit string called hash value. $ H : \{0,1\}^* \to \{0,1\}^n $ Such hash functions have the following properties:
 \begin{enumerate}
 		
 	\item \textbf{Collision resistance}: Given $x_1, x_2 $ It should be necessary $ O(2^\frac{n}{2}) $ compute power such that $H(x_1) = H(x_2)$
@@ -88,11 +87,11 @@ A cryptographic hash function\cite{chf} maps a given data of variable size to a 
 	
 \end{enumerate}
 
-Such properties prevent attackers from modifying existing blocks keeping the blockchain intact. For example, the bitcoin network uses the SHA-256 hash function to validate a block, and append it to the chain. This means once a consensus among all the participants is done, and a new block is added, it will be required $ O(2^{256}) $ computation power to tamper with the blockchain. (In other words, it is nearly impossible to manipulate an added block as a result of the tremendous computer power that would be needed.)
+Such properties prevent attackers from modifying existing blocks keeping the blockchain intact. For example, the bitcoin network uses the SHA-256 hashing algorithm to validate a block, and append it to the chain. This means once a consensus among all the participants is done, and a new block is added, it will be required $ O(2^{256}) $ computation power to tamper with the blockchain. (In other words, it is nearly impossible to manipulate an added block as a result of the tremendous computer power that would be needed.)
 
-\subsection{Merkle tree}
-\subsection{Consensus Protocol}
-The consensus protocol of a blockchain network gives a specific rule for verifying whether a transaction is valid or not. As mentioned in~\ref{sec:bc}, any participant or node of the network, depending on the blockchain type, can append a new block. For the reason that blockchains typically do not have a centralized authority validating transactions, participants on the blockchain must verify any transaction according to the set of rules or consensus protocol of the blockchain. The most common consensus mechanisms nowadays are:
+\subsection{Merkle tree}\label{sec:mt}
+\subsection{Consensus Protocol}\label{sec:cp}
+The consensus protocol\cite{article:bc} of a blockchain network gives a specific rule for verifying whether a transaction is valid or not. As mentioned in~\ref{sec:bc}, any participant or node of the network, depending on the blockchain type, can append a new block. For the reason that blockchains typically do not have a centralized authority validating transactions, participants on the blockchain must verify any transaction according to the set of rules or consensus protocol of the blockchain. The most common consensus mechanisms nowadays are:
 \begin{itemize}
 	\item[] \textbf{Proof of work (PoW)}
 	In a PoW blockchain, nodes have to solve a cryptographic task in order to validate a block, the first node to find a solution can submit the transaction. Most of the first blockchains in the space use proof-of-work-based protocols; for example, Bitcoin uses PoW based on the cryptographic hash function SHA-256.	
@@ -100,15 +99,19 @@ The consensus protocol of a blockchain network gives a specific rule for verifyi
 	In a PoS blockchain, the entity that can validate a transaction is randomly selected, depending on the "stake" that a node has on the network. Since nodes have a large stake in the blockchain, they will pursue the integrity of the network.
 
 \end{itemize}
-\subsection{Elliptic Curve Cryptography, Public/Private Key}
+\subsection{Public-Key Cryptography: Elliptic Curve Cryptography}
+In order to interact with a blockchain, participants use public key cryptography or asymmetric key cryptography. The public key acts as the id of the sender or receiver of a given message; and it can be shared with others without any security downfall. On the other hand, the private key should be kept secure and private by the message sender; it is used to sign (digital signature) the messages or transactions, i.e., give permission to change the state of the user records in the blockchain.
+\emph{Digital signature:} The message or transaction can only be signed with a private key, and anyone who knows the public key of the signed message can verify  its authenticity. Meaning that any party of the blockchain can participate in the verification of the transactions/messages.
+
+The private key is a random number and the public key is generated from it using one-way cryptographic hash functions or elliptic curve cryptography. Elliptic Curve Cryptography (ECC) is the most common public-key algorithm in blockchain networks. 
 
 
 \section{Ethereum}
-\subsection{Ethereum Virtual Machine (EVM)}
-\subsection{Smart Contracts}
-\subsection{Solidity}
-\subsection{Tokens}
-\subsection{Decentralized Applications (Dapps)}
+\subsection{Ethereum Virtual Machine (EVM)}\label{sec:evm}
+\subsection{Smart Contracts}\label{sec:sc}
+\subsection{Solidity}\label{sec:sol}
+\subsection{Tokens}\label{sec:tokens}
+\subsection{Decentralized Applications (Dapps)}\label{sec:dapps}
 
 %%%%%%%%%%%% FIGURE
 %\begin{figure}[htp]
@@ -120,7 +123,7 @@ The consensus protocol of a blockchain network gives a specific rule for verifyi
 
 %%%%%
 %%%%% Chapter
-\chapter{State of the Art / DeFi   ???  , Protocols to be used} \label{ch:soa}
+\chapter{Decentralized Finance (DeFi)} \label{ch:defi}
 
 %%%%%
 %%%%% Chapter
