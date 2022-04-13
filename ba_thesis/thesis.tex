@@ -59,18 +59,22 @@ The Thesis is divided into the following chapters:
 \chapter{Fundamentals} \label{ch:background}
 
 \section{Blockchain} \label{sec:bc}
-A blockchain\cite{book:bc}\cite{article:bc} is a type of database, which stores data in blocks. These blocks are chronologically ordered by discrete timestamps and linked to each other using cryptographic hash functions. Commonly, a blockchain is used as a public distributed ledger of transactions records, shared and synchronized by a per-to-per network, where every party can participate in the validation of new blocks based on a consensus protocol, see~\ref{sec:cp}.
+A blockchain\cite{book:bc}\cite{article:bc} is a type of database, which stores data in blocks. These blocks are chronologically ordered by discrete timestamps and linked to each other using cryptographic hash functions\cite{chf}\cite{book:chf}. Commonly, a blockchain is used as a public distributed ledger of transactions records, shared and synchronized by a per-to-per network, where every party can participate in the validation of new blocks based on a consensus protocol, see~\ref{sec:cp}.
 The idea of a cryptographically secured chain of blocks was originally presented by Haber and Stornetta\cite{time-stamp} in 1991. However, the implementation and adoption of this technology started with the conception of the bitcoin cryptocurrency whitepaper\cite{bitcoin} in 2008.
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=0.8\textwidth]{./images/blockchain}
+	\includegraphics[width=0.9\textwidth]{./images/blockchain}
 	\caption{View of two blocks in a blockchain}
 	\label{fig:bc}
 \end{figure}
 
-Depending on the blockchain implementation, block contents can be different. A block usually has a timestamp, the data or transactions record, and the hash value of the previous block in the chain, see figure~\ref{fig:bc}. The way that a blockchain ensures the security and keeps the integrity of the data is through cryptographic hash functions\cite{chf}, and Merkle trees\cite{merkle}.
-In addition, determined by who can participate in the consensus protocol, blockchain networks can be divided into two groups: permissionless and permissioned blockchains. This Thesis will be focused on permissionless blockchains that use an EVM, such as the Ethereum network.
+Determined by the blockchain implementation, block contents can be different. A block usually has a timestamp, the data or transactions record, and the hash value of the previous block in the chain, see figure~\ref{fig:bc}.
+The way that a blockchain ensures the security and keeps the integrity of the data is through cryptographic hash functions \ref{sec:chf}, and Merkle trees \ref{sec:mt}
+
+By adding the cryptographic hash value of the previous block  (Block $n$ to Block $n+1$), blockchains ensure the integrity of previous blocks. Because of the second preimage resistance of cryptographic hash functions, see~\ref{sec:chf}, it is computationally infeasible to  find an input other then Block $n$ in order to generate an output = Hash (Block $n$). Due to that, the further the blockchain grows beyond block $n$, the more secure is the integrity of block $n$ and previous blocks.
+
+Depending on who can participate in the consensus protocol, blockchain networks can be divided into two groups: permissionless and permissioned blockchains. This Thesis will be focused on permissionless blockchains that use an EVM, such as the Ethereum network.
 
 
 
@@ -87,9 +91,18 @@ A cryptographic hash function\cite{chf}\cite{book:chf} maps a given data of vari
 	
 \end{enumerate}
 
-Such properties prevent attackers from modifying existing blocks keeping the blockchain intact. For example, the bitcoin network uses the SHA-256 hashing algorithm to validate a block, and append it to the chain. This means once a consensus among all the participants is done, and a new block is added, it will be required $ O(2^{256}) $ computation power to tamper with the blockchain. (In other words, it is nearly impossible to manipulate an added block as a result of the tremendous computer power that would be needed.)
+Such properties prevent attackers from modifying existing blocks keeping the blockchain intact. For example, the bitcoin network uses the SHA-256 hashing algorithm to validate a block, and append it to the chain. This means once a consensus among all the participants is done, and a new block is added, it will be required $ O(2^{256}) $ computation power to tamper with the blockchain. In other words, it is nearly impossible to manipulate an added block as a result of the tremendous computer power that would be needed.
 
 \subsection{Merkle tree}\label{sec:mt}
+A Merkle tree\cite{article:merkle}\cite{book:merkle} or hash tree is a binary tree where every leaf node (nodes at the bottom of the tree) is the cryptographic hash value of some data or transaction. A merkle tree is constructed bottom-up; the upwards nodes are the cryptographic hash values of its two child nodes. Therefore, the root node  will contain a complete fingerprint of the entire set of transactions. 
+
+Merkle trees allow secure and efficient data verification using cryptographic hash functions. For example; if a participant in the network needs to verify the validity of these four transactions, see figure~\ref{fig:merkle}, only a check of the root hash value is necessary. Due to the Merkle tree structure, if any of the data blocks is modified, so will be the root hash value. Furthermore, Merkle tree is a very efficient data structure; for instance, checking that a given transaction is included in the tree will take a maximum of $2log (N)$ operations.
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{./images/merkle}
+	\caption{Merkle tree of four transactions}
+	\label{fig:merkle}
+\end{figure}
 \subsection{Consensus Protocol}\label{sec:cp}
 The consensus protocol\cite{article:bc} of a blockchain network gives a specific rule for verifying whether a transaction is valid or not. As mentioned in~\ref{sec:bc}, any participant or node of the network, depending on the blockchain type, can append a new block. For the reason that blockchains typically do not have a centralized authority validating transactions, participants on the blockchain must verify any transaction according to the set of rules or consensus protocol of the blockchain. The most common consensus mechanisms nowadays are:
 \begin{itemize}
@@ -99,11 +112,13 @@ The consensus protocol\cite{article:bc} of a blockchain network gives a specific
 	In a PoS blockchain, the entity that can validate a transaction is randomly selected, depending on the "stake" that a node has on the network. Since nodes have a large stake in the blockchain, they will pursue the integrity of the network.
 
 \end{itemize}
-\subsection{Public-Key Cryptography: Elliptic Curve Cryptography}
-In order to interact with a blockchain, participants use public key cryptography or asymmetric key cryptography. The public key acts as the id of the sender or receiver of a given message; and it can be shared with others without any security downfall. On the other hand, the private key should be kept secure and private by the message sender; it is used to sign (digital signature) the messages or transactions, i.e., give permission to change the state of the user records in the blockchain.
-\emph{Digital signature:} The message or transaction can only be signed with a private key, and anyone who knows the public key of the signed message can verify  its authenticity. Meaning that any party of the blockchain can participate in the verification of the transactions/messages.
+\subsection{Public-Key Cryptography}
+In order to interact with a blockchain, participants use public key cryptography or asymmetric key cryptography\cite{book:pkc}. The public key acts as the id of the sender or receiver of a given message; and it can be shared with others without any security downfall. On the other hand, the private key should be kept secure and private by the message sender; it is used to sign (digital signature) the messages or transactions, i.e., give permission to change the state of the user records in the blockchain.
 
-The private key is a random number and the public key is generated from it using one-way cryptographic hash functions or elliptic curve cryptography. Elliptic Curve Cryptography (ECC) is the most common public-key algorithm in blockchain networks. 
+\textbf{Digital signature:} The message or transaction can only be signed with a private key, and anyone who knows the public key of the signed message can verify  its authenticity. Meaning that any party of the blockchain can participate in the verification of the transactions/messages.
+
+The private key is a random number and the public key is generated from it using one-way cryptographic hash functions, see \ref{sec:chf} or elliptic curve cryptography\cite{book:pkc}\cite{wiki:ecc}. Elliptic curve cryptography (ECC) is based on the discrete logarithm problem and is the most common public-key algorithm in blockchain networks.
+In mathematics terms, an elliptic curve is a plane curve over all the points $(x, y)$ that satisfy the following equation:  $ y^2 = x^3 +ax + b $
 
 
 \section{Ethereum}
