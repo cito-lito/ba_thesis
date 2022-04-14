@@ -17,6 +17,16 @@
 \newcommand{\referent}{Prof.\ Dr.\ Eva-Maria Iwer}
 \newcommand{\korreferent}{Prof.\ Dr.\ Marc-Alexander Zschiegner}
 
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	citecolor=blue,
+%	pdftitle={Overleaf Example},
+%	pdfpagemode=FullScreen,
+}
 \begin{document}
 \include{vorspann} % Titelseite, Erklärungen, etc.
 
@@ -38,9 +48,14 @@ abstract
 In the last years' blockchain technology has gained a lot of traction and many developers are willing to build applications on top of this technology.
 The Ethereum network with the Ethereum Virtual Machine, or EVM~\ref{sec:evm}, (whose state is validated and copied by every node of the network) offers a new way of application development. Meaning that developers can now implement some functionality and deploy it to a public EVM blockchain, making the code/functionality tamper-resistant; in addition, the implemented functionality (or smart contract) can be called by any participant or other code/contracts within the network. This composability allows anyone to interact with already deployed contracts and build other applications on top of them. 
 These kinds of applications are called Decentralized applications or Dapps~\ref{sec:dapps}, because they are built on top of a decentralized network such as  Ethereum.
-
 \section{Goals}
-The goals of this Thesis are:  study and provide a better understanding of; how Dapps are built, which technology is used, and the development of a Dapp that uses well-known DeFi~\ref{ch:defi} protocols to let users access to permissionless financial services such as lending and borrowing of crypto assets.
+The goals of this Thesis are, to study and provide a better understanding of: 
+\begin{itemize}
+	\item How Dapps are built.
+	\item Which technology is used.
+	\item And the development of a Dapp that uses well-known DeFi protocols see~\ref{ch:defi}, to let users access to permissionless financial services such as lending and borrowing of crypto assets.
+\end{itemize}
+
 
 \section{Thesis Structure}
 The Thesis is divided into the following chapters:
@@ -59,7 +74,7 @@ The Thesis is divided into the following chapters:
 \chapter{Fundamentals} \label{ch:background}
 
 \section{Blockchain} \label{sec:bc}
-A blockchain\cite{book:bc}\cite{article:bc} is a type of database, which stores data in blocks. These blocks are chronologically ordered by discrete timestamps and linked to each other using cryptographic hash functions\cite{chf}\cite{book:chf}. Commonly, a blockchain is used as a public distributed ledger of transactions records, shared and synchronized by a per-to-per network, where every party can participate in the validation of new blocks based on a consensus protocol, see~\ref{sec:cp}.
+A blockchain\cite{book:bc}\cite{article:bc} is a type of database (append-only data strucuture), which stores data in blocks. These blocks are chronologically ordered by discrete timestamps and linked to each other using cryptographic hash functions\cite{chf}\cite{book:chf}. Commonly, a blockchain is used as a public distributed ledger of transactions records, shared and synchronized by a per-to-per network, where every party can participate in the validation of new blocks based on a consensus protocol, see~\ref{sec:cp}.
 The idea of a cryptographically secured chain of blocks was originally presented by Haber and Stornetta\cite{time-stamp} in 1991. However, the implementation and adoption of this technology started with the conception of the bitcoin cryptocurrency whitepaper\cite{bitcoin} in 2008.
 
 \begin{figure}[htp]
@@ -120,8 +135,16 @@ In order to interact with a blockchain, participants use public key cryptography
 The private key is a random number and the public key is generated from it using one-way cryptographic hash functions, see \ref{sec:chf} or elliptic curve cryptography\cite{book:pkc}\cite{wiki:ecc}. Elliptic curve cryptography (ECC) is based on the discrete logarithm problem and is the most common public-key algorithm in blockchain networks.
 In mathematics terms, an elliptic curve is a plane curve over all the points $(x, y)$ that satisfy the following equation:  $ y^2 = x^3 +ax + b $
 
+%\subsection{Bitcoin}
+%The bitcoin network is a set of technologies that enabled for the first time a %decentralized, permissionless, trustless, peer-to-peer digital currency system. %The distributed computation system that bitcoin introduced: the proof-of-work %algorithm to produce a consensus in a distributed system without a central %trusted authority, in combination with the blockchain storage system, solved the %double-spend problem and the Byzantine generals problem.
 
 \section{Ethereum}
+The Bitcoin\cite{bitcoin}\cite{book:masteringBTC} network and its set of technologies enabled for the first time a decentralized, permissionless, trustless, peer-to-peer digital currency system. The distributed computation system that bitcoin introduced: a proof-of-work algorithm to produce a consensus in a distributed system without a central trusted authority, in combination with the blockchain storage system, solved the double-spend problem and the Byzantine generals problem, enabling other applicability beyond digital currencies.  In 2014, Vitalik Butering introduced Ethereum, a platform that moved beyond cryptocurrency applications.
+
+Similar to Bitcoin, Ethereum\cite{article:eth}\cite{book:masteringETH} is a distributed transaction-based state machine. However, it is not only a cryptocurrency system. Ethereum is a decentralized computing platform or a decentralized, pseudo-turning complete virtual machine, which runs smart contracts and stores its state changes in its blockchain. Like bitcoin, state changes in ethereum are managed by a consensus mechanism, where everyone can participate in the validation of  blocks or state changes.
+
+\subsection{Ethereum Accounts}
+Ethereum introduced the account based model, where every account represent a state in the blockchain. Every account has a 20-byte address (public key)
 \subsection{Ethereum Virtual Machine (EVM)}\label{sec:evm}
 \subsection{Smart Contracts}\label{sec:sc}
 \subsection{Solidity}\label{sec:sol}
