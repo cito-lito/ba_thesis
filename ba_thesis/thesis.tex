@@ -139,12 +139,26 @@ In mathematics terms, an elliptic curve is a plane curve over all the points $(x
 %The bitcoin network is a set of technologies that enabled for the first time a %decentralized, permissionless, trustless, peer-to-peer digital currency system. %The distributed computation system that bitcoin introduced: the proof-of-work %algorithm to produce a consensus in a distributed system without a central %trusted authority, in combination with the blockchain storage system, solved the %double-spend problem and the Byzantine generals problem.
 
 \section{Ethereum}
-The Bitcoin\cite{bitcoin}\cite{book:masteringBTC} network and its set of technologies enabled for the first time a decentralized, permissionless, trustless, peer-to-peer digital currency system. The distributed computation system that bitcoin introduced: a proof-of-work algorithm to produce a consensus in a distributed system without a central trusted authority, in combination with the blockchain storage system, solved the double-spend problem and the Byzantine generals problem, enabling other applicability beyond digital currencies.  In 2014, Vitalik Butering introduced Ethereum, a platform that moved beyond cryptocurrency applications.
+The Bitcoin\cite{bitcoin}\cite{book:masteringBTC} network and its set of technologies enabled for the first time a decentralized, permissionless, trustless, peer-to-peer digital currency system. The distributed computation system that bitcoin introduced: a proof-of-work algorithm to produce a consensus in a distributed system without a central trusted authority, in combination with the blockchain storage system, solved the double-spend problem and the Byzantine generals problem, enabling other applicability beyond digital currencies.  In 2014, Vitalik Butering introduced Ethereum\cite{article:eth}, a platform that moved beyond cryptocurrency applications.
 
 Similar to Bitcoin, Ethereum\cite{article:eth}\cite{book:masteringETH} is a distributed transaction-based state machine. However, it is not only a cryptocurrency system. Ethereum is a decentralized computing platform or a decentralized, pseudo-turning complete virtual machine, which runs smart contracts and stores its state changes in its blockchain. Like bitcoin, state changes in ethereum are managed by a consensus mechanism, where everyone can participate in the validation of  blocks or state changes.
 
-\subsection{Ethereum Accounts}
-Ethereum introduced the account based model, where every account represent a state in the blockchain. Every account has a 20-byte address (public key)
+\subsection{Accounts}
+Ethereum\cite{article:eth}\cite{wood2014ethereum} has an account-based model, where every account represents a state. An account is mapped with a 160 bits address (public key) and there are two types of accounts: Externally owned account (EOA), controlled by a private key and contract account, controlled by EVM code. Depending on the account type, an account state is represented by the following four fields: \textbf{Nonce} is a counter that represents the number of transactions or contracts created by the account. \textbf{Balance} is the amount of Ether owned by the account, expressed in Wei. \textbf{Storage hash} is the root hash of a merkle tree that represents the contents of the account. \textbf{Code hash} is the hash that points to the EVM code that the account has.
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./images/accounts}
+	\caption{Ethereum Accounts\cite{evm-illustrate}}
+	\label{fig:accounts}
+\end{figure}
+
+\subsubsection{Transactions and Messages}
+A \textbf{transaction} is a cryptographically-signed message that can only be sent by an EOA. Transactions can trigger a state change on the blockchain or the execution of EVM code. Transactions can be divided into two groups:
+\begin{itemize}
+	\item  \textbf{Message calls}: The transactions between accounts.
+	\item \textbf{Contract creations}: creation of a new account with EVM code in its data field.
+\end{itemize}
+\textbf{Messages} can be seen as internal transactions between contracts triggered by a message call. A message is like a transaction but produced by a contract. This way messages enable contracts to interact between them.
 \subsection{Ethereum Virtual Machine (EVM)}\label{sec:evm}
 \subsection{Smart Contracts}\label{sec:sc}
 \subsection{Solidity}\label{sec:sol}
