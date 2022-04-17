@@ -16,7 +16,7 @@
 \newcommand{\ort}{Wiesbaden}
 \newcommand{\referent}{Prof.\ Dr.\ Eva-Maria Iwer}
 \newcommand{\korreferent}{Prof.\ Dr.\ Marc-Alexander Zschiegner}
-
+%\usepackage{tabularx}
 \usepackage{hyperref}
 \hypersetup{
 	colorlinks=true,
@@ -144,7 +144,7 @@ The Bitcoin\cite{bitcoin}\cite{book:masteringBTC} network and its set of technol
 Similar to Bitcoin, Ethereum\cite{article:eth}\cite{book:masteringETH} is a distributed transaction-based state machine. However, it is not only a cryptocurrency system. Ethereum is a decentralized computing platform or a decentralized, pseudo-turning complete virtual machine, which runs smart contracts and stores its state changes in its blockchain. Like bitcoin, state changes in ethereum are managed by a consensus mechanism, where everyone can participate in the validation of  blocks or state changes.
 
 \subsection{Accounts}
-Ethereum\cite{article:eth}\cite{wood2014ethereum} has an account-based model, where every account represents a state. An account is mapped with a 160 bits address (public key) and there are two types of accounts: Externally owned account (EOA), controlled by a private key and contract account, controlled by EVM code. Depending on the account type, an account state is represented by the following four fields: \textbf{Nonce} is a counter that represents the number of transactions or contracts created by the account. \textbf{Balance} is the amount of Ether owned by the account, expressed in Wei. \textbf{Storage hash} is the root hash of a merkle tree that represents the contents of the account. \textbf{Code hash} is the hash that points to the EVM code that the account has.
+Ethereum\cite{article:eth}\cite{wood2014ethereum} has an account-based model, where every account represents a state. An account is mapped with a 160 bits address (public key) and there are two types of accounts: Externally owned account (EOA), controlled by a private key and contract account, controlled by EVM code. Depending on the account type, an account state is represented by the following four fields: \textbf{Nonce} is a counter that represents the number of transactions or contracts created by the account. \textbf{Balance} is the amount of Ether owned by the account, expressed in Wei~\ref{tab:Ether_metrics}. \textbf{Storage hash} is the root hash of a merkle tree that represents the contents of the account. \textbf{Code hash} is the hash that points to the EVM code that the account has.
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./images/accounts}
@@ -163,16 +163,31 @@ A \textbf{transaction} is a cryptographically-signed message that can only be se
 The EVM\cite{wood2014ethereum}\cite{book:masteringETH-evm} is a quasi-Turing-complete machine; the quasi means that its computation is limited by the available \textbf{gas} that the executed contract bytecode has, preventing that accidentally or malicious contracts execute forever. Thus, denial-of-service attacks are not possible on Ethereum. The EVM is a stack machine with 1024 elements. It is big-endian by design with 256-bit word size, which facilitates hashing and elliptic curve operations (Keccak-256 hashes and secp256k1 signatures). In addition to the {\textbf{Stack}}, the machine has two more  spaces where operations can access and store data: {\textbf{Memory}}; volatile and initialized to zero. \textbf{Account storage}; non-volatile and maintained as part of the Ethereum state, also initialized to zero. Lastly, the EVM code is stored in a separate virtual read-only memory (\textbf{ROM}).
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=0.7\textwidth]{./images/evm}
+	\includegraphics[width=0.65\textwidth]{./images/evm}
 	\caption{Ethereum Virtual Machine\cite{evm-illustrate}}
 	\label{fig:accounts}
 \end{figure}
 \subsubsection{Ether and Gas}
-Ether (ETH) is the native cryptocurrency of Ethereum. Ether is used to pay for transaction fees or EVM computing power in the form of gas units. For example, according to Ethereum Yellow Paper\cite{wood2014ethereum}, the cost for sending a transaction is at least 21000 gas units. The price for a gas unit is represented in gwei.
-
-
+Ether (ETH) is the native cryptocurrency of Ethereum. Ether is used to pay for transaction fees or EVM computing power in the form of gas units. For example, the cost or gas limit for sending a transaction is 21000 gas units\cite{wood2014ethereum-Fee}. The price for a gas unit is represented in gwei, and is set by the participants of the consensus protocol or miners, based on the supply and demand of the network computational power\cite{book:masteringETH-gas}.
+For instance, with an average gas price of 15 gwei\cite{gastracker}, sending a transaction at the moment of writing this Thesis would cost: $21000*15 = 315000$ or $0.000315~ETH¨.$ 
+\begin{table}[htp]
+\centering
+%\begin{center}
+\begin{tabular}{|l|l|l|}
+	\hline
+	\multicolumn{1}{|c|}{\textbf{Unit Name}} & 
+	\multicolumn{1}{|c|}{\textbf{Wei Value}} \\\hline
+	$Ether$ & $1^{18}$  \\\hline
+	$Gwei$  & $1^{9}$  \\\hline
+	$Wei$   & $1$     \\\hline   
+\end{tabular}
+\caption{Important metrics of $Ether$}
+\label{tab:Ether_metrics}
+%\end{center}
+\end{table}
 
 \subsection{Smart Contracts}\label{sec:sc}
+
 \subsection{Solidity}\label{sec:sol}
 \subsection{Tokens}\label{sec:tokens}
 \subsection{Decentralized Applications (Dapps)}\label{sec:dapps}
