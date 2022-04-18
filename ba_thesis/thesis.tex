@@ -17,6 +17,7 @@
 \newcommand{\referent}{Prof.\ Dr.\ Eva-Maria Iwer}
 \newcommand{\korreferent}{Prof.\ Dr.\ Marc-Alexander Zschiegner}
 %\usepackage{tabularx}
+\usepackage{enumitem}
 \usepackage{hyperref}
 \hypersetup{
 	colorlinks=true,
@@ -53,7 +54,7 @@ The goals of this Thesis are, to study and provide a better understanding of:
 \begin{itemize}
 	\item How Dapps are built.
 	\item Which technology is used.
-	\item And the development of a Dapp that uses well-known DeFi protocols see~\ref{ch:defi}, to let users access to permissionless financial services such as lending and borrowing of crypto assets.
+	\item And the development of a Dapp that uses well-known DeFi protocols ~\ref{ch:defi}, to let users access to permissionless financial services such as lending and borrowing of crypto assets.
 \end{itemize}
 
 
@@ -187,64 +188,65 @@ For instance, with an average gas price of 15 gwei\cite{gastracker}, sending a t
 \end{table}
 
 \subsection{Smart Contracts}\label{sec:sc}
-In the Ethereum network, a smart contract is a computer program that is executed by the EVM. Since smart contacts are also a type of account, see~\ref{sec:accounts}, they have a balance and can send transactions in the form of messages. Futhermore, smart contracs have the following properties:
-Immutability: When a smart contract is deployed to the Ethereum platform, the code can not be changed. If a modification (fix a bug or add new functionality) need to be made, a new smart contract need to be deployed.
-Deterministic: Given an input and the blockchain state, the result of the execution of the smart contract has to the same for everyone who calls the contract.
-Limitations: By design, smart contracts can not send HTTP request, this can be solve using decentraliced oracles. Futhermore the context of execution is limited to the EVM, meaning that they can only acces to their own state and the transaction context of the trasaction caller. Lastly, smart contracts can not exed the size of 24KB.
-Lifecycle: Once deployed, smart contracts can no be modified. However they can be deleted if the smart contract was programed with the selfdestruct() function.
-Permissionless: Anyone can deploy a smart contract to the Ethereum network.
-Composability: Since smart contracts can call other smart contracts, functionality of diferents contracts can be combined. However a contract can 
+In the Ethereum network, a smart contract\cite{book:masteringETH-sc-solidity}\cite{smartcontracts} is a computer program that is executed by the EVM. Since smart contacts are also a type of account, see~\ref{sec:accounts}, they have a balance and can send transactions in the form of messages. Furthermore, smart contracts have the following properties:
+\setdescription{font=\normalfont}
+\begin{description}[style=nextline] %% Style for this list only.
+	\item[\textit{Immutability}] When a smart contract is deployed to the Ethereum platform, the code can not be changed. If a modification (fixing a bug or adding new functionality) needs to be made, a new smart contract needs to be deployed.
+	\item[\textit{Determinism}] Given an input and the blockchain state, the result of the execution of the smart contract has to be the same for everyone who calls the contract.
+	\item[\textit{Limitations}] By design, smart contracts can not send $HTTP$ requests; this can be solved using decentralized oracles\cite{oracles}. Furthermore, the context of execution is limited to the EVM, meaning that they can only access their own state and the transaction context of the transaction caller. Lastly, smart contracts can not exceed the size of $24KB$.
+	\item[\textit{Lifecycle}] Once deployed, smart contracts can no be modified. However, they can be deleted if the smart contract was programed with the $selfdestruct()$ function.
+	\item[\textit{Composability}] Since smart contracts can call other smart contracts, functionality of different contracts can be combined. However, such interaction between contracts has to be triggered by a transaction sent by an EOA.
+	\item[\textit{Permissionless}] Anyone can deploy a smart contract to the Ethereum network.    
+\end{description}
+Smart contracts can be written in EVM bytecode\cite{evmbytecode}. However, they are usually written in high-level programming languages such as \textit{Solidity}, \textit{Vyper}\cite{vyper} and \textit{Fe}\cite{fe}, among others, being Solidity, the most widely used programming language for smart contracts in EVM-based blockchains. \textbf{Solidity}\cite{book:masteringETH-sc-solidity}\cite{solidity} is an object-oriented or contract-oriented high-level programming language; it was created by Dr Gavin Wood and designed to target the EVM.  The Solidity compiler $solc$ converts Solidity contracts into EVM bytecode and also generates the contract application binary interface (ABI)\cite{abi}, which enables the interaction with contracts in both directions; from outside the blockchain and from contract to contract.
 
-\subsubsection{Solidity}\label{sec:sol}
+
+
+ 
 \subsection{Tokens}\label{sec:tokens}
+Tokens have a widely used description\cite{wiki:Token}, in the context of Ethereum; a token\cite{tokens} is a digital representation or abstraction of something that lives on the Blockchain. For instance, tokens can represent currencies, shares in a company, or even a virtual pet. Unlike Ether, which is managed by the Ethereum protocol, tokens are created and handled by smart contracts. Everyone can create a token. Nonetheless, because a smart contract can be programed without any restriction, there are standards that need to be followed for the creation of tokens. The two most used standards are:
+
+The \textbf{ERC20} Token Standard\cite{erc20}, for the representation of equivalent and interchangeable tokens (fungible tokens). For instance, a token that represents a currency or a share in a company. As defined in the EIP\cite{erc20}, the ERC20 contract is composed of the following elements:
+\begin{table}[htp]
+	\centering
+	%\begin{center}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{~Must have methods~~~}} & 
+		\multicolumn{1}{|c|}{\textbf{~Optional methods~~~}}  &
+		\multicolumn{1}{|c|}{\textbf{~Must have events~~~}} \\\hline
+		 $~totalSupply()$& $~name()$  & $~Transfer()$  \\
+		 $~balanceOf()$& $~symbol()$ & $~Approval()$  \\
+		 $~transfer()$& $~decimals()$  &  \\
+		 $~transferFrom()$&  &   \\
+		 $~approve()$&  &   \\
+		 $~allowance()$&  &   \\\hline		 
+	\end{tabular}
+	\caption{Components of the ERC20 Standard.}
+	\label{tab:erc20}
+	%\end{center}
+\end{table}
+
+
+
+The \textbf{ERC721} Token Standard\cite{erc721}, for non-fungible tokens or representation of unique goods like an ID or collectibles.
 \subsection{Decentralized Applications (Dapps)}\label{sec:dapps}
+Unlike a web application, a Dapp has its backend running on a decentralized per-to-per network such as Ethereum, inheriting the advantages and drawbacks that the network has.
 
-%%%%%%%%%%%% FIGURE
-%\begin{figure}[htp]
-%\centering
-%\includegraphics[width=.9\textwidth]{images/cids}
-%\caption{Dateien zur Erstellung des Templates}
-%\label{fig:templateprozess}
-%\end{figure}
-
-%%%%%
 %%%%% Chapter
 \chapter{Decentralized Finance (DeFi)} \label{ch:defi}
 
-%%%%%
 %%%%% Chapter
 \chapter{Application requirements} \label{ch:appreq}
 
-%\section{Listings} \label{sec:listings}
-%\begin{listing}[htbp]
-%\begin{lstlisting}
-%def ggt(x, y):
-%    while x != 0:
-%        x,y = y%x, x
-%    return y
-%\end{lstlisting}
-%\caption{ggT --- kurz und gut}
-%\label{code:ggt}
-%\end{listing}
-
-
-%%%%%
 %%%%% Chapter
 \chapter{Implementation and testing} \label{ch:impl}
-\newpage
 
 
 %%%%%
 %%%%% Chapter
 \chapter{Conclusion and future work} \label{ch:conclusion}
-
 \newpage
-
-% Listen wenn überhaupt ans Ende und nicht an den Anfang.
-% Meist ist das aber unnötig.
-%\listoffigures % Liste der Abbildungen 
-%\listoftables % Liste der Tabellen
-% \newpage
 
 \bibliographystyle{plain} % Literaturverzeichnis
 \begin{btSect}{thesis} % mit bibtopic Quellen trennen
