@@ -161,14 +161,14 @@ A \textbf{transaction} is a cryptographically-signed message that can only be se
 \end{itemize}
 \textbf{Messages} can be seen as internal transactions between contracts triggered by a message call. A message is like a transaction but produced by a contract. This way messages enable contracts to interact between them.
 \subsection{Ethereum Virtual Machine (EVM)}\label{sec:evm}
-The EVM\cite{wood2014ethereum}\cite{book:masteringETH-evm} is a quasi-Turing-complete machine; the quasi means that its computation is limited by the available \textbf{gas} that the executed contract bytecode has, preventing that accidentally or malicious contracts execute forever. Thus, denial-of-service attacks are not possible on Ethereum. The EVM is a stack machine with 1024 elements. It is big-endian by design with 256-bit word size, which facilitates hashing and elliptic curve operations (Keccak-256 hashes and secp256k1 signatures). In addition to the {\textbf{Stack}}, the machine has two more  spaces where operations can access and store data: {\textbf{Memory}}; volatile and initialized to zero. \textbf{Account storage}; non-volatile and maintained as part of the Ethereum state, also initialized to zero. Lastly, the EVM code is stored in a separate virtual read-only memory (\textbf{ROM}).
+The EVM\cite{wood2014ethereum}\cite{book:masteringETH-evm} is a quasi-Turing-complete machine; the quasi means that its computation is limited by the available \textbf{gas}~\ref{sec:gas} that the executed contract bytecode has, preventing that accidentally or malicious contracts execute forever. Thus, denial-of-service attacks are not possible on Ethereum. The EVM is a stack machine with 1024 elements. It is big-endian by design with 256-bit word size, which facilitates hashing and elliptic curve operations (Keccak-256 hashes and secp256k1 signatures). In addition to the {\textbf{Stack}}, the machine has two more  spaces where operations can access and store data: {\textbf{Memory}}; volatile and initialized to zero. \textbf{Account storage}; non-volatile and maintained as part of the Ethereum state, also initialized to zero. Lastly, the EVM code is stored in a separate virtual read-only memory (\textbf{ROM}).
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=0.65\textwidth]{./images/evm}
 	\caption{Ethereum Virtual Machine\cite{evm-illustrate}}
 	\label{fig:accounts}
 \end{figure}
-\subsubsection{Ether and Gas}
+\subsubsection{Ether and Gas}\label{sec:gas}
 Ether (ETH) is the native cryptocurrency of Ethereum. Ether is used to pay for transaction fees or EVM computing power in the form of gas units. For example, the cost or gas limit for sending a transaction is 21000 gas units\cite{wood2014ethereum-Fee}. The price for a gas unit is represented in gwei, and is set by the participants of the consensus protocol (miners), based on the supply and demand of the network computational power\cite{book:masteringETH-gas}.
 For instance, with an average gas price of 15 gwei\cite{gastracker}, sending a transaction at the moment of writing this Thesis would cost: $21000*15 = 315000~gwei$. 
 \begin{table}[htp]
@@ -230,8 +230,9 @@ The \textbf{ERC20} Token Standard\cite{erc20}, for the representation of equival
 
 
 The \textbf{ERC721} Token Standard\cite{erc721}, for non-fungible tokens or representation of unique goods like an ID or collectibles.
+
 \subsection{Decentralized Applications (Dapps)}\label{sec:dapps}
-Unlike a web application, a Dapp has its backend running on a decentralized per-to-per network such as Ethereum, inheriting the advantages and drawbacks that the network has.
+Unlike a web application, a Dapp has its backend running on a decentralized per-to-per network such as Ethereum, inheriting the advantages and drawbacks that the network has. 
 
 %%%%% Chapter
 \chapter{Decentralized Finance (DeFi)} \label{ch:defi}
