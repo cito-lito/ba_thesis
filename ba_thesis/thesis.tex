@@ -240,14 +240,31 @@ Unlike a web application, a Dapp has its backend running on a decentralized per-
 %%%%% Chapter
 \chapter{Application Requirements} \label{ch:appreq}
 This Chapter describes the application requirements based on ISO/IEC/IEEE 29148:2018\cite{iso} Software Requirements Specification standard.
-\\\\
-\textbf{{\large Software Requirements Specification.}}\\
-\textbf{Project}: thesis-project.
+\\
+\textbf{Project}: .
 \section{Introduction}
 \subsection{Purpose}
+The main purpose of this Chapter is to provide a working example of a Software Requirements Specification (SRS) based on ISO/IEC/IEEE 29148:2018 standard.
 \subsection{Scope}
+Requirements for a decentralized application that can provide
+permissionless financial services using an evm based blockchain.
+\\
+The application allows users to:
+\begin{itemize}
+	\item Sign in with the metamask wallet.
+	\item See which tokens can be deposited.
+	\item Using Aave: Deposit tokens and earn interest. 
+	\item Using Aave: Withdrawal of deposited tokens.
+	\item Swap between different tokens using Uniswap
+\end{itemize}
+The application runs online; its frontend may not be decentralized, but its backend runs on top of an EVM-based blockchain such as Polygon.
 \subsection{Product Perspective}
+\subsubsection{Interface}
+The application runs in the latest version of Chrome or Firefox browser on Windows, Linux and Mac.
 
+\section{Requirements}
+\subsection{Login}
+[]
 %%%%% Chapter
 \chapter{Implementation and testing} \label{ch:impl}
 
