@@ -8,9 +8,9 @@ RM=rm
 MKDIR=mkdir
 
 STYLES=hsrmlogo.sty blindtext.sty
-DRAWINGS=zeichnung.odg templateprozess.odg
-INCLUDE_DRAWINGS=zeichnung.pdf templateprozess.pdf
-IMAGES=zeichnungjpg.jpg zeichnungpng.png zeichnungdraft.jpg gnu.png automata.pdf
+DRAWINGS=#zeichnung.odg templateprozess.odg
+INCLUDE_DRAWINGS=#zeichnung.pdf templateprozess.pdf
+IMAGES=#zeichnungjpg.jpg zeichnungpng.png zeichnungdraft.jpg gnu.png automata.pdf
 MAIN=thesis
 TEXFILES=$(MAIN).tex preamble.tex vorspann.tex hyphenations.tex
 BIB=thesis.bib online.bib
@@ -32,10 +32,10 @@ LaTeXThesis.zip: $(TOPACK)
 $(MAIN).pdf: $(TEXFILES) $(STYLES) $(INCLUDE_DRAWINGS) $(INCLUDE_BIB)
 
 # für das convert braucht man ImageMagick
-zeichnungjpg.jpg: zeichnung.pdf
-	convert zeichnung.pdf zeichnungjpg.jpg
-zeichnungpng.png: zeichnung.pdf
-	convert zeichnung.pdf zeichnungpng.png
+#zeichnungjpg.jpg: zeichnung.pdf
+#	convert zeichnung.pdf zeichnungjpg.jpg
+#zeichnungpng.png: zeichnung.pdf
+#	convert zeichnung.pdf zeichnungpng.png
 
 bib: $(MAIN)1.bbl $(MAIN)2.bbl
 # Bibliography geht nur manuell wegen bibtopic
