@@ -96,16 +96,12 @@ Depending on who can participate in the consensus protocol, blockchain networks 
 
 \subsection{Cryptographic hash functions}\label{sec:chf}
 A cryptographic hash function\cite{chf}\cite{book:chf} maps a given data of variable size to a fixed length \emph{n}-bit string called hash value. $ H : \{0,1\}^* \to \{0,1\}^n $ Such hash functions have the following properties:
-\begin{enumerate}
-		
-	\item \textbf{Collision resistance}: Given $x_1, x_2 $ It should be necessary $ O(2^\frac{n}{2}) $ compute power such that $H(x_1) = H(x_2)$
-	
-	\item \textbf{Preimage resistance}: For a hash value \emph{h}, it should be necessary $ O(2^n) $ computation power in order to obtain an \emph{x} such that $ H(x)=h $.~~In other words, it should be a one-way function.
-	
-	\item \textbf{Second preimage resistance}: For an input $x_1$ and its hash value $h_1$, it should be necessary $ O(2^n) $ computation power in order to obtain a $x_2$ such that $H(x_2)=h_1$
-
-	
-\end{enumerate}
+\begin{description}		
+	\item \textbf{Collision resistance}: Given $x_1, x_2 $ It should be necessary $ O(2^\frac{n}{2}) $ compute power such that $H(x_1) = H(x_2).$This means, that it will be computationally infeasible that different inputs, i.e., blocks of data, will generate the same hash value.	
+	\item \textbf{Preimage resistance}: For a hash value \emph{h}, it should be necessary $ O(2^n) $ computation power in order to obtain an \emph{x} such that $ H(x)=h $.~~In other words, it should be a one-way function. 
+	This means that it is computationally infeasible to retrieve the input data from its hash value. For instance, it is nearly impossible to get a private key from its public key.	
+	\item \textbf{Second preimage resistance}: For an input $x_1$ and its hash value $h_1$, it should be necessary $ O(2^n) $ computation power in order to obtain a $x_2$ such that $H(x_2)=h_1.$ This means that for a given hash value, it is computationally infeasible to find another input, i.e., a block data input, that generates the same hash value. 	
+\end{description}
 
 Such properties prevent attackers from modifying existing blocks keeping the blockchain intact. For example, the bitcoin network uses the SHA-256 hashing algorithm to validate a block, and append it to the chain. This means once a consensus among all the participants is done, and a new block is added, it will be required $ O(2^{256}) $ computation power to tamper with the blockchain. In other words, it is nearly impossible to manipulate an added block as a result of the tremendous computer power that would be needed.
 
@@ -115,7 +111,7 @@ A Merkle tree\cite{article:merkle}\cite{book:merkle} or hash tree is a binary tr
 Merkle trees allow secure and efficient data verification using cryptographic hash functions. For example; if a participant in the network needs to verify the validity of these four transactions, see figure~\ref{fig:merkle}, only a check of the root hash value is necessary. Due to the Merkle tree structure, if any of the data blocks is modified, so will be the root hash value. Furthermore, Merkle tree is a very efficient data structure; for instance, checking that a given transaction is included in the tree will take a maximum of $2log (N)$ operations.
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=0.7\textwidth]{./images/merkle}
+	\includegraphics[width=0.65\textwidth]{./images/merkle}
 	\caption{Merkle tree of four transactions}
 	\label{fig:merkle}
 \end{figure}
@@ -130,9 +126,9 @@ The consensus protocol\cite{article:bc} of a blockchain network gives a specific
 \end{itemize}
 \subsection{Public-Key Cryptography}
 In order to interact with a blockchain, participants use public key cryptography or asymmetric key cryptography\cite{book:pkc}. The public key acts as the id of the sender or receiver of a given message; and it can be shared with others without any security downfall. On the other hand, the private key should be kept secure and private by the message sender; it is used to sign (digital signature) the messages or transactions, i.e., give permission to change the state of the user records in the blockchain.
-
-\textbf{Digital signature:} The message or transaction can only be signed with a private key, and anyone who knows the public key of the signed message can verify  its authenticity. Meaning that any party of the blockchain can participate in the verification of the transactions/messages.
-
+\begin{itemize}
+	\item[] \textbf{Digital signature:} The message or transaction can only be signed with a private key, and anyone who knows the public key of the signed message can verify  its authenticity. Meaning that any party of the blockchain can participate in the verification of the transactions/messages.
+\end{itemize}
 The private key is a random number and the public key is generated from it using one-way cryptographic hash functions, see \ref{sec:chf} or elliptic curve cryptography\cite{book:pkc}\cite{wiki:ecc}. Elliptic curve cryptography (ECC) is based on the discrete logarithm problem and is the most common public-key algorithm in blockchain networks.
 In mathematics terms, an elliptic curve is a plane curve over all the points $(x, y)$ that satisfy the following equation:  $ y^2 = x^3 +ax + b $
 
@@ -157,7 +153,7 @@ Ethereum\cite{article:eth}\cite{wood2014ethereum} has an account-based model, wh
 A \textbf{transaction} is a cryptographically-signed message that can only be sent by an EOA. Transactions can trigger a state change on the blockchain or the execution of EVM code. Transactions can be divided into two groups:
 \begin{itemize}
 	\item  \textbf{Message calls}: The transactions between accounts.
-	\item \textbf{Contract creations}: creation of a new account with EVM code in its data field.
+	\item \textbf{Contract creations}: creation of a new account with EVM code in its data/code field.
 \end{itemize}
 \textbf{Messages} can be seen as internal transactions between contracts triggered by a message call. A message is like a transaction but produced by a contract. This way messages enable contracts to interact between them.
 \subsection{Ethereum Virtual Machine (EVM)}\label{sec:evm}
@@ -199,9 +195,6 @@ In the Ethereum network, a smart contract\cite{book:masteringETH-sc-solidity}\ci
 	\item[\textit{Permissionless}] Anyone can deploy a smart contract to the Ethereum network.    
 \end{description}
 Smart contracts can be written in EVM bytecode\cite{evmbytecode}. However, they are usually written in high-level programming languages such as \textit{Solidity}, \textit{Vyper}\cite{vyper} and \textit{Fe}\cite{fe}, among others, being Solidity, the most widely used programming language for smart contracts in EVM-based blockchains. \textbf{Solidity}\cite{book:masteringETH-sc-solidity}\cite{solidity} is an object-oriented or contract-oriented high-level programming language; it was created by Dr Gavin Wood and designed to target the EVM.  The Solidity compiler $solc$ converts Solidity contracts into EVM bytecode and also generates the contract application binary interface (ABI)\cite{abi}, which enables the interaction with contracts in both directions; from outside the blockchain and from contract to contract.
-
-
-
  
 \subsection{Tokens}\label{sec:tokens}
 Tokens have a widely used description\cite{wiki:Token}, in the context of Ethereum; a token\cite{tokens} is a digital representation or abstraction of something that lives on the Blockchain. For instance, tokens can represent currencies, shares in a company, or even a virtual pet. Unlike Ether, which is managed by the Ethereum protocol, tokens are created and handled by smart contracts. Everyone can create a token. Nonetheless, because a smart contract can be programed without any restriction, there are standards that need to be followed for the creation of tokens. The two most used standards are:
@@ -236,39 +229,94 @@ Unlike a web application, a Dapp has its backend running on a decentralized per-
 
 %%%%% Chapter
 \chapter{Decentralized Finance (DeFi)} \label{ch:defi}
-
+\section{Maker Protocol}
+\section{Aave Protocol}
 %%%%% Chapter
 \chapter{Application Requirements} \label{ch:appreq}
 This Chapter describes the application requirements based on ISO/IEC/IEEE 29148:2018\cite{iso} Software Requirements Specification standard.
-\\
-\textbf{Project}: .
+
+\textbf{Project}: Thesis.
 \section{Introduction}
 \subsection{Purpose}
-The main purpose of this Chapter is to provide a working example of a Software Requirements Specification (SRS) based on ISO/IEC/IEEE 29148:2018 standard.
+The main purpose of this Chapter is to provide a detailed description of the Decentralized application developed for this Thesis. 
 \subsection{Scope}
 Requirements for a decentralized application that can provide
 permissionless financial services using an evm based blockchain.
-\\
-The application allows users to:
+
+The minimum viable functionality that the application shall offer the users are:
 \begin{itemize}
 	\item Sign in with the metamask wallet.
 	\item See which tokens can be deposited.
-	\item Using Aave: Deposit tokens and earn interest. 
-	\item Using Aave: Withdrawal of deposited tokens.
-	\item Swap between different tokens using Uniswap
+	\item Using Aave: Deposit cryptoassets and earn interest. 
+	\item Using Aave: Withdrawal of deposited assets.
 \end{itemize}
-The application runs online; its frontend may not be decentralized, but its backend runs on top of an EVM-based blockchain such as Polygon.
+The application runs online; its frontend may not be decentralized, but its backend runs on top of an EVM-based blockchain such as Polygon Testnet or Mainnet.
 \subsection{Product Perspective}
 \subsubsection{Interface}
-The application runs in the latest version of Chrome or Firefox browser on Windows, Linux and Mac.
+The application runs in the latest version of Chrome, Firefox, Brave browsers on Windows, Linux and Mac.
 
 \section{Requirements}
-\subsection{Login}
-[]
+\subsection{Functional}
+\subsubsection{Login}
+[Thesis-SRS-01] The application shall allow users to login using the Metamask\cite{wiki:MetaMask} wallet.
+
+[Thesis-SRS-02]  If the wallet is set with another network, the application should let the user change to the application network with just one button click.
+
+[Thesis-SRS-03] The application shall display the user balance of the supported assets.
+
+[Thesis-SRS-04] The application shall display the user balance of deposit assets and earnings.
+
+[Thesis-SRS-05] The application shall display the interest rates for the supported assets.
+\subsubsection{Deposit}
+[Thesis-SRS-06] The application shall allow users to deposit Ether to earn interest.
+
+[Thesis-SRS-07] The application shall allow users to deposit DAI to earn interest.
+
+[Thesis-SRS-08] The application shall convert Ether to Weth, because the protocol only accepts Ether in the form of ERC20, i.e. Weth.
+
+[Thesis-SRS-9] The application shall display the user balance after any deposit transaction.
+
+\subsubsection{Withdrawal}
+[Thesis-SRS-10] The application shall allow users to withdraw deposited cryptoassets.
+
+[Thesis-SRS-11] The application shall display the user balance after any withdrawal transaction.
+
+\subsection{Nonfunctional}
+\subsubsection{Login}
+[Thesis-SRS-12] While not logged in, the application should display the available assets to be deposited and its interest rates. 
+
+\subsubsection{Performance}
+[Thesis-SRS-13] The transaction cost should be minimized by using the Polygon network.
+
+\newpage
+\section{Use Case}
+The following use case diagram describes the minimum functionality that the application shall have.
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=1\textwidth]{./images/USECASE-mvp}
+	\caption{Use Case Diagram: Minimum Viable Product.}
+	\label{fig:usecase-mvp}
+\end{figure}
+\newpage
+If the development process goes well and there is enough time, the application should add more functionalities as illustrated in the following use case diagram. The requirement document/chapter\cite{ch:appreq} should also be updated.
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=0.97\textwidth]{./images/USECASE-full}
+	\caption{Use Case Diagram: Expected Application Functionality.}
+	\label{fig:usecase-mvp}
+\end{figure}
+
+
 %%%%% Chapter
 \chapter{Implementation and testing} \label{ch:impl}
-
-
+\section{Defining the tech stack}
+\subsection{Intearction with the smart contracts: Backend}
+\subsubsection{$Web3.py: Brownie$}
+\subsubsection{$Testing: pytest$}
+\subsection{Interaction with the users: Frontend}
+\subsubsection{$Ethers.js: wagmi$}
+\subsubsection{$Next.js$}
+\subsubsection{$Testing: mochajs$}
 %%%%%
 %%%%% Chapter
 \chapter{Conclusion and future work} \label{ch:conclusion}
