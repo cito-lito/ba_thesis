@@ -80,7 +80,7 @@ The idea of a cryptographically secured chain of blocks was originally presented
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=0.9\textwidth]{./images/blockchain}
+	\includegraphics[width=1\textwidth]{./images/bc}
 	\caption{View of two blocks in a blockchain}
 	\label{fig:bc}
 \end{figure}
@@ -166,7 +166,7 @@ The EVM\cite{wood2014ethereum}\cite{book:masteringETH-evm} is a quasi-Turing-com
 \end{figure}
 \subsubsection{Ether and Gas}\label{sec:gas}
 Ether (ETH) is the native cryptocurrency of Ethereum. Ether is used to pay for transaction fees or EVM computing power in the form of gas units. For example, the cost or gas limit for sending a transaction is 21000 gas units\cite{wood2014ethereum-Fee}. The price for a gas unit is represented in gwei, and is set by the participants of the consensus protocol (miners), based on the supply and demand of the network computational power\cite{book:masteringETH-gas}.
-For instance, with an average gas price of 15 gwei\cite{gastracker}, sending a transaction at the moment of writing this Thesis would cost: $21000*15 = 315000~gwei$. 
+For instance, with an average gas price of 15 gwei\cite{gastracker}, sending a transaction at the moment of writing this Thesis would cost: $21000*15 = 315000~Gwei$ or $0.000315~Ether.$
 \begin{table}[htp]
 \centering
 %\begin{center}
@@ -284,13 +284,17 @@ The application runs in the latest version of Chrome, Firefox, Brave browsers on
 \subsection{Nonfunctional}
 \subsubsection{Login}
 [Thesis-SRS-12] While not logged in, the application should display the available assets to be deposited and its interest rates. 
-
+\subsubsection{Deposit}
+[Thesis-SRS-13] The application should display a notification after any deposit transaction.
+\subsubsection{Withdrawal}
+[Thesis-SRS-14] The application should display a notification after any withdrawal transaction.
 \subsubsection{Performance}
-[Thesis-SRS-13] The transaction cost should be minimized by using the Polygon network.
+[Thesis-SRS-15] The transaction cost should be minimized by using the Polygon network.
 
 \newpage
 \section{Use Case}
 The following use case diagram describes the minimum functionality that the application shall have.
+
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=1\textwidth]{./images/USECASE-mvp}
@@ -309,14 +313,16 @@ If the development process goes well and there is enough time, the application s
 
 %%%%% Chapter
 \chapter{Implementation and testing} \label{ch:impl}
-\section{Defining the tech stack}
-\subsection{Intearction with the smart contracts: Backend}
-\subsubsection{$Web3.py: Brownie$}
-\subsubsection{$Testing: pytest$}
-\subsection{Interaction with the users: Frontend}
-\subsubsection{$Ethers.js: wagmi$}
-\subsubsection{$Next.js$}
-\subsubsection{$Testing: mochajs$}
+%\section{Defining the tech stack}
+\section{Node Provider}
+\subsection{Alchemy}
+\section{Intearction with the smart contracts: Backend}
+\subsection{Web3.py: Brownie}
+\subsection{Testing: pytest}
+\section{Interaction with the users: Frontend}
+\subsection{Ethers.js: wagmi}
+\subsection{Next.js}
+\subsection{Testing: mochajs}
 %%%%%
 %%%%% Chapter
 \chapter{Conclusion and future work} \label{ch:conclusion}
