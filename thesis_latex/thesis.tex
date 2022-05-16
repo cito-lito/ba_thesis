@@ -75,7 +75,7 @@ The Thesis is divided into the following chapters:
 \chapter{Fundamentals} \label{ch:background}
 
 \section{Blockchain} \label{sec:bc}
-A blockchain\cite{book:bc}\cite{article:bc} is a type of database (append-only data strucuture), which stores data in blocks. These blocks are chronologically ordered by discrete timestamps and linked to each other using cryptographic hash functions\cite{chf}\cite{book:chf}. Commonly, a blockchain is used as a public distributed ledger of transactions records, shared and synchronized by a per-to-per network, where every party can participate in the validation of new blocks based on a consensus protocol, see~\ref{sec:cp}.
+A blockchain\cite{book:bc}\cite{article:bc} is a type of database (append-only data strucuture), which stores data in blocks. These blocks are chronologically ordered by discrete timestamps and linked to each other using cryptographic hash functions\cite{chf}\cite{book:chf}. Commonly, a blockchain is used as a public distributed ledger of transactions records, shared and synchronized by a per-to-per network~\ref{subsec:p2p}, where every party can participate in the validation of new blocks based on a consensus protocol, see~\ref{sec:cp}.
 The idea of a cryptographically secured chain of blocks was originally presented by Haber and Stornetta\cite{time-stamp} in 1991. However, the implementation and adoption of this technology started with the conception of the bitcoin cryptocurrency whitepaper\cite{bitcoin} in 2008.
 
 \begin{figure}[htp]
@@ -91,6 +91,15 @@ The way that a blockchain ensures the security and keeps the integrity of the da
 By adding the cryptographic hash value of the previous block  (Block $n$ to Block $n+1$), blockchains ensure the integrity of previous blocks. Because of the second preimage resistance of cryptographic hash functions, see~\ref{sec:chf}, it is computationally infeasible to  find an input other then Block $n$ in order to generate an output = Hash (Block $n$). Due to that, the further the blockchain grows beyond block $n$, the more secure is the integrity of block $n$ and previous blocks.
 
 Depending on who can participate in the consensus protocol, blockchain networks can be divided into two groups: permissionless and permissioned blockchains. This Thesis will be focused on permissionless blockchains that use an EVM, such as the Ethereum network.
+
+\subsubsection{Peer-to-peer (P2P) network}\label{subsec:p2p}
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=0.45\textwidth]{./images/p2p}
+	\caption{Peer-to-peer network\cite{wiki:Peer-to-peer}}
+	\label{fig:p2p}
+\end{figure}
+A peer-to-peer network\cite{wiki:Peer-to-peer}\cite{book:masteringBTCp2p} is a decentralized communications model where each participant (node) of the network stores and shares data with other nodes without any central party. Every peer is equal and there is no special node. Due to the decentralized design, P2P networks are resilient and robust compared with typical client-server architecture. The distributed ledger or blockchain is managed by the peer-to-peer network based on a set of rules or consensus mechanisms~\ref{sec:cp}, in fact, the term \emph{blockchain network} refers to a set of nodes, of a peer-to-peer network, running the consensus protocol of the specific blockchain. 
 
 
 
