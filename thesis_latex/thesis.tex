@@ -225,8 +225,24 @@ The \textbf{ERC20} Token Standard\cite{erc20}, for the representation of equival
 The \textbf{ERC721} Token Standard\cite{erc721}, for non-fungible tokens or representation of unique goods like an ID or collectibles.
 
 \subsection{Decentralized Applications (Dapps)}\label{sec:dapps}
-Unlike a web application, a Dapp has its backend running on a decentralized per-to-per network such as Ethereum, inheriting the advantages and drawbacks that the network has. 
+Unlike a web application, a decentralized application or Dapp\cite{book:dapps}\cite{dapps}\cite{dapps_arch} has its backend running on a decentralized per-to-per network such as Ethereum. For dapps running in an EVM-based blockchain, the backend is smart contracts executed by the EVM. This means that a dapp has the same properties as smart contracts and the blockchain network where it lives.
+\subsubsection{Dapp architecture}
+The architecture of dapp is still been defined and depends, like any application, on the services that the application should provide. However, there are some main components that a dapp should have: 
 
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./images/dapp_components}
+	\caption{Basic Dapp Architecture.}
+	\label{fig:dapp_components}
+\end{figure}
+
+\begin{description}		
+	\item \textbf{Frontend and wallet provider}: It enables the users to interact with the smart contracts through interactive graphical components such as buttons, and icons, among others. Like web applications, this user interface runs on any browser.
+	\item \textbf{Node or Node Provider}: Enables communication with the blockchain i.e. reading data or sending transactions. A node will broadcast the transactions and miners will validate the new states that the transactions can produce. Everyone can run a node. Nonetheless, because of the difficulty and costs that running a node could have, Dapps usually rely on a third-party service or Node provider. Every Ethereum client or Node provider implements a JSON-RPC\cite{json_rpc} Specification with a uniform set of methods.
+	\item \textbf{The Blockchain Network}: With the smart contracts that the application will use, the EVM that runs these smart contracts, and the blockchain that stores the states and data produced by the execution of these smart contracts.
+\end{description}
+
+Furthermore, the Comunication with the Node provider is done using web3 libraries such as ethers.js\cite{ethersjs} or web3.py\cite{web3py}.
 %%%%% Chapter
 \chapter{Decentralized Finance (DeFi)} \label{ch:defi}
 \section{Maker Protocol}
@@ -305,7 +321,7 @@ The following use case diagram describes the minimum functionality that the appl
 If the development process goes well and there is enough time, the application should add more functionalities as illustrated in the following use case diagram. The requirement document/chapter\cite{ch:appreq} should also be updated.
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=0.97\textwidth]{./images/USECASE-full}
+	\includegraphics[width=0.97\textwidth]{./images/USECASE-full_nofl}
 	\caption{Use Case Diagram: Expected Application Functionality.}
 	\label{fig:usecase-mvp}
 \end{figure}
@@ -320,9 +336,9 @@ If the development process goes well and there is enough time, the application s
 \subsection{Web3.py: Brownie}
 \subsection{Testing: pytest}
 \section{Interaction with the users: Frontend}
-\subsection{Ethers.js: wagmi}
 \subsection{Next.js}
-\subsection{Testing: mochajs}
+\subsection{Ethers.js: web3 react hocks}
+\subsection{Testing: mochajs?}
 %%%%%
 %%%%% Chapter
 \chapter{Conclusion and future work} \label{ch:conclusion}
