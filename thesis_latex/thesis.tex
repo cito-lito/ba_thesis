@@ -144,7 +144,7 @@ In mathematics terms, an elliptic curve is a plane curve over all the points $(x
 %\subsection{Bitcoin}
 %The bitcoin network is a set of technologies that enabled for the first time a %decentralized, permissionless, trustless, peer-to-peer digital currency system. %The distributed computation system that bitcoin introduced: the proof-of-work %algorithm to produce a consensus in a distributed system without a central %trusted authority, in combination with the blockchain storage system, solved the %double-spend problem and the Byzantine generals problem.
 
-\section{Ethereum}
+\section{Ethereum}\label{sec:eth}
 The Bitcoin\cite{bitcoin}\cite{book:masteringBTC} network and its set of technologies enabled for the first time a decentralized, permissionless, trustless, peer-to-peer digital currency system. The distributed computation system that bitcoin introduced: a proof-of-work algorithm to produce a consensus in a distributed system without a central trusted authority, in combination with the blockchain storage system, solved the double-spend problem and the Byzantine generals problem, enabling other applicability beyond digital currencies.  In 2014, Vitalik Butering introduced Ethereum\cite{article:eth}, a platform that moved beyond cryptocurrency applications.
 
 Similar to Bitcoin, Ethereum\cite{article:eth}\cite{book:masteringETH} is a distributed transaction-based state machine. However, it is not only a cryptocurrency system. Ethereum is a decentralized computing platform or a decentralized, pseudo-turning complete virtual machine, which runs smart contracts and stores its state changes in its blockchain. Like bitcoin, state changes in ethereum are managed by a consensus mechanism, where everyone can participate in the validation of  blocks or state changes.
@@ -196,12 +196,12 @@ For instance, with an average gas price of 15 gwei\cite{gastracker}, sending a t
 In the Ethereum network, a smart contract\cite{book:masteringETH-sc-solidity}\cite{smartcontracts} is a computer program that is executed by the EVM. Since smart contacts are also a type of account, see~\ref{sec:accounts}, they have a balance and can send transactions in the form of messages. Furthermore, smart contracts have the following properties:
 \setdescription{font=\normalfont}
 \begin{description}[style=nextline] %% Style for this list only.
-	\item[\textit{Immutability}] When a smart contract is deployed to the Ethereum platform, the code can not be changed. If a modification (fixing a bug or adding new functionality) needs to be made, a new smart contract needs to be deployed.
-	\item[\textit{Determinism}] Given an input and the blockchain state, the result of the execution of the smart contract has to be the same for everyone who calls the contract.
-	\item[\textit{Limitations}] By design, smart contracts can not send $HTTP$ requests; this can be solved using decentralized oracles\cite{oracles}. Furthermore, the context of execution is limited to the EVM, meaning that they can only access their own state and the transaction context of the transaction caller. Lastly, smart contracts can not exceed the size of $24KB$.
-	\item[\textit{Lifecycle}] Once deployed, smart contracts can no be modified. However, they can be deleted if the smart contract was programed with the $selfdestruct()$ function.
-	\item[\textit{Composability}] Since smart contracts can call other smart contracts, functionality of different contracts can be combined. However, such interaction between contracts has to be triggered by a transaction sent by an EOA.
-	\item[\textit{Permissionless}] Anyone can deploy a smart contract to the Ethereum network.    
+	\item[{\textbf{Immutability}}] When a smart contract is deployed to the Ethereum platform, the code can not be changed. If a modification (fixing a bug or adding new functionality) needs to be made, a new smart contract needs to be deployed.
+	\item[{\textbf{Determinism}}] Given an input and the blockchain state, the result of the execution of the smart contract has to be the same for everyone who calls the contract.
+	\item[{\textbf{Limitations}}] By design, smart contracts can not send $HTTP$ requests; this can be solved using decentralized oracles\cite{oracles}. Furthermore, the context of execution is limited to the EVM, meaning that they can only access their own state and the transaction context of the transaction caller. Lastly, smart contracts can not exceed the size of $24KB$.
+	\item[{\textbf{Lifecycle}}] Once deployed, smart contracts can no be modified. However, they can be deleted if the smart contract was programed with the $selfdestruct()$ function.
+	\item[{\textbf{Composability}}] Since smart contracts can call other smart contracts, functionality of different contracts can be combined. However, such interaction between contracts has to be triggered by a transaction sent by an EOA.
+	\item[{\textbf{Permissionless}}] Anyone can deploy a smart contract to the Ethereum network.    
 \end{description}
 Smart contracts can be written in EVM bytecode\cite{evmbytecode}. However, they are usually written in high-level programming languages such as \textit{Solidity}, \textit{Vyper}\cite{vyper} and \textit{Fe}\cite{fe}, among others, being Solidity, the most widely used programming language for smart contracts in EVM-based blockchains. \textbf{Solidity}\cite{book:masteringETH-sc-solidity}\cite{solidity} is an object-oriented or contract-oriented high-level programming language; it was created by Dr Gavin Wood and designed to target the EVM.  The Solidity compiler $solc$ converts Solidity contracts into EVM bytecode and also generates the contract application binary interface (ABI)\cite{abi}, which enables the interaction with contracts in both directions; from outside the blockchain and from contract to contract.
  
@@ -254,8 +254,21 @@ The architecture of dapp is still been defined and depends, like any application
 Furthermore, the Comunication with the Node provider is done using web3 libraries such as ethers.js\cite{ethersjs} or web3.py\cite{web3py}.
 %%%%% Chapter
 \chapter{Decentralized Finance (DeFi)} \label{ch:defi}
-\section{Maker Protocol}
-\section{Aave Protocol}
+Decentralized finance or DeFi\cite{article:cefidefi}\cite{article:defi} refers to a set of decentralized applications and protocols that are focused on financial services. The term finance\cite{wiki:Finance} involves the creation, and management of money, in traditional finance systems this is done by financial institutions\cite{wiki:Financial_institution}, which emit, buy and sell financial instruments\cite{wiki:Financial_instrument} on financial markets\cite{wiki:Financial_market}, all regulated by Laws. In DeFi,  these practices and processes are determined by protocols that rely on smart contracts, meaning that Defi is an open, permissionless, and composable stack of protocols built on top of a permissionless blockchain such as Ethereum~\ref{sec:eth}. 
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=1\textwidth]{./images/tvl}
+	\caption{Ttal Value Locked (USD)\cite{defipulse}}
+	\label{fig:tvl}
+\end{figure}
+
+DeFi offers a wide variety of financial services. For example lending and borrowing of crypto-assets, exchange of crypto assets, stable currencies, and investments, among others. Unlike traditional financial systems, is open to anyone who has internet access,  users have total control of their assets and Markets are always open. Furthermore, DeFi has gained a lot of traction in the past years and according to Defipulse\cite{defipulse}, at the moment of writing this Thesis, the total locked value TVL (held by smart contracts) in all the DeFi applications and protocols is \$58.56B~\ref{fig:tvl}. Being the Maker Dao~\ref{sec:maker} and the Aave protocol~\ref{sec:aave}, the two relevant DeFi protocols of the space with \$14.52B and \$8.38B of TVL respectively. 
+
+
+
+
+\section{MakerDao}\label{sec:maker}
+\section{Aave Protocol}\label{sec:aave}
 %%%%% Chapter
 \chapter{Application Requirements} \label{ch:appreq}
 This Chapter describes the application requirements based on ISO/IEC/IEEE 29148:2018\cite{iso} Software Requirements Specification standard.
