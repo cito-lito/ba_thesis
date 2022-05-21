@@ -254,21 +254,25 @@ The architecture of dapp is still been defined and depends, like any application
 Furthermore, the Comunication with the Node provider is done using web3 libraries such as ethers.js\cite{ethersjs} or web3.py\cite{web3py}.
 %%%%% Chapter
 \chapter{Decentralized Finance (DeFi)} \label{ch:defi}
-Decentralized finance or DeFi\cite{article:cefidefi}\cite{article:defi} refers to a set of decentralized applications and protocols that are focused on financial services. The term finance\cite{wiki:Finance} involves the creation, and management of money, in traditional finance systems this is done by financial institutions\cite{wiki:Financial_institution}, which emit, buy and sell financial instruments\cite{wiki:Financial_instrument} on financial markets\cite{wiki:Financial_market}, all regulated by Laws. In DeFi,  these practices and processes are determined by protocols that rely on smart contracts, meaning that Defi is an open, permissionless, and composable stack of protocols built on top of a permissionless blockchain such as Ethereum~\ref{sec:eth}. 
+Decentralized finance or DeFi\cite{article:cefidefi}\cite{article:defi} refers to a set of decentralized applications and protocols that are focused on financial services. The term finance\cite{wiki:Finance} involves the creation, and management of money, in traditional finance systems this is done by financial institutions\cite{wiki:Financial_institution}, which emit, buy and sell financial instruments\cite{wiki:Financial_instrument} on financial markets\cite{wiki:Financial_market}, all regulated by Laws. In DeFi,  these practices and processes are determined by protocols that rely on smart contracts, which means Defi is an open, permissionless, and composable stack of protocols built on top of a permissionless blockchain such as Ethereum~\ref{sec:eth}. 
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=1\textwidth]{./images/tvl}
-	\caption{Ttal Value Locked (USD)\cite{defipulse}}
+	\caption{Total Value Locked (USD)\cite{defipulse}}
 	\label{fig:tvl}
 \end{figure}
 
-DeFi offers a wide variety of financial services. For example lending and borrowing of crypto-assets, exchange of crypto assets, stable currencies, and investments, among others. Unlike traditional financial systems, is open to anyone who has internet access,  users have total control of their assets and Markets are always open. Furthermore, DeFi has gained a lot of traction in the past years and according to Defipulse\cite{defipulse}, at the moment of writing this Thesis, the total locked value TVL (held by smart contracts) in all the DeFi applications and protocols is \$58.56B~\ref{fig:tvl}. Being the Maker Dao~\ref{sec:maker} and the Aave protocol~\ref{sec:aave}, the two relevant DeFi protocols of the space with \$14.52B and \$8.38B of TVL respectively. 
+DeFi offers a wide variety of financial services. For example lending and borrowing of crypto-assets, exchange of crypto assets, stable currencies, and investments oportunities, among others. Unlike traditional financial systems, is open to anyone who has internet access, users have total control of their assets and Markets are always open. Furthermore, DeFi has gained a lot of traction in the past years and according to Defipulse\cite{defipulse}, at the moment of writing this Thesis, the total locked value or TVL (held by smart contracts) in all the DeFi applications and protocols is \$58.56B~\ref{fig:tvl}, being the Maker Protocol~\ref{sec:maker}, the Aave Protocol~\ref{sec:aave}, adn he Uniswap Exchange\cite{uniswap}, the three relevant DeFi protocols of the space with $\$14.52$B, $\$8.38$B and $\$7.04$B of TVL respectively. 
+
+\section{Maker Protocol}\label{sec:maker}
+One of the most important pieces of DeFi is stable coins or stable cryptocurrencies. Stable coins are cryptocurrencies pegged to a predetermined value, usually to the USD value. It enables DeFi users to access more traditional assets, avoiding the natural volatility of crypto assets at the current moment. Due to the high demand for stable coins in the DeFi space, users can also earn interest on their stablecoins by providing liquidity into lending pools of different protocols such as Aave~\ref{sec:aave} or Compound\cite{compound} with an Annual Percentage Yield (APY) of $2.26\%$ and $1.51\%$  for the stable coin DAI, at the time of writing this Thesis.
 
 
 
-
-\section{MakerDao}\label{sec:maker}
 \section{Aave Protocol}\label{sec:aave}
+
+
+
 %%%%% Chapter
 \chapter{Application Requirements} \label{ch:appreq}
 This Chapter describes the application requirements based on ISO/IEC/IEEE 29148:2018\cite{iso} Software Requirements Specification standard.
