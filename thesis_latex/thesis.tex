@@ -1,6 +1,8 @@
 \documentclass[11pt,a4paper]{report} 
 % Alternativ für doppelseitigen Ausdruck (nur bei > 60 Seiten sinnvoll)
 % \documentclass[11pt,a4paper,twoside,openright]{report} 
+\usepackage{mathtools}
+\usepackage{amssymb} 
 
 \include{preamble} % alle Pakete und Einstellungen
 
@@ -99,7 +101,7 @@ Depending on who can participate in the consensus protocol, blockchain networks 
 	\caption{Peer-to-peer network\cite{wiki:Peer-to-peer}}
 	\label{fig:p2p}
 \end{figure}
-A peer-to-peer network\cite{wiki:Peer-to-peer}\cite{book:masteringBTCp2p} is a decentralized communications model where each participant (node) of the network stores and shares data with other nodes without any central party. Every peer is equal and there is no special node. Due to the decentralized design, P2P networks are resilient and robust compared with typical client-server architecture. The distributed ledger or blockchain is managed by the peer-to-peer network based on a set of rules or consensus mechanisms~\ref{sec:cp}, in fact, the term \emph{blockchain network} refers to a set of nodes, of a peer-to-peer network, running the consensus protocol of the specific blockchain. 
+A peer-to-peer network\cite{book:masteringBTCp2p}\cite{wiki:Peer-to-peer} is a decentralized communications model where each participant (node) of the network stores and shares data with other nodes without any central party. Every peer is equal and there is no special node. Due to the decentralized design, P2P networks are resilient and robust compared with typical client-server architecture. The distributed ledger or blockchain is managed by the peer-to-peer network based on a set of rules or consensus mechanisms~\ref{sec:cp}, in fact, the term \emph{blockchain network} refers to a set of nodes, of a peer-to-peer network, running the consensus protocol of the specific blockchain. 
 
 
 
@@ -265,17 +267,42 @@ Decentralized finance or DeFi\cite{article:cefidefi}\cite{article:defi} refers t
 DeFi offers a wide variety of financial services. For example lending and borrowing of crypto-assets, exchange of crypto assets, stable currencies, and investments oportunities, among others. Unlike traditional financial systems, is open to anyone who has internet access, users have total control of their assets and Markets are always open. Furthermore, DeFi has gained a lot of traction in the past years and according to Defipulse\cite{defipulse}, at the moment of writing this Thesis, the total locked value or TVL (held by smart contracts) in all the DeFi applications and protocols is \$58.56B~\ref{fig:tvl}, being the Maker Protocol~\ref{sec:maker}, the Aave Protocol~\ref{sec:aave}, adn he Uniswap Exchange\cite{uniswap}, the three relevant DeFi protocols of the space with $\$14.52$B, $\$8.38$B and $\$7.04$B of TVL respectively. 
 
 \section{Maker Protocol}\label{sec:maker}
-One essential piece of DeFi is stable coins or stable cryptocurrencies. Stable coins are cryptocurrencies pegged to a predetermined value, usually to the USD value. It enables DeFi users to access more traditional assets, avoiding the natural volatility of crypto assets at the current moment. In addition, due to the high demand for stable coins in the DeFi space, users can also earn interest on their stablecoins by providing liquidity into lending pools of different protocols such as Aave~\ref{sec:aave} or Compound\cite{compound}.
-The Maker Protocol\cite{maker} is an open-source project built on Ethereum that enables users to generate the stable coin Dai~\ref{sec:dai}. Wich is collateral backed by different crypto assets authorized by the MakerDao, a decentralized autonomous organization (DAO)\cite{wiki:Dao}, made up of all the Maker governance token (MKR) holders. The MKR token is an erc20 token~\ref{sec:tokens} that enables dao participants to vote on different changes or improvements to the Maker protocol.
+One essential piece of DeFi is stable coins or stable cryptocurrencies, and DAI~\ref{sec:dai}  is one of the most popular stable coins in the space with a market cap of \$6.5B\cite{stablecoinsmarket} at the moment of writing. Stable coins are cryptocurrencies pegged to a predetermined value, usually to the USD value. It enables DeFi users to access more traditional assets, avoiding the natural volatility of crypto assets at the current moment. In addition, due to the high demand for stable coins in the DeFi space, users can also earn interest on their stablecoins by providing liquidity into lending pools of different protocols such as Aave~\ref{sec:aave} or Compound\cite{compound}.
+
+The Maker Protocol\cite{maker} is an open-source project built on Ethereum that enables users to generate the stable coin Dai~\ref{sec:dai}. Wich is collateral backed by different crypto assets authorized by the MakerDao, a decentralized autonomous organization (DAO)\cite{wiki:Dao}, made up of all the Maker governance token (MKR) holders. The MKR token is an ERC20 token~\ref{sec:tokens} that enables dao participants to vote on different changes or improvements to the Maker protocol.
 
 
 \subsubsection{DAI}\label{sec:dai}
-DAI is the main product of the Maker Protocol. DAI is an erc20 token~\ref{sec:tokens},  pegged to the USD value and fully backed by different crypto assets such as ETH~\ref{sec:gas}. DAI can be generated by depositing any accepted collateral crypto asset into the Maker Vaults. Briefly, the Maker Vaults are a set of smart contracts that lock the deposited asset and generate DAI (let the user borrow DAI). The generated DAI is destroyed by the vault when the generated DAI is repaid to the Vault. Vaults are overcollateralized, for instance, at the time of writing, the Maker ETH-C Vault has a minimum collateral ratio of 170\%\cite{oasisapp}, meaning that for every \$170 of ETH deposit in the Vault a maximum of 100 DAI can be generated.
+DAI\cite{makerDAI} is the main product of the Maker Protocol. DAI is an ERC20 token~\ref{sec:tokens},  pegged to the USD value and fully backed by different crypto assets, approved by the MakerDao, such as ETH~\ref{sec:gas}. DAI can be generated by depositing any accepted collateral crypto asset into the Maker Vaults. In short, the Maker Vaults are a set of smart contracts~\ref{sec:sc} that lock the deposited asset and generate DAI (let the user borrow DAI). The generated DAI is destroyed by the vault when the generated DAI is repaid to the Vault. Vaults are overcollateralized, for instance, at the time of writing, the Maker ETH-C Vault has a minimum collateral ratio of 170\%\cite{oasisapp}, meaning that for every \$170 of ETH deposit in the Vault a maximum of 100 DAI can be generated.
 
 \section{Aave Protocol}\label{sec:aave}
-Aave\cite{aaveV1}\cite{aaveV2}\cite{aaveV3} is a DeFi liquidity protocol that enables users to lend and borrow crypto assets. Users that supply liquidity to the protocol (lenders) earn interest on their deposited assets and borrowers are able to borrow crypto assets after depositing collateral to the pool contract. The interest rate for users (borrowers and lenders) is decided algorithmically. Aave was first deployed on the Ethereum network, however, at the moment of writing, Aave has expanded to other EVM-based blockchain and Layer 2 scaling solutions such as  Polygon, Avalanche,  Fanton, and Arbitrum, among many others. 
+Aave\cite{aaveV1}\cite{aaveV2}\cite{aaveV3} is a DeFi liquidity protocol that enables users to lend and borrow crypto assets. Aave was first deployed on the Ethereum network, however, at the moment of writing, Aave has expanded to other EVM-based blockchain and Layer 2 scaling solutions such as  Polygon\cite{polygon}, Avalanche\cite{avax}, Fanton\cite{fanton}, and Arbitrum\cite{arbitrum}, among many others.
 
+Using Aave, users that supply liquidity to the protocol (lenders) earn interest on their deposited assets, and borrowers are able to borrow crypto assets after depositing collateral to the pool contract. The interest rate for users (borrowers and lenders) is decided algorithmically based on the reserves available in the pool. The reserves are the multiple currencies deposited on the pool expressed in ETH value and defined as \textit{total liquidity}. Lenders can deposit into these reserves to earn interests and Borrowers can borrow from the reserves after making a deposit, locking a greater value as collateral for the borrowed funds. Only specific low-risk crypto assets are configured as collateral. A user will be able to borrow a maximum amount depending on the Loan-To-Value (LTV) of the desired asset reserve. For instance, if the LTV value of a given asset is  60\%, for every 1 ETH value of collateral deposited, a user can borrow a maximum of 0.6 ETH value of the desired asset reserve.
 
+\subsubsection{Interest rates}
+ As mentioned in the last paragraph, for lenders and borrowers the interest rate is determined by the use of the status of the specific reserve. For \textbf{lenders}, the interest rate depends on  the \textit{current liquidity rate}: \[ R_{t} = R_{o}U \]
+
+Where $ R_{o} $ is the overall borrow rate of the reserve defined as follows:
+\begin{equation}
+	R_{o} = 
+	\left\{\begin{matrix}
+		&  0~~if~~B_{t}=0\\ 
+		& \frac{B_{v}R_{v}+ B_{s}R_{sa}}{B_{t}}~~if~~B_{t} > 0
+	\end{matrix}\right.
+\end{equation}
+With the total amount of borrowed liquidity $B_{t} $ (\textit{total borrows}), expressed as the sum of the total stable borrows plus  the total variable borrows :
+\[ B_{t} = B_{s}+B_{v} \]
+The $R_{v}$\cite{aaveV1RV} is the \textit{variable borrow rate} and $R_{sa}$\cite{aaveV1RS} is the \textit{average stable rate}. 
+And $ U $ is the \textit{utilization rate}, wich is the representation of the utilization of the deposited assets, defined as follows:
+\begin{equation}
+	U = 
+	\left\{\begin{matrix}
+		&  0~~if~~L_{t}=0\\ 
+		& \frac{B_{t}}{L_{t}}~~if~~L_{t} > 0
+	\end{matrix}\right.
+\end{equation}
+Where $L_{t}$  is the \textit{total liquidity} available in the reserve.
 
 %%%%% Chapter
 \chapter{Application Requirements} \label{ch:appreq}
