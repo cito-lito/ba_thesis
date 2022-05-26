@@ -278,11 +278,16 @@ DAI\cite{makerDAI} is the main product of the Maker Protocol. DAI is an ERC20 to
 \section{Aave Protocol}\label{sec:aave}
 Aave\cite{aaveV1}\cite{aaveV2}\cite{aaveV3} is a DeFi liquidity protocol that enables users to lend and borrow crypto assets. Aave was first deployed on the Ethereum network, however, at the moment of writing, Aave has expanded to other EVM-based blockchain and Layer 2 scaling solutions such as  Polygon\cite{polygon}, Avalanche\cite{avax}, Fanton\cite{fanton}, and Arbitrum\cite{arbitrum}, among many others.
 
-Using Aave, users that supply liquidity to the protocol (lenders) earn interest on their deposited assets, and borrowers are able to borrow crypto assets after depositing collateral to the pool contract. The interest rate for users (borrowers and lenders) is decided algorithmically based on the reserves available in the pool. The reserves are the multiple currencies deposited on the pool expressed in ETH value and defined as \textit{total liquidity}. Lenders can deposit into these reserves to earn interests and Borrowers can borrow from the reserves after making a deposit, locking a greater value as collateral for the borrowed funds. Only specific low-risk crypto assets are configured as collateral. A user will be able to borrow a maximum amount depending on the Loan-To-Value (LTV) of the desired asset reserve. For instance, if the LTV value of a given asset is  60\%, for every 1 ETH value of collateral deposited, a user can borrow a maximum of 0.6 ETH value of the desired asset reserve.
-
-\subsubsection{Interest rates}
- As mentioned in the last paragraph, for lenders and borrowers the interest rate is determined by the use of the status of the specific reserve. For \textbf{lenders}, the interest rate depends on  the \textit{current liquidity rate}: \[ R_{t} = R_{o}U \]
-
+Using Aave, users that supply liquidity to the protocol (lenders) earn interest on their deposited assets, and borrowers are able to borrow crypto assets after depositing collateral to the pool contract. The interest rate for users (borrowers and lenders) is decided algorithmically based on the reserves available in the pool. The \textbf{reserves} are the multiple currencies deposited on the pool expressed in ETH value and defined as \textit{total liquidity}. Lenders can deposit into these reserves to earn interests and Borrowers can borrow from the reserves after making a deposit, locking a greater value as collateral for the borrowed funds. Only specific low-risk crypto assets are configured as collateral. A user will be able to borrow a maximum amount depending on the Loan-To-Value (LTV) of the desired asset reserve. For instance, if the LTV value of a given asset is  60\%, for every 1 ETH value of collateral deposited, a user can borrow a maximum of 0.6 ETH value of the desired asset reserve.
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=1\textwidth]{./images/lp_reserves}
+	\caption{Pool Parameters\cite{aaveV1}}
+	\label{fig:tvl}
+\end{figure}
+\subsection{Interest rates}
+ As mentioned in the last paragraph, for lenders and borrowers the interest rate is determined by the status of the specific reserve. For \textbf{lenders}, the interest rate depends on  the \textit{current liquidity rate}:
+\[ R_{t} = R_{o}U \]
 Where $ R_{o} $ is the overall borrow rate of the reserve defined as follows:
 \begin{equation}
 	R_{o} = 
@@ -293,7 +298,6 @@ Where $ R_{o} $ is the overall borrow rate of the reserve defined as follows:
 \end{equation}
 With the total amount of borrowed liquidity $B_{t} $ (\textit{total borrows}), expressed as the sum of the total stable borrows plus  the total variable borrows :
 \[ B_{t} = B_{s}+B_{v} \]
-The $R_{v}$\cite{aaveV1RV} is the \textit{variable borrow rate} and $R_{sa}$\cite{aaveV1RS} is the \textit{average stable rate}. 
 And $ U $ is the \textit{utilization rate}, wich is the representation of the utilization of the deposited assets, defined as follows:
 \begin{equation}
 	U = 
@@ -303,6 +307,14 @@ And $ U $ is the \textit{utilization rate}, wich is the representation of the ut
 	\end{matrix}\right.
 \end{equation}
 Where $L_{t}$  is the \textit{total liquidity} available in the reserve.
+
+\textbf{Borrowers} can borrow crypto assets with variable and stable interest rates. 
+The $R_{v}$\cite{aaveV1RV} is the \textit{variable borrow rate} and $R_{sa}$\cite{aaveV1RS} is the \textit{average stable rate}. \\
+
+Note that the mentioned definitions are from the V1\cite{aaveV1} whitepaper and hold for the V2\cite{aaveV2} and the recently V3\cite{aaveV3} release.
+\subsubsection{Ray Math}
+In order to avoid rounding errors, the aave protocol uses Ray Math\cite{ray}\cite{ray2}, where a Ray is a unit with 27 decimals of precision. All the rates are expressed in Ray. 
+
 
 %%%%% Chapter
 \chapter{Application Requirements} \label{ch:appreq}
