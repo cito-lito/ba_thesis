@@ -320,14 +320,27 @@ To maintain the solvency of the protocol, anyone can liquidate a borrow position
 \subsubsection{Liquidation Threshold}
 Because of price fluctuations in the market, a borrow position can become close to the collateral position. The percentage at which a borrow position can be liquidated is called the liquidation threshold\cite{aaveV1}\cite{risk} . For instance, if the liquidation threshold of a given asset is 80\% and the borrow position value surpasses 80\% of the collateral value, the position can be liquidated. The liquidation threshold is defined as follows:
 \[ Liquidation~Threshold = \frac{\sum Collateral_{i}~in~ETH~\times Liquidation Threshold_{i}}{Total~Collateral~in~ETH} \]
-The $Liquidation Threshold_{i}$ for a given asset is defined and approved by the aave governance.
+The $Liquidation Threshold_{i}$ for a given asset is defined and approved by the aave governance~\ref{governance}.
 \subsubsection{Health Factor}\label{hf}
 In order to maintain solvency in the protocol, every user or account has a health factor\cite{aaveV1}\cite{risk} , which indicates if the borrow position of the user can be liquidated. If~$H_{f} < 1$ the borrow position can be liquidated.
 \[ H_{f} = \frac{\sum Collateral_{i}~in~ETH~\times Liquidation Threshold_{i}}{Total~Borrows~in~ETH} \]
 
-\subsubsection{Ray Math}\label{ray}
+\subsubsection{\textit{Ray Math}}\label{ray}
 In order to avoid rounding errors, the aave protocol uses Ray Math\cite{ray}\cite{ray2}, where a Ray is a unit with 27 decimals of precision. All the rates are expressed in Ray.
-\subsection{Aave Governance}
+\subsection{aTokens}\label{atokens}
+\subsection{Aave Governance}\label{governance}
+Aave\cite{aaveV1GOV} uses a decentralized autonomous organization or DAO\cite{wiki:Dao} to govern the protocol. The General Governance Process\cite{gov} at the time of writing is executed as follows:
+\begin{enumerate}
+	\item \textbf{Governance Forum\cite{govForum}:} The proposals are introduced. Anyone can create an Aave Request for Comments (ARC)\cite{arc} and submit it to the forum.
+	\item \textbf{Snapshot\cite{snapshot}:} The ACR is submitted to vote.
+	\item \textbf{AIP:} If the proposal passes the snapshot, it moves to the Aave Improvement Proposal (AIP), which is reviewed by devs, and risk/security contributors, before any on-chain submission.
+	\item \textbf{Create Proposal:} When the AIP has been revised, it can be created on-chain. A user with enough proposition power can call the function $create()$\cite{create} from the aave governance contract.
+	\item \textbf{Voting and Execution:} This will result in the proposal being succeeded or failed. If succeeded the proposal can be executed or expired.
+\end{enumerate}
+
+
+
+
 
 
 
