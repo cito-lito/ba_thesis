@@ -278,14 +278,14 @@ DAI\cite{makerDAI} is the main product of the Maker Protocol. DAI is an ERC20 to
 \section{Aave Protocol}\label{sec:aave}
 Aave\cite{aaveV1}\cite{aaveV2}\cite{aaveV3} is a DeFi liquidity protocol that enables users to lend and borrow crypto assets. Aave was first deployed on the Ethereum network, however, at the moment of writing, Aave has expanded to other EVM-based blockchain and Layer 2 scaling solutions such as  Polygon\cite{polygon}, Avalanche\cite{avax}, Fanton\cite{fanton}, and Arbitrum\cite{arbitrum}, among many others.
 
-Using Aave, users that supply liquidity to the protocol (lenders) earn interest on their deposited assets, and borrowers are able to borrow crypto assets after depositing collateral to the pool contract. The interest rate for users (borrowers and lenders) is decided algorithmically based on the reserves available in the pool. The \textbf{reserves} are the multiple currencies deposited on the pool expressed in ETH value and defined as \textit{total liquidity}. Lenders can deposit into these reserves to earn interests and Borrowers can borrow from the reserves after making a deposit, locking a greater value as collateral for the borrowed funds. Only specific low-risk crypto assets are configured as collateral. A user will be able to borrow a maximum amount depending on the Loan-To-Value (LTV) of the desired asset reserve. For instance, if the LTV value of a given asset is  60\%, for every 1 ETH value of collateral deposited, a user can borrow a maximum of 0.6 ETH value of the desired asset reserve.
+Using Aave, users that supply liquidity to the protocol (lenders) earn interest on their deposited assets, and borrowers are able to borrow crypto assets after depositing collateral to the pool contract. The interest rate for users (borrowers and lenders) is decided algorithmically based on the reserves available in the pool. The \textbf{reserves} are the multiple currencies deposited on the pool expressed in ETH value and defined as \textit{total liquidity}. Lenders can deposit into these reserves to earn interests and Borrowers can borrow from the reserves after making a deposit, locking a greater value as collateral for the borrowed funds. Only specific low-risk crypto assets are configured as collateral. 
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=1\textwidth]{./images/lp_reserves}
 	\caption{Pool Parameters\cite{aaveV1}}
 	\label{fig:tvl}
 \end{figure}
-\subsection{Interest rates}
+\subsection{Aave Rates and Risk Parameters}
  As mentioned in the last paragraph, for lenders and borrowers the interest rate is determined by the status of the specific reserve. For \textbf{lenders}, the interest rate depends on  the \textit{current liquidity rate}:
 \[ R_{t} = R_{o}U \]
 Where $ R_{o} $ is the overall borrow rate of the reserve defined as follows:
@@ -312,8 +312,24 @@ Where $L_{t}$  is the \textit{total liquidity} available in the reserve.
 The $R_{v}$\cite{aaveV1RV} is the \textit{variable borrow rate} and $R_{sa}$\cite{aaveV1RS} is the \textit{average stable rate}. \\
 
 Note that the mentioned definitions are from the V1\cite{aaveV1} whitepaper and hold for the V2\cite{aaveV2} and the recently V3\cite{aaveV3} release.
-\subsubsection{Ray Math}
-In order to avoid rounding errors, the aave protocol uses Ray Math\cite{ray}\cite{ray2}, where a Ray is a unit with 27 decimals of precision. All the rates are expressed in Ray. 
+
+\subsubsection{Loan-To-Value (LTV)} 
+A user will be able to borrow a maximum amount depending on the Loan-To-Value (LTV)\cite{aaveV1}\cite{risk} of the desired asset reserve. For instance, if the LTV value of a given asset is  60\%, for every 1 ETH value of collateral deposited, a user can borrow a maximum of 0.6 ETH value of the desired asset reserve. The max LTV is defined as follows:\[ maxLTV = \frac{\sum Collateral_{i}~ETH~\times LTV_{i}}{Total~Collateral~in~ETH} \]
+\subsubsection{Liquidations}\cite{aaveV1}\cite{liquidation} 
+To maintain the solvency of the protocol, anyone can liquidate a borrow position i.e. buy a maximum of 50\% of the borrow position. Every liquidated position has a liquidation bonus, which depends on the asset. For instance, if someone borrows 1 ETH worth of DAI and its~$H_{f}$~\ref{hf} drops below 1, anyone can liquidate the position (max 50\%) for a bonus of 5\% at the movement of writing, i.e. the liquidator can claim up to 0.5 + 0.05 ETH by repaying 0.5 ETH worth of DAI.
+\subsubsection{Liquidation Threshold}
+Because of price fluctuations in the market, a borrow position can become close to the collateral position. The percentage at which a borrow position can be liquidated is called the liquidation threshold\cite{aaveV1}\cite{risk} . For instance, if the liquidation threshold of a given asset is 80\% and the borrow position value surpasses 80\% of the collateral value, the position can be liquidated. The liquidation threshold is defined as follows:
+\[ Liquidation~Threshold = \frac{\sum Collateral_{i}~in~ETH~\times Liquidation Threshold_{i}}{Total~Collateral~in~ETH} \]
+The $Liquidation Threshold_{i}$ for a given asset is defined and approved by the aave governance.
+\subsubsection{Health Factor}\label{hf}
+In order to maintain solvency in the protocol, every user or account has a health factor\cite{aaveV1}\cite{risk} , which indicates if the borrow position of the user can be liquidated. If~$H_{f} < 1$ the borrow position can be liquidated.
+\[ H_{f} = \frac{\sum Collateral_{i}~in~ETH~\times Liquidation Threshold_{i}}{Total~Borrows~in~ETH} \]
+
+\subsubsection{Ray Math}\label{ray}
+In order to avoid rounding errors, the aave protocol uses Ray Math\cite{ray}\cite{ray2}, where a Ray is a unit with 27 decimals of precision. All the rates are expressed in Ray.
+\subsection{Aave Governance}
+
+
 
 
 %%%%% Chapter
