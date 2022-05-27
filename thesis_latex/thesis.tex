@@ -278,7 +278,7 @@ DAI\cite{makerDAI} is the main product of the Maker Protocol. DAI is an ERC20 to
 \section{Aave Protocol}\label{sec:aave}
 Aave\cite{aaveV1}\cite{aaveV2}\cite{aaveV3} is a DeFi liquidity protocol that enables users to lend and borrow crypto assets. Aave was first deployed on the Ethereum network, however, at the moment of writing, Aave has expanded to other EVM-based blockchain and Layer 2 scaling solutions such as  Polygon\cite{polygon}, Avalanche\cite{avax}, Fanton\cite{fanton}, and Arbitrum\cite{arbitrum}, among many others.
 
-Using Aave, users that supply liquidity to the protocol (lenders) earn interest on their deposited assets, and borrowers are able to borrow crypto assets after depositing collateral to the pool contract. The interest rate for users (borrowers and lenders) is decided algorithmically based on the reserves available in the pool. The \textbf{reserves} are the multiple currencies deposited on the pool expressed in ETH value and defined as \textit{total liquidity}. Lenders can deposit into these reserves to earn interests and Borrowers can borrow from the reserves after making a deposit, locking a greater value as collateral for the borrowed funds. Only specific low-risk crypto assets are configured as collateral. 
+Using Aave, users that supply liquidity to the protocol (lenders) earn interest on their deposited assets, and borrowers are able to borrow crypto assets after depositing collateral to the pool contract. The interest rate for users (borrowers and lenders) is decided algorithmically based on the reserves available in the pool. The \textbf{reserves}, see fig~\ref{fig:pool}, are the multiple currencies deposited on the pool expressed in ETH value and defined as \textit{total liquidity}. Lenders can deposit into these reserves to earn interests and Borrowers can borrow from the reserves after making a deposit, locking a greater value as collateral for the borrowed funds. Only specific low-risk crypto assets are configured as collateral. 
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=1\textwidth]{./images/lp_reserves}
@@ -370,10 +370,12 @@ The minimum viable functionality that the application shall offer the users are:
 \begin{itemize}
 	\item Sign in with the metamask wallet.
 	\item See which tokens can be deposited.
-	\item Using Aave: Deposit cryptoassets and earn interest. 
+	\item Using Aave: Deposit ETH, DAI to earn interest. 
 	\item Using Aave: Withdrawal of deposited assets.
+	\item Using Aave: Borrow DAI.
+	\item Using Aave: Repay the borrowed DAI.
 \end{itemize}
-The application runs online; its frontend may not be decentralized, but its backend runs on top of an EVM-based blockchain such as Polygon Testnet or Mainnet.
+The application runs online; its frontend may not be decentralized, but its backend runs on top of an EVM-based blockchain such as Ethereum.
 \subsection{Product Perspective}
 \subsubsection{Interface}
 The application runs in the latest version of Chrome, Firefox, Brave browsers on Windows, Linux and Mac.
@@ -383,7 +385,7 @@ The application runs in the latest version of Chrome, Firefox, Brave browsers on
 \subsubsection{Login}
 [Thesis-SRS-01] The application shall allow users to login using the Metamask\cite{wiki:MetaMask} wallet.
 
-[Thesis-SRS-02]  If the wallet is set with another network, the application should let the user change to the application network with just one button click.
+[Thesis-SRS-02]  If the wallet is set with another network, the application should inform the user to change to the application network.
 
 [Thesis-SRS-03] The application shall display the user balance of the supported assets.
 
@@ -391,28 +393,45 @@ The application runs in the latest version of Chrome, Firefox, Brave browsers on
 
 [Thesis-SRS-05] The application shall display the interest rates for the supported assets.
 \subsubsection{Deposit}
-[Thesis-SRS-06] The application shall allow users to deposit Ether to earn interest.
+[Thesis-SRS-06] The application shall allow users to deposit ETH to earn interest.
 
 [Thesis-SRS-07] The application shall allow users to deposit DAI to earn interest.
 
-[Thesis-SRS-08] The application shall convert Ether to Weth, because the protocol only accepts Ether in the form of ERC20, i.e. Weth.
+[Thesis-SRS-08] The application shall convert ETH to WETH, because the protocol only accepts ETH in the form of ERC20, i.e. WETH.
 
-[Thesis-SRS-9] The application shall display the user balance after any deposit transaction.
+[Thesis-SRS-09] The application shall display the user's balance after any deposit transaction.
 
 \subsubsection{Withdrawal}
 [Thesis-SRS-10] The application shall allow users to withdraw deposited cryptoassets.
 
-[Thesis-SRS-11] The application shall display the user balance after any withdrawal transaction.
+[Thesis-SRS-11] The application shall display the user's balance after any withdrawal transaction.
 
+[Thesis-SRS-12] The application shall display the user's balance after any withdrawal transaction.
+\subsubsection{Borrow}
+[Thesis-SRS-13] The application shall set the maximum borrowable DAI at 90\%, to avoid liquidations and display it.
+
+[Thesis-SRS-14] The application shall let users borrow DAI based on users' deposited collateral.
+
+[Thesis-SRS-15] The application shall let users repay their partial or total borrowed DAI. 
+
+[Thesis-SRS-16]The application shall display the user's balance after any borrow transaction.
+\subsubsection{Repay}
+[Thesis-SRS-17] The application shall let users repay their partial or total borrowed DAI 
+
+[Thesis-SRS-18] The application shall display the user's balance after any repay transaction.
 \subsection{Nonfunctional}
 \subsubsection{Login}
-[Thesis-SRS-12] While not logged in, the application should display the available assets to be deposited and its interest rates. 
+[Thesis-SRS-19] While not logged in, the application should display the available assets to be deposited and its interest rates. 
 \subsubsection{Deposit}
-[Thesis-SRS-13] The application should display a notification after any deposit transaction.
+[Thesis-SRS-20] The application should display a notification after any deposit transaction.
 \subsubsection{Withdrawal}
-[Thesis-SRS-14] The application should display a notification after any withdrawal transaction.
+[Thesis-SRS-21] The application should display a notification after any withdrawal transaction.
+\subsubsection{Borrow}
+[Thesis-SRS-22] The application should display a notification after any borrow transaction.
+\subsubsection{Repay}
+[Thesis-SRS-23] The application should display a notification after any repay transaction.
 \subsubsection{Performance}
-[Thesis-SRS-15] The transaction cost should be minimized by using the Polygon network.
+[Thesis-SRS-24] The application will be deployed in the Ethereum Rinkeby test network.
 
 \newpage
 \section{Use Case}
@@ -420,7 +439,7 @@ The following use case diagram describes the minimum functionality that the appl
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=1\textwidth]{./images/USECASE-mvp}
+	\includegraphics[width=1\textwidth]{./images/USECASE-full_nofl}
 	\caption{Use Case Diagram: Minimum Viable Product.}
 	\label{fig:usecase-mvp}
 \end{figure}
@@ -435,11 +454,12 @@ The following use case diagram describes the minimum functionality that the appl
 
 
 %%%%% Chapter
-\chapter{Implementation and testing} \label{ch:impl}
+\chapter{Implementation} \label{ch:impl}
 %\section{Defining the tech stack}
+\section{Interaction with the Smart Contracts}
 \section{Node Provider}
 \subsection{Alchemy}
-\section{Intearction with the smart contracts: Backend}
+
 \subsection{Web3.py: Brownie}
 \subsection{Testing: pytest}
 \section{Interaction with the users: Frontend}
