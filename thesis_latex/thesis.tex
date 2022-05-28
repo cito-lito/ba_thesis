@@ -135,7 +135,7 @@ The consensus protocol\cite{article:bc} of a blockchain network gives a specific
 	In a PoS blockchain, the entity that can validate a transaction is randomly selected, depending on the "stake" that a node has on the network. Since nodes have a large stake in the blockchain, they will pursue the integrity of the network.
 
 \end{itemize}
-\subsection{Public-Key Cryptography}
+\subsection{Public-Key Cryptography}\label{publickey}
 In order to interact with a blockchain, participants use public key cryptography or asymmetric key cryptography\cite{book:pkc}. The public key acts as the id of the sender or receiver of a given message; and it can be shared with others without any security downfall. On the other hand, the private key should be kept secure and private by the message sender; it is used to sign (digital signature) the messages or transactions, i.e., give permission to change the state of the user records in the blockchain.
 \begin{itemize}
 	\item[] \textbf{Digital signature:} The message or transaction can only be signed with a private key, and anyone who knows the public key of the signed message can verify  its authenticity. Meaning that any party of the blockchain can participate in the verification of the transactions/messages.
@@ -201,7 +201,7 @@ In the Ethereum network, a smart contract\cite{book:masteringETH-sc-solidity}\ci
 	\item[{\textbf{Immutability}}] When a smart contract is deployed to the Ethereum platform, the code can not be changed. If a modification (fixing a bug or adding new functionality) needs to be made, a new smart contract needs to be deployed.
 	\item[{\textbf{Determinism}}] Given an input and the blockchain state, the result of the execution of the smart contract has to be the same for everyone who calls the contract.
 	\item[{\textbf{Limitations}}] By design, smart contracts can not send $HTTP$ requests; this can be solved using decentralized oracles\cite{oracles}. Furthermore, the context of execution is limited to the EVM, meaning that they can only access their own state and the transaction context of the transaction caller. Lastly, smart contracts can not exceed the size of $24KB$.
-	\item[{\textbf{Lifecycle}}] Once deployed, smart contracts can no be modified. However, they can be deleted if the smart contract was programed with the $selfdestruct()$ function.
+	\item[{\textbf{Lifecycle}}] Once deployed, smart contracts can no be modified. However, they can be deleted if the smart contract was programed with the \verb|selfdestruct()| function.
 	\item[{\textbf{Composability}}] Since smart contracts can call other smart contracts, functionality of different contracts can be combined. However, such interaction between contracts has to be triggered by a transaction sent by an EOA.
 	\item[{\textbf{Permissionless}}] Anyone can deploy a smart contract to the Ethereum network.    
 \end{description}
@@ -219,12 +219,12 @@ The \textbf{ERC20} Token Standard\cite{erc20}, for the representation of equival
 		\multicolumn{1}{|c|}{\textbf{~Must have methods~~~}} & 
 		\multicolumn{1}{|c|}{\textbf{~Optional methods~~~}}  &
 		\multicolumn{1}{|c|}{\textbf{~Must have events~~~}} \\\hline
-		 $~totalSupply()$& $~name()$  & $~Transfer()$  \\
-		 $~balanceOf()$& $~symbol()$ & $~Approval()$  \\
-		 $~transfer()$& $~decimals()$  &  \\
-		 $~transferFrom()$&  &   \\
-		 $~approve()$&  &   \\
-		 $~allowance()$&  &   \\\hline		 
+		 $~\verb|totalSupply()|$& $~\verb|name()|$  & $~\verb|Transfer()|$  \\
+		 $~\verb|balanceOf()|$& $~\verb|symbol()|$ & $~\verb|Approval()|$  \\
+		 $~\verb|transfer()|$& $~\verb|decimals()|$  &  \\
+		 $~\verb|transferFrom()|$&  &   \\
+		 $~\verb|approve()|$&  &   \\
+		 $~\verb|allowance()|$&  &   \\\hline		 
 	\end{tabular}
 	\caption{Components of the ERC20 Standard.}
 	\label{tab:erc20}
@@ -330,7 +330,7 @@ In order to avoid rounding errors, the aave protocol uses Ray Math\cite{ray}\cit
 \subsection{Tokenization: aTokens}\label{atokens}
 Aave Tokens or aTokens\cite{aaveV1aToken} are ERC20 tokens~\ref{sec:tokens} that a liquidity provider of the protocol (lenders or depositors) receives once the deposit transaction is processed, aTokens maps 1:1 the deposited asset also known as the underlying asset. For instance, if a user deposits 100 DAI, 100 aDAI is sent to its account~\ref{sec:accounts}. The balance of a specif aTokens grows depending on the interest rate~\ref{rates} of the underlying asset. 
 \subsection{Lending Pool}
-At the heart of the Aave protocol is the $lendingPool.sol$ or $pool.sol$, renamed in the V3\cite{aaveV3} release. The pool handles the most important actions of the protocol. Users and developers can interact with the pool contract to deposit, borrow, and repay a borrow position, among other actions, see fig~\ref{fig:pool_arch}. 
+At the heart of the Aave protocol is the \verb|lendingPool.sol| or \verb|pool.sol|, renamed in the V3\cite{aaveV3} release. The pool handles the most important actions of the protocol. Users and developers can interact with the pool contract to deposit, borrow, and repay a borrow position, among other actions, see fig~\ref{fig:pool_arch}. 
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=1\textwidth]{./images/pool_arch}
@@ -457,6 +457,16 @@ The following use case diagram describes the minimum functionality that the appl
 \chapter{Implementation} \label{ch:impl}
 %\section{Defining the tech stack}
 \section{Interaction with the Smart Contracts}
+The main purpose of the application is to be able to access the different functionalities, such as deposit and borrow, of \verb|pool.sol|  smart contract within the Aave Protocol~\ref{sec:aave}. In order to test the interaction process with smart contracts, the Brownie framework\cite{brow} is been used. Brownie is a python framework for the development and testing of EVM smart contracts. Brownie enables developers the compilation, test, and deployment of smart contracts with just a few commands, it also uses the ganache-cli\cite{ganache}, which is a built-in local blockchain (test RPC blockchain node) hosted on $127.0.0.1:8545$ for fast contract tests. Brownie also lets developers manage accounts and network configurations in an easy and safe way. A new brownie project for this Thesis was created using the \verb|brownie init| command.
+
+In accordance with its permissionless characteristic, anyone can interact with a smart contract. However, to be able to interact with a smart contract the following three items are needed:
+\begin{enumerate}
+	\item An Account: Needed to sign the transactions. Brownie provides developers with a set of test accounts. However, for this project, a new EOA Account~\ref{sec:accounts} was created using Metamask\cite{wiki:MetaMask}, and imported to the brownie project using its private key~\ref{publickey}.
+	\item The Application Binary Interface (ABI)~\ref{sec:sc}, which is generated in the compilation process, \verb|brownie compile| command.
+	\item The Smart Contract Address: This is the address of the contract account~\ref{sec:accounts}. 
+\end{enumerate}
+This Thesis uses the smart contracts from the V3 release of the Aave Protocol. All the contracts are open source and can be found in the aave GitHub repository\cite{aavegithub}. Since all the contracts are also deployed in different EVM blockchains, the contracts can also be found in their respective blockchains explorers. For instance the \verb|pool.sol| deployment in the Arbitrum Network can be found here\cite{arbiscan}.
+\subsection{The Pool Contract}
 \section{Node Provider}
 \subsection{Alchemy}
 
