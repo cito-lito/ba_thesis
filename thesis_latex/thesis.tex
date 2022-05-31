@@ -203,39 +203,38 @@ In the Ethereum network, a smart contract\cite{book:masteringETH-sc-solidity}\ci
 	\item[{\textbf{Composability}}] Since smart contracts can call other smart contracts, functionality of different contracts can be combined. However, such interaction between contracts has to be triggered by a transaction sent by an EOA.
 	\item[{\textbf{Permissionless}}] Anyone can deploy a smart contract to the Ethereum network.    
 \end{description}
-Smart contracts can be written in EVM bytecode\cite{evmbytecode}. However, they are usually written in high-level programming languages such as \textit{Solidity}, \textit{Vyper}\cite{vyper} and \textit{Fe}\cite{fe}, among others, being Solidity, the most widely used programming language for smart contracts in EVM-based blockchains. \textbf{Solidity}\cite{book:masteringETH-sc-solidity}\cite{solidity} is an object-oriented or contract-oriented high-level programming language; it was created by Dr Gavin Wood and designed to target the EVM.  The Solidity compiler $solc$ converts Solidity contracts into EVM bytecode and also generates the contract application binary interface (ABI)\cite{abi}, which enables the interaction with contracts in both directions; from outside the blockchain and from contract to contract.
+Smart contracts can be written in EVM bytecode\cite{evmbytecode}. However, they are usually written in high-level programming languages such as \textit{Solidity}, \textit{Vyper}\cite{vyper} and \textit{Fe}\cite{fe}, among others, being Solidity, the most widely used programming language for smart contracts in EVM-based blockchains.
+\subsubsection{Solidity}
+{Solidity}\cite{book:masteringETH-sc-solidity}\cite{solidity} is an object-oriented or contract-oriented high-level programming language; it was created by Dr Gavin Wood and designed to target the EVM.  The Solidity compiler $solc$ converts Solidity contracts into EVM bytecode and also generates the contract application binary interface (ABI)\cite{abi}, which enables the interaction with contracts in both directions; from outside the blockchain and from contract to contract.
  
 \subsection{Tokens}\label{sec:tokens}
 Tokens have a widely used description\cite{wiki:Token}, in the context of Ethereum; a token\cite{tokens} is a digital representation or abstraction of something that lives on the Blockchain. For instance, tokens can represent currencies, shares in a company, or even a virtual pet. Unlike Ether, which is managed by the Ethereum protocol, tokens are created and handled by smart contracts. Everyone can create a token. Nonetheless, because a smart contract can be programed without any restriction, there are standards that need to be followed for the creation of tokens. The two most used standards are:
-
-The \textbf{ERC20} Token Standard\cite{erc20}, for the representation of equivalent and interchangeable tokens (fungible tokens). For instance, a token that represents a currency or a share in a company. As defined in the EIP\cite{erc20}, the ERC20 contract is composed of the following elements:
-\begin{table}[htp]
-	\centering
-	%\begin{center}
-	\begin{tabular}{|l|l|l|}
-		\hline
-		\multicolumn{1}{|c|}{\textbf{~Must have methods~~~}} & 
-		\multicolumn{1}{|c|}{\textbf{~Optional methods~~~}}  &
-		\multicolumn{1}{|c|}{\textbf{~Must have events~~~}} \\\hline
-		 $~\verb|totalSupply()|$& $~\verb|name()|$  & $~\verb|Transfer()|$  \\
-		 $~\verb|balanceOf()|$& $~\verb|symbol()|$ & $~\verb|Approval()|$  \\
-		 $~\verb|transfer()|$& $~\verb|decimals()|$  &  \\
-		 $~\verb|transferFrom()|$&  &   \\
-		 $~\verb|approve()|$&  &   \\
-		 $~\verb|allowance()|$&  &   \\\hline		 
-	\end{tabular}
-	\caption{Components of the ERC20 Standard.}
-	\label{tab:erc20}
-	%\end{center}
-\end{table}
-
-
-
-The \textbf{ERC721} Token Standard\cite{erc721}, for non-fungible tokens or representation of unique goods like an ID or collectibles.
-
+\begin{itemize}
+	\item The \textbf{ERC20} Token Standard\cite{erc20}, for the representation of equivalent and interchangeable tokens (fungible tokens). For instance, a token that represents a currency or a share in a company. As defined in the EIP\cite{erc20}, the ERC20 contract is composed of the following elements:
+	\begin{table}[htp]
+		\centering
+		%\begin{center}
+		\begin{tabular}{|l|l|l|}
+			\hline
+			\multicolumn{1}{|c|}{\textbf{~Must have methods~~~}} & 
+			\multicolumn{1}{|c|}{\textbf{~Optional methods~~~}}  &
+			\multicolumn{1}{|c|}{\textbf{~Must have events~~~}} \\\hline
+			$~\verb|totalSupply()|$& $~\verb|name()|$  & $~\verb|Transfer()|$  \\
+			$~\verb|balanceOf()|$& $~\verb|symbol()|$ & $~\verb|Approval()|$  \\
+			$~\verb|transfer()|$& $~\verb|decimals()|$  &  \\
+			$~\verb|transferFrom()|$&  &   \\
+			$~\verb|approve()|$&  &   \\
+			$~\verb|allowance()|$&  &   \\\hline		 
+		\end{tabular}
+		\caption{Components of the ERC20 Standard.}
+		\label{tab:erc20}
+		%\end{center}
+	\end{table}
+	\item The \textbf{ERC721} Token Standard\cite{erc721}, for non-fungible tokens or representation of unique goods like an ID or collectibles.
+\end{itemize}
 \subsection{Decentralized Applications (Dapps)}\label{sec:dapps}
 Unlike a web application, a decentralized application or Dapp\cite{book:dapps}\cite{dapps}\cite{dapps_arch} has its backend running on a decentralized per-to-per network such as Ethereum. For dapps running in an EVM-based blockchain, the backend is smart contracts executed by the EVM. This means that a dapp has the same properties as smart contracts and the blockchain network where it lives.
-\subsubsection{Dapp architecture}
+\subsubsection{Dapp architecture}\label{dapp}
 The architecture of dapp is still been defined and depends, like any application, on the services that the application should provide. However, there are some main components that a dapp should have: 
 \begin{figure}[htp]
 	\centering
@@ -244,7 +243,8 @@ The architecture of dapp is still been defined and depends, like any application
 	\label{fig:dappcomponents}
 \end{figure}
 \begin{description}		
-	\item \textbf{Frontend and wallet provider}: It enables the users to interact with the smart contracts through interactive graphical components such as buttons, and icons, among others. Like web applications, this user interface runs on any browser.
+	\item \textbf{Frontend}: It enables the users to interact with the smart contracts through interactive graphical components such as buttons, and icons, among others. Like web applications, this user interface runs on any browser.
+	\item \textbf{Wallet}: A wallet is a tool or software application that manages the account's private key and addresses (public keys). Wallets don't have custody of the account crypto assets. A wallet is only an application that enables the account owner to sign transactions, therefore, interact with the blockchain and the smart contracts living in the network.
 	\item \textbf{Node or Node Provider}: Enables communication with the blockchain i.e. reading data or sending transactions. A node will broadcast the transactions and miners will validate the new states that the transactions can produce. Everyone can run a node. Nonetheless, because of the difficulty and costs that running a node could have, Dapps usually rely on a third-party service or Node provider. Every Ethereum client or Node provider implements a JSON-RPC\cite{json_rpc} Specification with a uniform set of methods.
 	\item \textbf{The Blockchain Network}: With the smart contracts that the application will use, the EVM that runs these smart contracts, and the blockchain that stores the states and data produced by the execution of these smart contracts.
 \end{description}
@@ -405,26 +405,21 @@ The application runs in the latest version of Chrome, Firefox, Brave browsers on
 
 [Thesis-SRS-18] The application shall display the user's balance after any repay transaction.
 \subsection{Nonfunctional}
-\subsubsection{Login}
-[Thesis-SRS-19] While not logged in, the application should display the available assets to be deposited and its interest rates. 
-\subsubsection{Deposit}
-[Thesis-SRS-20] The application should display a notification after any deposit transaction.
-\subsubsection{Withdrawal}
-[Thesis-SRS-21] The application should display a notification after any withdrawal transaction.
-\subsubsection{Borrow}
-[Thesis-SRS-22] The application should display a notification after any borrow transaction.
-\subsubsection{Repay}
-[Thesis-SRS-23] The application should display a notification after any repay transaction.
+
+[Thesis-SRS-19] The application should display a notification after any deposit transaction.
+
+[Thesis-SRS-20] The application should display a notification after any withdrawal transaction.
+
+[Thesis-SRS-21] The application should display a notification after any borrow transaction.
+
+[Thesis-SRS-22] The application should display a notification after any repay transaction.
 \subsubsection{Performance}
-[Thesis-SRS-24] The application will be deployed in the Ethereum Rinkeby test network.
-
-\newpage
-\section{Use Case}
+[Thesis-SRS-23] The application will be deployed in the Ethereum Rinkeby test network.
+\subsection{Use Case}
 The following use case diagram describes the minimum functionality that the application shall have.
-
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=1\textwidth]{./images/USECASE-full_nofl}
+	\includegraphics[width=0.89\textwidth]{./images/USECASE-full_nofl}
 	\caption{Use Case Diagram: Minimum Viable Product.}
 	\label{fig:usecase-mvp}
 \end{figure}
@@ -436,8 +431,6 @@ The following use case diagram describes the minimum functionality that the appl
 %	\caption{Use Case Diagram: Expected Application Functionality.}
 %	\label{fig:usecase-mvp}
 %\end{figure}
-
-
 %%%%% Chapter
 \chapter{Implementation} \label{ch:impl}
 %\section{Defining the tech stack}
@@ -484,10 +477,25 @@ To send transactions to the blockchain (interact with the smart contracts), a co
 Where \verb|WEB3_INFURA_PROJECT_ID| is the APY KEY from the node provider. The \verb|w3| instance enables communication with the blockchain.\\
 The brownie framework\cite{brow} wraps \verb|web3.py| and enables developers an easy and fast configuration of the targeted blockchain node. The configuration options are placed in the \verb|.env| and \verb|.yaml| files of the project. After the configuration is done, python scripts on the targeted network can be run, passing the network name on the \verb|–network| flag. For instance, running a python script that targets the rinkeby test network, can be done as follows:\\
 \hspace{1cm}\verb| brownie run scripts/my_script.py --network rinkeby|\\
-The first interaction with the smart contracts of Aave was done using the brownie framework. However, in order to let other accounts (users), interact with these smart contracts a frontend with a wallet is needed.
+For instance, using brownie  and the Alchemy node provider, a python script that performs the deposit action, for a given amount of DAI, can be described as follows:
+\begin{itemize}
+	\item[]
+	1.- Compile all the contracts to generate the ABIs.\\
+	2.- Get the IPool address using the IPool address provider contract.\\
+	3.- Using the IPool ABI and the IPool address, get the IPool contract object.\\
+	4.- Using the IERC20 ABI and the IERC20 address, get the IERC20 object.\\
+	5.- Get the DAI balance of the account using the IERC20 contract object.\\
+	6.- If the desired amount to deposit is less than the account DAI balance, approve the desired amount using the IERC20 object, setting the \verb|spender| parameter to the address of the pool.\\
+	7.- Call the \verb|supply()| function with the desired amount of DAI.
+	
+\end{itemize}
+The first interaction with the smart contracts of Aave, for the application of this thesis, was done using the brownie framework. However, in order to let other accounts (users), interact with these smart contracts a frontend with a wallet~\ref{dapp} is needed.
 \section{Interaction with the users}
-\subsection{Next.js}
-\subsection{Ethers.js: web3 react hooks}
+To enable any EOA account (users), to interact with the smart contracts, a frontend and a wallet are needed. 
+\subsection{Frontend: Next.js}
+\subsubsection{Wallet: Metamask}
+\subsubsection{Web3-react}
+\subsection{Web3 Library: ethers.js}
 
 %%%%%
 %%%%% Chapter
