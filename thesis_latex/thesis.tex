@@ -486,15 +486,15 @@ For instance, using brownie  and the Alchemy node provider, a python script that
 	4.- Using the IERC20 ABI and the IERC20 address, get the IERC20 object.\\
 	5.- Get the DAI balance of the account using the IERC20 contract object.\\
 	6.- If the desired amount to deposit is less than the account DAI balance, approve the desired amount using the IERC20 object, setting the \verb|spender| parameter to the address of the pool.\\
-	7.- Call the \verb|supply()| function with the desired amount of DAI.
+	7.- Using IPool contract object, call the \verb|supply()| function with the desired amount of DAI.
 	
 \end{itemize}
 The first interaction with the smart contracts of Aave, for the application of this thesis, was done using the brownie framework. However, in order to let other accounts (users), interact with these smart contracts a frontend with a wallet~\ref{dapp} is needed.
 \section{Interaction with the users}
-To enable any EOA account (users), to interact with the smart contracts, a frontend and a wallet are needed. 
-\subsection{Frontend: Next.js}
-\subsubsection{Wallet: Metamask}
-\subsubsection{Web3-react}
+To enable any EOA account (users), to interact with the smart contracts, a frontend and a wallet~\ref{dapp} are needed. The frontend or user interface enables users to enter the specific amount to deposit, withdraw or borrow, and to perform these operations using buttons that will call these functions. The frontend shall also display the interest rates of the lending pool. For the frontend implementation of the thesis application the web development framework Next.js\cite{nextjs} is used. On the other hand, the wallet allows users to sign transactions and see their token balances. The thesis application uses the Metamask~\ref{metamask} wallet provider.
+%\subsection{Frontend: Next.js}
+\subsection{Wallet: Metamask}\label{metamask}
+\subsection{Web3-react}
 \subsection{Web3 Library: ethers.js}
 
 %%%%%
