@@ -238,7 +238,7 @@ Unlike a web application, a decentralized application or Dapp\cite{book:dapps}\c
 The architecture of dapp is still been defined and depends, like any application, on the services that the application should provide. However, there are some main components that a dapp should have: 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=0.52\textwidth]{./images/dapp}
+	\includegraphics[width=0.52\textwidth]{./images/dappcomponents1}
 	\caption{Basic Dapp Architecture.}
 	\label{fig:dappcomponents}
 \end{figure}
@@ -468,7 +468,7 @@ Since ERC20 follows a standard~\ref{sec:tokens}, the \verb|IERC20.sol| allow acc
 Because the pool contract can only handle ERC20 tokens, to be able to use ETH within the protocol, it needs to be converted to an ERC20 token. The \verb|IWETH.sol| allow accounts to wrap ETH into an ERC20 token. Accounts that call the \verb|deposit()| method of the IWETH contract will receive the exact amount of the deposited ETH in the form of WETH, which is an ER20 token that represents EHT. Accounts that desire to deposit ETH to the pool contract need first to convert their ETH to WETH. Another option, used in this project, is to use the \verb|IWETHGateway.sol|\cite{wethgateway} contract provided by Aave. This contract takes care of wrapping and unwrapping the deposited ETH.
 \subsection{Node Provider}
 As noted earlier~\ref{sec:dapps}, to communicate with the blockchain, more precisely to a node of the network, where the EVM and smart contracts live, a node or node provider service is needed. For this project, the Alchemy\cite{alchemy} and Infura\cite{infura} nodes were used. Both Services offer developers an endpoint (an API KEY) to communicate with the desired blockchain network, allowing developers to interact with the network without the need to run a node.
-\subsubsection{Web3.py: Brownie}
+\subsection{Web3.py and Brownie}
 To send transactions to the blockchain (interact with the smart contracts), a connection to the node provider is needed. This connection can be done using well-known web3 libraries such as \verb|web3.py|\cite{web3py}. For instance, using \verb|web3.py| the connection to the node provider can be done using the following code:\\
 \verb|w3 = Web3(Web3.HTTPProvider(|
 
@@ -477,7 +477,7 @@ To send transactions to the blockchain (interact with the smart contracts), a co
 Where \verb|WEB3_INFURA_PROJECT_ID| is the APY KEY from the node provider. The \verb|w3| instance enables communication with the blockchain.\\
 The brownie framework\cite{brow} wraps \verb|web3.py| and enables developers an easy and fast configuration of the targeted blockchain node. The configuration options are placed in the \verb|.env| and \verb|.yaml| files of the project. After the configuration is done, python scripts on the targeted network can be run, passing the network name on the \verb|–network| flag. For instance, running a python script that targets the rinkeby test network, can be done as follows:\\
 \hspace{1cm}\verb| brownie run scripts/my_script.py --network rinkeby|\\
-For instance, using brownie  and the Alchemy node provider, a python script that performs the deposit action, for a given amount of DAI, can be described as follows:
+As an example, using brownie  and the Alchemy node provider, a python script that performs the deposit action, for a given amount of DAI, can be described as follows:
 \begin{itemize}
 	\item[]
 	1.- Compile all the contracts to generate the ABIs.\\
@@ -491,10 +491,25 @@ For instance, using brownie  and the Alchemy node provider, a python script that
 \end{itemize}
 The first interaction with the smart contracts of Aave, for the application of this thesis, was done using the brownie framework. However, in order to let other accounts (users), interact with these smart contracts a frontend with a wallet~\ref{dapp} is needed.
 \section{Interaction with the users}
-To enable any EOA account (users), to interact with the smart contracts, a frontend and a wallet~\ref{dapp} are needed. The frontend or user interface enables users to enter the specific amount to deposit, withdraw or borrow, and to perform these operations using buttons that will call these functions. The frontend shall also display the interest rates of the lending pool. For the frontend implementation of the thesis application the web development framework Next.js\cite{nextjs} is used. On the other hand, the wallet allows users to sign transactions and see their token balances. The thesis application uses the Metamask~\ref{metamask} wallet provider.
+To enable any EOA account (users), to interact with the smart contracts, a frontend and a wallet~\ref{dapp} are needed. The frontend or user interface enables users to enter the specific amount to deposit, withdraw or borrow, and to perform these operations using buttons that will perform the interaction with the smart contracts. The frontend shall also display the interest rates of the lending pool. For the frontend implementation of the thesis application the web development framework Next.js\cite{nextjs} and the Material UI\cite{mui} is used. On the other hand, the wallet allows users to sign transactions and see their token balances. The thesis application uses the Metamask~\ref{metamask} wallet provider.
 %\subsection{Frontend: Next.js}
-\subsection{Wallet: Metamask}\label{metamask}
+\subsection{Wallet Provider: Metamask}\label{metamask}
+The metamask\cite{wiki:MetaMask}\cite{metamaskDocs} wallet allows users to create and manage their accounts safely. Metamask uses Infura to communicate to the blockchain network and also allows the connection to any blockchain network that implements the JSON-RPC~\ref{dapp} specification. For developers, metamask provides the \verb|ethereum| API to target web3 users using the metamask wallet. For instance, detecting if a user has metamask installed in its browser, can be done as follows:\\
+\verb|if (typeof window.ethereum !== 'undefined') {...}|\\
 \subsection{Web3-react}
+Web3-react\cite{web3react} is a library that helps developers to keep the users (account) relevant data up-to-date using React Context\cite{reactcontext} to store the data and inject it where is needed. To connect with metamask, One can import the
+\verb|InjectedConnector| object, configure it to the application needs, and use this object, along with the \verb|activate|, and \verb|deactivate| modules from the \verb|useWeb3React()| component, to connect with metamask. Once the user is connected, the interaction with the wallet and the node provider can be done using the \verb|useWeb3React()| component. This component can be destructured into the following modules:\\
+\verb|{ activate,  deactivate, active, chainId, account, provider }|
+\begin{itemize}
+	\item[]
+	\verb|activate|, \verb|deactivate| allows to connect and disconnect from the wallet.\\
+	\verb|active| is a boolean value that indicates whether the user is connected or not.\\
+	\verb|chainId| is a number that represents the network where the user is connected.\\
+	\verb|account| is the address of the connected account.\\
+	\verb|provider| is used to send transactions, it also contains the signer, which is needed to sign transactions. For instance, transactions that only read from the blockchain will only require the provider, and transactions that imply a state change will require to sign the transaction: \verb|provider.getSigner()|
+\end{itemize}
+Since this application is using metamask, the Infura provider will be used to interact with users and the network.
+
 \subsection{Web3 Library: ethers.js}
 
 %%%%%
