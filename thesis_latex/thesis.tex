@@ -448,7 +448,7 @@ This Thesis uses the smart contracts from the V3 release of the Aave Protocol. A
 The following figure~\ref{fig:interactionSC} gives an overview of how the account and the  smart contracts (used for this Thesis) interact with each other:
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=\textwidth]{./images/interactionSC}
+	\includegraphics[width=1\textwidth]{./images/interactionSC}
 	\caption{Smart contract interactions for the project of this thesis.}
 	\label{fig:interactionSC}
 \end{figure}
@@ -487,7 +487,6 @@ As an example, using brownie  and the Alchemy node provider, a python script tha
 	5.- Get the DAI balance of the account using the IERC20 contract object.\\
 	6.- If the desired amount to deposit is less than the account DAI balance, approve the desired amount using the IERC20 object, setting the \verb|spender| parameter to the address of the pool.\\
 	7.- Using IPool contract object, call the \verb|supply()| function with the desired amount of DAI.
-	
 \end{itemize}
 The first interaction with the smart contracts of Aave, for the application of this thesis, was done using the brownie framework. However, in order to let other accounts (users), interact with these smart contracts a frontend with a wallet~\ref{dapp} is needed.
 \section{Interaction with the users}
@@ -496,7 +495,10 @@ To enable any EOA account (users), to interact with the smart contracts, a front
 \subsection{Wallet Provider: Metamask}\label{metamask}
 The metamask\cite{wiki:MetaMask}\cite{metamaskDocs} wallet allows users to create and manage their accounts safely. Metamask uses Infura to communicate to the blockchain network and also allows the connection to any blockchain network that implements the JSON-RPC~\ref{dapp} specification. For developers, metamask provides the \verb|ethereum| API to target web3 users using the metamask wallet. For instance, detecting if a user has metamask installed in its browser, can be done as follows:\\
 \verb|if (typeof window.ethereum !== 'undefined') {...}|\\
-\subsection{Web3-react}
+Metamask allows users and developers to communicate with the blockchain by facilitating:
+a node provider (Provider) that enables communication with the blockchain node, and the management of the private key to sign transactions (Signer).
+
+\subsection{Web3-react}\label{web3-react}
 Web3-react\cite{web3react} is a library that helps developers to keep the users (account) relevant data up-to-date using React Context\cite{reactcontext} to store the data and inject it where is needed. To connect with metamask, One can import the
 \verb|InjectedConnector| object, configure it to the application needs, and use this object, along with the \verb|activate|, and \verb|deactivate| modules from the \verb|useWeb3React()| component, to connect with metamask. Once the user is connected, the interaction with the wallet and the node provider can be done using the \verb|useWeb3React()| component. This component can be destructured into the following modules:\\
 \verb|{ activate,  deactivate, active, chainId, account, provider }|
@@ -506,11 +508,25 @@ Web3-react\cite{web3react} is a library that helps developers to keep the users 
 	\verb|active| is a boolean value that indicates whether the user is connected or not.\\
 	\verb|chainId| is a number that represents the network where the user is connected.\\
 	\verb|account| is the address of the connected account.\\
-	\verb|provider| is used to send transactions, it also contains the signer, which is needed to sign transactions. For instance, transactions that only read from the blockchain will only require the provider, and transactions that imply a state change will require to sign the transaction: \verb|provider.getSigner()|
+	\verb|provider| is used to send transactions, it also contains the signer, which is needed to sign transactions. For instance, actions that only read from the blockchain will only require the provider, and transactions that imply a state change will require to sign the transaction: \verb|provider.getSigner()|
 \end{itemize}
 Since this application is using metamask, the Infura provider will be used to interact with users and the network.
 
-\subsection{Web3 Library: ethers.js}
+\subsection{Web3 Library: ethers}
+Given that communication with the frontend is required, and that brownie because of its python nature, is not capable of, the ethers library is used to communicate with the users and the node provider. Using ethers, communication between users and smart contracts can be achieved by taking care of the following abstractions:
+\begin{itemize}
+	\item \textbf{Contract}: Enables the interaction with the specific smart contract. As noted above~\ref{sc_interaction}, to generate the contract object, the contract address and ABI is needed, and to send a transaction using the contract object, a provider or signer is required, through web3-react~\ref{web3-react}, the provider and the signer from metamask can be accessed. To sum up, creating a contract instance that enables the interaction with the smart contract on the blockchain can be achieved as follows:\\
+	\verb|new ethers.Contract( address , abi , signerOrProvider )|
+	\item \textbf{Provider}: Enables read-only interactions with the blockchain. For instance, getting the balance of a given asset.
+	\item \textbf{Signer}: Enables users to sign transactions, hence changing the state of the blockchain. For instance, deposit a given asset to the Aaave lending pool.
+\end{itemize}
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=1.01\textwidth]{./images/sec1}
+	\caption{Deposit interaction}
+	\label{fig:deposit_seq}
+\end{figure}
+Using ethers, the interaction with smart contracts, previously tested with brownie, can be implemented. This enables users' accounts, to interact with the Aave protocol through the User Interface components, which triggers the methods implemented using ethers. For example, the interaction between the application methods and the smart contracts, for depositing DAI can be seen in~\ref{fig:deposit_seq}
 
 %%%%%
 %%%%% Chapter
