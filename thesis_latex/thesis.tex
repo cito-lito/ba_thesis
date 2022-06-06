@@ -21,6 +21,26 @@
 %\usepackage{tabularx}
 \usepackage{enumitem}
 \usepackage{hyperref}
+
+%code
+\usepackage{listings}
+\lstset{frame=tb,
+	language=python,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+
 \hypersetup{
 	colorlinks=true,
 	linkcolor=blue,
@@ -33,9 +53,9 @@
 \begin{document}
 \include{vorspann} % Titelseite, Erklärungen, etc.
 
-\begin{abstract} 
-abstract
-\end{abstract}
+%\begin{abstract} 
+%abstract
+%\end{abstract}
 
 \tableofcontents
 \newpage 
@@ -64,11 +84,11 @@ The goals of this Thesis are, to study and provide a better understanding of:
 The Thesis is divided into the following chapters:
 \begin{itemize}
 	
-	\item \textbf{Chapter ~\ref{ch:background} - Fundamentals}, gives a technical overwiev of the blockchain technology and the Ethereum network.
-	\item \textbf{Chapter ~\ref{ch:defi}} ...
-	\item \textbf{Chapter ~\ref{ch:appreq}} ...
-	\item \textbf{Chapter ~\ref{ch:impl}} ...
-	\item \textbf{Chapter ~\ref{ch:conclusion}} ...
+	\item \textbf{Chapter ~\ref{ch:background}: Fundamentals } gives a technical overview of blockchain technology, the Ethereum network, and decentralized applications.
+	\item \textbf{Chapter ~\ref{ch:defi}: Decentralized Finance } introduces the concept of decentralized finance or DeFi, and outlines the protocols used in this thesis.
+	\item \textbf{Chapter ~\ref{ch:appreq}: Application Requirements} describes the functional and non-functional requirements that the application developed for this thesis shall have.
+	\item \textbf{Chapter ~\ref{ch:impl}: Implementation} ...
+	\item \textbf{Chapter ~\ref{ch:conclusion} Conclusion} ...
 \end{itemize}
 
 
@@ -368,7 +388,7 @@ The application runs in the latest version of Chrome, Firefox, Brave browsers on
 \section{Requirements}
 \subsection{Functional}
 \subsubsection{Login}
-[Thesis-SRS-01] The application shall allow users to login using the Metamask\cite{wiki:MetaMask} wallet.
+[Thesis-SRS-01] The application shall allow users to login using the Metamask~\ref{metamask} wallet.
 
 [Thesis-SRS-02]  If the wallet is set with another network, the application should inform the user to change to the application network.
 
@@ -433,9 +453,14 @@ The following use case diagram describes the minimum functionality that the appl
 %\end{figure}
 %%%%% Chapter
 \chapter{Implementation} \label{ch:impl}
-%\section{Defining the tech stack}
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=1.05\textwidth]{./images/thesis-dapp}
+	\caption{Thesis Dapp User Interface when a user is logged in.}
+	\label{fig:tdapp}
+\end{figure}
 \section{Interaction with the Smart Contracts}
-The main purpose of the application is to be able to access the different functionalities, such as deposit and borrow, of \verb|pool.sol|  smart contract within the Aave Protocol~\ref{sec:aave}. In order to test the interaction process with smart contracts, the Brownie framework\cite{brow} is been used. Brownie is a python framework for the development and testing of EVM smart contracts. Brownie enables developers the compilation, test, and deployment of smart contracts with just a few commands, it also uses the ganache-cli\cite{ganache}, which is a built-in local blockchain (test RPC blockchain node) hosted on $127.0.0.1:8545$ for fast contract tests. Brownie also lets developers manage accounts and network configurations in an easy and safe way. A new brownie project for this Thesis was created using the \verb|brownie init| command.
+The main purpose of the application is to be able to access the different functionalities, such as deposit and borrow, of \verb|pool.sol|  smart contract within the Aave Protocol~\ref{sec:aave}. In order to test the interaction process with smart contracts, the Brownie framework\cite{brow} is been used. Brownie is a python framework for the development and testing of EVM smart contracts. Brownie enables developers the compilation, test, and deployment of smart contracts with just a few commands, it also uses the ganache-cli\cite{ganache}, which is a built-in local blockchain (test RPC blockchain node) hosted on 127.0.0.1:8545 for fast contract tests. Brownie also lets developers manage accounts and network configurations in an easy and safe way. A new brownie project for this Thesis was created using the \verb|brownie init| command.
 
 In accordance with its permissionless characteristic, anyone can interact with a smart contract. However, from a developer perspective, to be able to interact with a smart contract the following three items are needed:
 \begin{enumerate}\label{sc_interaction}
@@ -443,7 +468,7 @@ In accordance with its permissionless characteristic, anyone can interact with a
 	\item The Application Binary Interface (ABI)~\ref{sec:sc}, which is generated in the compilation process, \verb|brownie compile| command.
 	\item The Smart Contract Address: This is the address of the contract account~\ref{sec:accounts}. 
 \end{enumerate}
-This Thesis uses the smart contracts from the V3 release of the Aave Protocol. All the contracts are open source and can be found in the Aave GitHub repository\cite{aavegithub}. Since all the contracts are also deployed in different EVM blockchains, the contracts can also be found in their respective blockchains explorers. For instance the \verb|pool.sol| deployment in the Arbitrum Network can be found here\cite{arbiscan}.
+This Thesis uses the smart contracts from the V3 release of the Aave Protocol. All the contracts can be found in the Aave GitHub repository\cite{aavegithub}. Since all the contracts are also deployed in different EVM blockchains, the contracts can also be found in their respective blockchains explorers. For instance the \verb|pool.sol| deployment in the Arbitrum Network can be found here\cite{arbiscan}.
 
 The following figure~\ref{fig:interactionSC} gives an overview of how the account and the  smart contracts (used for this Thesis) interact with each other:
 \begin{figure}[htp]
@@ -452,13 +477,15 @@ The following figure~\ref{fig:interactionSC} gives an overview of how the accoun
 	\caption{Smart contract interactions for the project of this thesis.}
 	\label{fig:interactionSC}
 \end{figure}
-\subsection{The Pool Contract}
+\subsection{The Pool Contract}\label{poolcontract}
 The \verb|pool.sol|\cite{poolContract} contract enables users and other contracts to interact with the main functionality of the Aave Protocol. More specifically, the \verb|IPool.sol|, which is the interface of the \verb|pool.sol|. The \verb|IPool.sol| is placed on top of the pool.sol (inherit) and contains the functions declarations that the \verb|pool.sol| shall implement. Functions in the \verb|IPool.sol| are declared using the keyword \verb|external|, enabling other contracts the interaction with these functions. This interface construction facilitates the interaction between Dapps or contracts. The functions of the \verb|pool.sol| used for this Thesis is: 
 \begin{itemize}
 	\item{\textbf{Supply:}} The \verb|supply()| function, also known as the deposit function in Aavve V1 and V2, enables accounts to deposit a given amount of a supported crypto asset into its reserve~\ref{reserve}. If the supply transaction success, the account address, set in the parameter \verb|onBehalOf|, will receive the equivalent amount of aTokens. For instance, if an account supplies $100$ DAI, $100$ aDAI will be sent back to the account address set in the \verb|onBehalOf| parameter. Once the supply transaction is done, interest~\ref{rates} is generated according to the status of the reserve of the deposited crypto asset.
 	\item{\textbf{Withdraw:}} The \verb|withdraw()| function enables accounts to get the deposited asset ( underlying asset ) from the reserve by destroying or burning the generated aToken for the deposited asset. Only accounts holding the aToken will be allowed to withdraw the underlying asset from the reserve. The caller of the withdraw function can decide the receiver of the underlying asset by passing the desired account address to the parameter \verb|to|.
 	\item{\textbf{Borrow:}} This function allows accounts to borrow a maximum amount of a given asset depending on the borrowing power of the account. The borrowing power of the account depends on how much collateral the account has deposited into the collateral reserve. Borrowers can decide the interest rate by setting \verb|theinterestRateMode| parameter to stable or variable~\ref{rates}. The account address set in the \verb|onBehalfOf| parameter will receive the specif amount of debt tokens.
-	\item{\textbf{Repay:}} The \verb|repay()| function allows accounts to pay back borrowed assets by burning the specific debt tokens, reducing or removing the debt tokens of the account address passed in the \verb|onBehalfOf| parameter. 	
+	\item{\textbf{Repay:}} The \verb|repay()| function allows accounts to pay back borrowed assets by burning the specific debt tokens, reducing or removing the debt tokens of the account address passed in the \verb|onBehalfOf| parameter. 
+	\item{\textbf{Reserve Data:}} The \verb|getReserveData()| function returns the detailed reserve state for a given underlying asset. The asset address is passed as a parameter of the function. Using this function, the liquidity rate $R_{t}$, stable borrow rate $R_{s}$ ~\ref{rates}, and other data of the reserve can be retrieved. 
+	\item{\textbf{User Account Data:}} The \verb|getUserAccountData()| function returns the relevant data of the reserves for the passed account address. For instance, the health factor $H_{f}$~\ref{rates} ´and other relevant data can be retrieved using this function.
 \end{itemize}
 \subsection{The Address Provider Contract}
 As mentioned before~\ref{sc_interaction}, for interacting with smart contracts, the address of the contract account is needed. One of the characteristics of a smart contract is its immutability, once a contract is deployed to the blockchain network it can not be changed. However, with the purpose of being able to implement new features or improvements approved by the Aave Governance~\ref{governance}, the pool contract implements the Proxy Upgrade Pattern\cite{ozproxy}, based on \textit{delegatecall}\cite{delegatecall}, where the code is executed in the context of the caller account address. For this reason, to obtain the address of the pool contract, or IPool contract, the \verb|IPoolAddressesProvider.sol|\cite{pooladdrprov} contract is needed. This contract provides the function \verb|getPool()|, which returns the address of the pool proxy contract.
@@ -502,17 +529,16 @@ a node provider (Provider) that enables communication with the blockchain node, 
 Web3-react\cite{web3react} is a library that helps developers to keep the users (account) relevant data up-to-date using React Context\cite{reactcontext} to store the data and inject it where is needed. To connect with metamask, One can import the
 \verb|InjectedConnector| object, configure it to the application needs, and use this object, along with the \verb|activate|, and \verb|deactivate| modules from the \verb|useWeb3React()| component, to connect with metamask. Once the user is connected, the interaction with the wallet and the node provider can be done using the \verb|useWeb3React()| component. This component can be destructured into the following modules:\\
 \verb|{ activate,  deactivate, active, chainId, account, provider }|
-\begin{itemize}
-	\item[]
-	\verb|activate|, \verb|deactivate| allows to connect and disconnect from the wallet.\\
-	\verb|active| is a boolean value that indicates whether the user is connected or not.\\
-	\verb|chainId| is a number that represents the network where the user is connected.\\
-	\verb|account| is the address of the connected account.\\
-	\verb|provider| is used to send transactions, it also contains the signer, which is needed to sign transactions. For instance, actions that only read from the blockchain will only require the provider, and transactions that imply a state change will require to sign the transaction: \verb|provider.getSigner()|
-\end{itemize}
-Since this application is using metamask, the Infura provider will be used to interact with users and the network.
+\begin{description}
+	\item[]- \verb|activate|, \verb|deactivate| allows to connect and disconnect from the wallet.
+	\item[]- \verb|active| is a boolean value that indicates whether the user is connected or not.
+	\item[]- \verb|chainId| is a number that represents the network where the user is connected.
+	\item[]- \verb|account| is the address of the connected account.
+	\item[]- \verb|provider| is used to send transactions, it also contains the signer, which is needed to sign transactions. For instance, actions that only read from the blockchain will only require the provider, and transactions that imply a state change will require to sign the transaction: \verb|provider.getSigner()|
+\end{description}
+Since this application is using metamask, the Infura provider will be used to interact with the blockchain network.
 
-\subsection{Web3 Library: ethers}
+\subsection{Web3 Library: ethers}\label{ethers}
 Given that communication with the frontend is required, and that brownie because of its python nature, is not capable of, the ethers library is used to communicate with the users and the node provider. Using ethers, communication between users and smart contracts can be achieved by taking care of the following abstractions:
 \begin{itemize}
 	\item \textbf{Contract}: Enables the interaction with the specific smart contract. As noted above~\ref{sc_interaction}, to generate the contract object, the contract address and ABI is needed, and to send a transaction using the contract object, a provider or signer is required, through web3-react~\ref{web3-react}, the provider and the signer from metamask can be accessed. To sum up, creating a contract instance that enables the interaction with the smart contract on the blockchain can be achieved as follows:\\
@@ -520,14 +546,34 @@ Given that communication with the frontend is required, and that brownie because
 	\item \textbf{Provider}: Enables read-only interactions with the blockchain. For instance, getting the balance of a given asset.
 	\item \textbf{Signer}: Enables users to sign transactions, hence changing the state of the blockchain. For instance, deposit a given asset to the Aaave lending pool.
 \end{itemize}
+%\section{Thesis Dapp Implementation}
+The application can be implemented by using the concepts previously outlined, which enables users accounts to interact with the Aave protocol. The interaction is done through the User Interface components, which trigger the methods that interact with the smart contracts, see~\ref{fig:tdapp}.
+
+Once the user account is connected to the Rinkeby testnet  network (which is done using the activate and deactivate modules of web3-react), a user can deposit, withdraw, and borrow DAI if the user account has enough collateral. For instance, the interaction between the user interface, the application methods, and the Smart contracts for depositing DAI can be seen in~\ref{fig:deposit_seq};
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=1.01\textwidth]{./images/sec1}
-	\caption{Deposit interaction}
+	\includegraphics[width=1\textwidth]{./images/sec1}
+	\caption{Deposit Scenario}
 	\label{fig:deposit_seq}
 \end{figure}
-Using ethers, the interaction with smart contracts, previously tested with brownie, can be implemented. This enables users' accounts, to interact with the Aave protocol through the User Interface components, which triggers the methods implemented using ethers. For example, the interaction between the application methods and the smart contracts, for depositing DAI can be seen in~\ref{fig:deposit_seq}
-\subsubsection{User or Account Info}
+the deposit button will trigger the deposit method, which creates the pool contract and erc20 contract instances; gives DAI allowance to the pool contract, waits for the user to sign the transaction, and the transaction to be confirmed (by the consensus protocol~\ref{sec:cp}). When the transaction is processed and confirmed, the deposit transaction can be started. Moreover, if the supply transaction is processed and confirmed, the account address will receive the exact amount of the deposited asset in the form of aTokens (aDAI).
+\begin{lstlisting}
+	...
+// create pool & erc20 contract instances:
+const pool = await getPoolContractWrite(provider);
+const erc20Contract = await getERC20ContractWrite(assetAddr, provider)
+
+// approve the amount of tokens to be deposited into the pool:
+const tx_approve = await erc20Contract.approve(pool.address, amount)
+await tx_approve.wait();
+
+// deposit tokens into the pool
+const tx_deposit = await pool.supply(asset_addr, amount, account, referralCode)
+await tx_deposit.wait();
+	...
+\end{lstlisting}
+Note that the amount is passed to the contract instances in the form of Wei~\ref{sec:gas} using ethers~\ref{ethers}. Ultimately, the withdraw, borrow, and repay functionalities follow the same pattern.
+\subsubsection{Deposit APY, Stable Borrow APY, and other User Account Info}
 %%%%%
 %%%%% Chapter
 \chapter{Conclusion and future work} \label{ch:conclusion}
