@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='19 -15 962 810' xmlns:xlink='http://www.w3.org/1999/xlink' width='962.0px' font-size='13' font-family='Arial, LiberationSans' version='1.1' height='810.0px'>
+  <defs>
+<style type='text/css'><![CDATA[svg text {text-rendering: geometricPrecision;}]]></style>    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='77833bc2-1945-4f17-851b-e3d46924b842' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='96f02d17-85ae-4b9f-9933-3644a70a60d2' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='0b7f93ac-7998-47c8-b26c-670f08fcf82e' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='b95c2efa-a403-4cef-bb98-13934c667dbc' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='228f44a7-b36a-40c7-afb2-e9d7613909d3' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(238, 238, 238)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='94c970bc-a9dd-4f75-9d7e-9c2a41d8961f' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(239, 233, 222)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='a77d22f8-5113-4e84-b848-98351068b2f4' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(239, 233, 222)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='5878b72d-3a4f-4750-bff2-ce7184da3b1a' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(239, 233, 222)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='9a6f124c-60ea-4507-80ea-72611adffdb5' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(239, 233, 222)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='7db7d0ce-a71a-4208-a347-e29f85c4ccce' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(239, 233, 222)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='57bb1a62-6d73-46ce-a3aa-306075ebdf97' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(239, 233, 222)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='d6d661b5-74e6-4243-abfd-d69c36e666ce' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(239, 233, 222)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='5221e305-fab1-47bd-b7d5-ab67d19d4db1' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(239, 233, 222)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='ebe79671-4677-431a-ae37-db59d37ebab6' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(239, 233, 222)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='1102fb70-a793-4a4a-a50d-218bf3bb5305' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(239, 233, 222)'/>
+    </linearGradient>
+    <linearGradient y1='0.0%' x1='0.0%' y2='100.0%' x2='0.0%' id='cf5d168b-f678-445f-a4b0-fb6898a39739' spreadMethod='pad'>
+      <stop stop-opacity='1' offset='0' stop-color='rgb(255, 255, 255)'/>
+      <stop stop-opacity='1' offset='100' stop-color='rgb(239, 233, 222)'/>
+    </linearGradient>
+  </defs>
+  <desc>SequenceDiagram</desc>
+  <g transform='translate(91.0,259.0)' id='_2tC0kMS6EDqtb5VosXgd6w'>
+    <rect x='0.0' width='860.0px' y='0.0' stroke-width='1.0' fill='rgb(255, 255, 255)' stroke='rgb(136, 136, 136)' look='allInOne' fill-opacity='0.5' height='473.0px'/>
+    <text font-weight='bold' text-anchor='start' x='8.0' y='18.0' font-size='13' fill='rgb(0, 0, 0)'>alt</text>
+    <polyline stroke-width='1.0' stroke='rgb(136, 136, 136)' look='border' fill-opacity='0.0' points='0.0,23.0 31.0,23.0 41.0,13.0 41.0,0.0'/>
+    <g transform='translate(0.0,45.0)'>
+      <text text-anchor='start' x='10.0' y='0.0' font-size='13' fill='rgb(0, 0, 0)'>[balance &gt;= amount]</text>
+    </g>
+    <line y1='351.0' x1='0.0' y2='351.0' x2='860.0' stroke-dasharray='5, 3' stroke-width='1.0' stroke='rgb(136, 136, 136)' look='border'/>
+    <g transform='translate(0.0,376.0)'>
+      <text text-anchor='start' x='10.0' y='0.0' font-size='13' fill='rgb(0, 0, 0)'>[else]</text>
+    </g>
+  </g>
+  <g transform='translate(200.0,15.0)' id='_xirTYMS4EDqtb5VosXgd6w'>
+    <rect rx='3.0' ry='3.0' x='0.0' width='127.0px' y='0.0' stroke-width='1.0' fill='url(#77833bc2-1945-4f17-851b-e3d46924b842)' stroke='rgb(187, 187, 187)' look='allInOne' height='33.0px'/>
+    <line y1='33.0' x1='63.5' y2='750.0' stroke-dasharray='10, 5' x2='63.5' stroke-width='1.0' stroke='rgb(187, 187, 187)' look='border'/>
+    <g transform='translate(16.0)'>
+      <image x='0.0' width='16.0' y='10.0' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAMFBMVEX///9woMRAgLDi8P84e7Dp9P86fLDw9/88fbD3+/89frD+/v8/f7AAUpEAS4XA0+HHhLc3AAAAAXRSTlMAQObYZgAAAAFiS0dEDxi6ANkAAAAHdElNRQfhBA4RJS4tUqcbAAAAQElEQVQI12NgYFQCAQYGBiZjIDABMUKBIAzEKAeCChBjJhDMAjF2A8EeIAOo6xJYFxA8YICCDzDGAwwGMVIgAADwcBTlv8WhiQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNS0wMS0yMVQxNDozOTowMyswMTowMC1TktIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTUtMDEtMjFUMTQ6Mzk6MDMrMDE6MDBcDipuAAAAAElFTkSuQmCC' height='16.0'/>
+      <text font-weight='bold' text-anchor='start' x='18.0' y='22.0' font-size='13' fill='rgb(3, 54, 86)'>Thesis Dapp</text>
+    </g>
+  </g>
+  <g transform='translate(49.0,15.0)' id='_D9dzsMS5EDqtb5VosXgd6w'>
+    <rect rx='3.0' ry='3.0' x='0.0' width='139.0px' y='0.0' stroke-width='1.0' fill='url(#96f02d17-85ae-4b9f-9933-3644a70a60d2)' stroke='rgb(187, 187, 187)' look='allInOne' height='33.0px'/>
+    <line y1='33.0' x1='69.5' y2='590.0' stroke-dasharray='10, 5' x2='69.5' stroke-width='1.0' stroke='rgb(187, 187, 187)' look='border'/>
+    <g transform='translate(16.0)'>
+      <image x='0.0' width='16.0' y='10.0' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAHlBMVEX////g6vJGd6yyyN+2y+Dn7/fw9frD0+X5+/3H1uZmESFUAAAAAXRSTlMAQObYZgAAAAFiS0dEAmYLfGQAAAAHdElNRQfhBA8EJBBXeY0PAAAATklEQVQI12NgYGBUUmQAAyFjIwEwQyU0RAHMUEtLgzDUO9ohDKGZkyBq4LoYJk2AUEpAAGLOnDlp5swJyFIIBqemJkwAIsSpCUJQFUAMALiSE4+MitOeAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE1LTAxLTIxVDE0OjM5OjAzKzAxOjAwLVOS0gAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNS0wMS0yMVQxNDozOTowMyswMTowMFwOKm4AAAAASUVORK5CYII=' height='16.0'/>
+      <text font-weight='bold' text-anchor='start' x='18.0' y='22.0' font-size='13' fill='rgb(3, 54, 86)'>Account: User</text>
+    </g>
+  </g>
+  <g transform='translate(601.0,358.0)' id='_DGL7gMS7EDqtb5VosXgd6w'>
+    <rect rx='3.0' ry='3.0' x='0.0' width='236.0px' y='0.0' stroke-width='1.0' fill='url(#0b7f93ac-7998-47c8-b26c-670f08fcf82e)' stroke='rgb(187, 187, 187)' look='allInOne' height='33.0px'/>
+    <line y1='33.0' x1='118.0' y2='250.0' stroke-dasharray='10, 5' x2='118.0' stroke-width='1.0' stroke='rgb(187, 187, 187)' look='border'/>
+    <g transform='translate(16.0)'>
+      <image x='0.0' width='16.0' y='10.0' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAHlBMVEX////g6vJGd6yyyN+2y+Dn7/fw9frD0+X5+/3H1uZmESFUAAAAAXRSTlMAQObYZgAAAAFiS0dEAmYLfGQAAAAHdElNRQfhBA8EJBBXeY0PAAAATklEQVQI12NgYGBUUmQAAyFjIwEwQyU0RAHMUEtLgzDUO9ohDKGZkyBq4LoYJk2AUEpAAGLOnDlp5swJyFIIBqemJkwAIsSpCUJQFUAMALiSE4+MitOeAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE1LTAxLTIxVDE0OjM5OjAzKzAxOjAwLVOS0gAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNS0wMS0yMVQxNDozOTowMyswMTowMFwOKm4AAAAASUVORK5CYII=' height='16.0'/>
+      <text font-weight='bold' text-anchor='start' x='18.0' y='22.0' font-size='13' fill='rgb(3, 54, 86)'>poolAddresProvider: Contract</text>
+    </g>
+  </g>
+  <g transform='translate(391.0,151.0)' id='_GAaGYMS6EDqtb5VosXgd6w'>
+    <rect rx='3.0' ry='3.0' x='0.0' width='153.0px' y='0.0' stroke-width='1.0' fill='url(#b95c2efa-a403-4cef-bb98-13934c667dbc)' stroke='rgb(187, 187, 187)' look='allInOne' height='33.0px'/>
+    <line y1='33.0' x1='76.5' y2='610.0' stroke-dasharray='10, 5' x2='76.5' stroke-width='1.0' stroke='rgb(187, 187, 187)' look='border'/>
+    <g transform='translate(16.0)'>
+      <image x='0.0' width='16.0' y='10.0' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAHlBMVEX////g6vJGd6yyyN+2y+Dn7/fw9frD0+X5+/3H1uZmESFUAAAAAXRSTlMAQObYZgAAAAFiS0dEAmYLfGQAAAAHdElNRQfhBA8EJBBXeY0PAAAATklEQVQI12NgYGBUUmQAAyFjIwEwQyU0RAHMUEtLgzDUO9ohDKGZkyBq4LoYJk2AUEpAAGLOnDlp5swJyFIIBqemJkwAIsSpCUJQFUAMALiSE4+MitOeAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE1LTAxLTIxVDE0OjM5OjAzKzAxOjAwLVOS0gAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNS0wMS0yMVQxNDozOTowMyswMTowMFwOKm4AAAAASUVORK5CYII=' height='16.0'/>
+      <text font-weight='bold' text-anchor='start' x='18.0' y='22.0' font-size='13' fill='rgb(3, 54, 86)'>ERC20: Contract</text>
+    </g>
+  </g>
+  <g transform='translate(805.0,479.0)' id='_UtMOcMS7EDqtb5VosXgd6w'>
+    <rect rx='3.0' ry='3.0' x='0.0' width='139.0px' y='0.0' stroke-width='1.0' fill='url(#228f44a7-b36a-40c7-afb2-e9d7613909d3)' stroke='rgb(187, 187, 187)' look='allInOne' height='33.0px'/>
+    <line y1='33.0' x1='69.5' y2='130.0' stroke-dasharray='10, 5' x2='69.5' stroke-width='1.0' stroke='rgb(187, 187, 187)' look='border'/>
+    <g transform='translate(16.0)'>
+      <image x='0.0' width='16.0' y='10.0' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAHlBMVEX////g6vJGd6yyyN+2y+Dn7/fw9frD0+X5+/3H1uZmESFUAAAAAXRSTlMAQObYZgAAAAFiS0dEAmYLfGQAAAAHdElNRQfhBA8EJBBXeY0PAAAATklEQVQI12NgYGBUUmQAAyFjIwEwQyU0RAHMUEtLgzDUO9ohDKGZkyBq4LoYJk2AUEpAAGLOnDlp5swJyFIIBqemJkwAIsSpCUJQFUAMALiSE4+MitOeAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE1LTAxLTIxVDE0OjM5OjAzKzAxOjAwLVOS0gAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNS0wMS0yMVQxNDozOTowMyswMTowMFwOKm4AAAAASUVORK5CYII=' height='16.0'/>
+      <text font-weight='bold' text-anchor='start' x='18.0' y='22.0' font-size='13' fill='rgb(3, 54, 86)'>pool: Contract</text>
+    </g>
+  </g>
+  <g transform='translate(256.0,150.0)' id='_I7l6kMS5EDqtb5VosXgd6w'>
+    <rect rx='2.0' ry='2.0' x='0.0' width='16.0px' y='0.0' stroke-width='1.0' fill='url(#94c970bc-a9dd-4f75-9d7e-9c2a41d8961f)' stroke='rgb(194, 183, 159)' look='allInOne' height='450.0px'/>
+  </g>
+  <g transform='translate(711.0,418.0)' id='_ImosUMS7EDqtb5VosXgd6w'>
+    <rect rx='2.0' ry='2.0' x='0.0' width='16.0px' y='0.0' stroke-width='1.0' fill='url(#a77d22f8-5113-4e84-b848-98351068b2f4)' stroke='rgb(194, 183, 159)' look='allInOne' height='30.0px'/>
+  </g>
+  <g transform='translate(867.0,533.0)' id='_ad2lgcS7EDqtb5VosXgd6w'>
+    <rect rx='2.0' ry='2.0' x='0.0' width='16.0px' y='0.0' stroke-width='1.0' fill='url(#5878b72d-3a4f-4750-bff2-ce7184da3b1a)' stroke='rgb(194, 183, 159)' look='allInOne' height='40.0px'/>
+  </g>
+  <g transform='translate(460.0,227.0)' id='_6gAd8MS8EDqtb5VosXgd6w'>
+    <rect rx='2.0' ry='2.0' x='0.0' width='16.0px' y='0.0' stroke-width='1.0' fill='url(#9a6f124c-60ea-4507-80ea-72611adffdb5)' stroke='rgb(194, 183, 159)' look='allInOne' height='30.0px'/>
+  </g>
+  <g transform='translate(256.0,140.0)' id='_kFdD0MS5EDqtb5VosXgd6w'>
+    <rect rx='2.0' ry='2.0' x='0.0' width='16.0px' y='0.0' stroke-width='1.0' fill='url(#7db7d0ce-a71a-4208-a347-e29f85c4ccce)' stroke='rgb(194, 183, 159)' look='allInOne' height='490.0px'/>
+  </g>
+  <g transform='translate(111.0,74.0)' id='_cvPmQMTwEDqWL_T9UlL7xA'>
+    <rect rx='2.0' ry='2.0' x='0.0' width='16.0px' y='0.0' stroke-width='1.0' fill='url(#57bb1a62-6d73-46ce-a3aa-306075ebdf97)' stroke='rgb(194, 183, 159)' look='allInOne' height='30.0px'/>
+  </g>
+  <g transform='translate(111.0,146.0)' id='_d4S5AMTwEDqWL_T9UlL7xA'>
+    <rect rx='2.0' ry='2.0' x='0.0' width='16.0px' y='0.0' stroke-width='1.0' fill='url(#d6d661b5-74e6-4243-abfd-d69c36e666ce)' stroke='rgb(194, 183, 159)' look='allInOne' height='30.0px'/>
+  </g>
+  <g transform='translate(256.0,649.0)' id='_6Em9wMTwEDqWL_T9UlL7xA'>
+    <rect rx='2.0' ry='2.0' x='0.0' width='16.0px' y='0.0' stroke-width='1.0' fill='url(#5221e305-fab1-47bd-b7d5-ab67d19d4db1)' stroke='rgb(194, 183, 159)' look='allInOne' height='50.0px'/>
+  </g>
+  <g transform='translate(111.0,658.0)' id='_B4uaUMTxEDqWL_T9UlL7xA'>
+    <rect rx='2.0' ry='2.0' x='0.0' width='16.0px' y='0.0' stroke-width='1.0' fill='url(#ebe79671-4677-431a-ae37-db59d37ebab6)' stroke='rgb(194, 183, 159)' look='allInOne' height='20.0px'/>
+  </g>
+  <g transform='translate(256.0,74.0)' id='_ahgG4MTxEDqWL_T9UlL7xA'>
+    <rect rx='2.0' ry='2.0' x='0.0' width='16.0px' y='0.0' stroke-width='1.0' fill='url(#1102fb70-a793-4a4a-a50d-218bf3bb5305)' stroke='rgb(194, 183, 159)' look='allInOne' height='50.0px'/>
+  </g>
+  <g transform='translate(460.0,291.0)' id='_FyUlkMh0EDq-lqCawanwvA'>
+    <rect rx='2.0' ry='2.0' x='0.0' width='16.0px' y='0.0' stroke-width='1.0' fill='url(#cf5d168b-f678-445f-a4b0-fb6898a39739)' stroke='rgb(194, 183, 159)' look='allInOne' height='20.0px'/>
+  </g>
+  <g transform='translate(404.0,395.0)' id='_ImuL4MS7EDqtb5VosXgd6w'>
+    <g transform='translate(0.0,0.0)'>
+      <text text-anchor='middle' x='95.5' y='16.0' font-size='13' fill='rgb(0, 0, 0)'>poolAddressProvider.getPool()</text>
+    </g>
+  </g>
+  <g transform='translate(400.0,498.0)' id='_ad6P4MS7EDqtb5VosXgd6w'>
+    <g transform='translate(0.0,0.0)'>
+      <text text-anchor='middle' x='122.0' y='16.0' font-size='13' fill='rgb(0, 0, 0)'>pool.supply(user, amount, dai_address)</text>
+    </g>
+  </g>
+  <g transform='translate(137.0,123.0)' id='_h_ydYMTxEDqWL_T9UlL7xA'>
+    <g transform='translate(0.0,0.0)'>
+      <text text-anchor='middle' x='55.0' y='16.0' font-size='13' fill='rgb(0, 0, 0)'>deposit(amount)</text>
+    </g>
+  </g>
+  <g transform='translate(437.0,338.0)' id='_0GCmgMhyEDq-lqCawanwvA'>
+    <g transform='translate(0.0,0.0)'>
+      <text text-anchor='middle' x='51.5' y='16.0' font-size='13' fill='rgb(0, 0, 0)'>createMessage</text>
+    </g>
+  </g>
+  <g transform='translate(277.0,199.0)' id='_6gDhQMS8EDqtb5VosXgd6w'>
+    <g transform='translate(0.0,0.0)'>
+      <text text-anchor='middle' x='94.5' y='16.0' font-size='13' fill='rgb(0, 0, 0)'>erc20.balanceOf(dai_address)</text>
+    </g>
+  </g>
+  <g transform='translate(151.0,624.0)' id='_B4zS0MTxEDqWL_T9UlL7xA'>
+    <g transform='translate(0.0,0.0)'>
+      <text text-anchor='middle' x='43.0' y='16.0' font-size='13' fill='rgb(0, 0, 0)'>display</text>
+      <text text-anchor='middle' x='43.0' y='29.0' font-size='13' fill='rgb(0, 0, 0)'>error</text>
+    </g>
+  </g>
+  <g transform='translate(135.0,45.0)' id='_ahjxQMTxEDqWL_T9UlL7xA'>
+    <g transform='translate(0.0,0.0)'>
+      <text text-anchor='middle' x='52.5' y='16.0' font-size='13' fill='rgb(0, 0, 0)'>connect</text>
+      <text text-anchor='middle' x='52.5' y='29.0' font-size='13' fill='rgb(0, 0, 0)'>wallet()</text>
+    </g>
+  </g>
+  <g transform='translate(539.0,459.0)' id='_08ZmwMhyEDq-lqCawanwvA'>
+    <g transform='translate(0.0,0.0)'>
+      <text text-anchor='middle' x='51.5' y='16.0' font-size='13' fill='rgb(0, 0, 0)'>createMessage</text>
+    </g>
+  </g>
+  <g transform='translate(281.0,120.0)' id='_UzeGAMhzEDq-lqCawanwvA'>
+    <g transform='translate(0.0,0.0)'>
+      <text text-anchor='middle' x='51.5' y='16.0' font-size='13' fill='rgb(0, 0, 0)'>createMessage</text>
+    </g>
+  </g>
+  <g transform='translate(335.0,266.0)' id='_Fyb6UMh0EDq-lqCawanwvA'>
+    <g transform='translate(0.0,0.0)'>
+      <text text-anchor='middle' x='35.0' y='16.0' font-size='13' fill='rgb(0, 0, 0)'>approve()</text>
+    </g>
+  </g>
+  <g id='_ImlpAMS7EDqtb5VosXgd6w'>
+    <line y1='418.0' x1='272.0' y2='418.0' x2='711.0' id='_ImrIksS7EDqtb5VosXgd6w' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)'/>
+    <polyline transform='translate(711.0,418.0) rotate(90.0)' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)' points='-5.0,10.0 0.0,0.0 5.0,10.0'/>
+  </g>
+  <g id='_ad1-cMS7EDqtb5VosXgd6w'>
+    <line y1='533.0' x1='272.0' y2='533.0' x2='867.0' id='_ad3zosS7EDqtb5VosXgd6w' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)'/>
+    <polyline transform='translate(867.0,533.0) rotate(90.0)' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)' points='-5.0,10.0 0.0,0.0 5.0,10.0'/>
+  </g>
+  <g id='_h_rIoMTxEDqWL_T9UlL7xA'>
+    <line y1='150.0' x1='127.0' y2='150.0' x2='256.0' id='_h_vaEsTxEDqWL_T9UlL7xA' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)'/>
+    <polyline transform='translate(256.0,150.0) rotate(90.0)' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)' points='-5.0,10.0 0.0,0.0 5.0,10.0'/>
+  </g>
+  <g id='_6f_P0cS8EDqtb5VosXgd6w'>
+    <line y1='227.0' x1='272.0' y2='227.0' x2='460.0' id='_6gBsEMS8EDqtb5VosXgd6w' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)'/>
+    <polyline transform='translate(460.0,227.0) rotate(90.0)' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)' points='-5.0,10.0 0.0,0.0 5.0,10.0'/>
+  </g>
+  <g id='_0F8f4MhyEDq-lqCawanwvA'>
+    <line y1='358.0' x1='272.0' y2='358.0' x2='601.0' stroke-dasharray='1, 2' id='_0F-8IMhyEDq-lqCawanwvA' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)'/>
+    <polyline transform='translate(601.0,358.0) rotate(90.0)' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)' points='-5.0,10.0 0.0,0.0 5.0,10.0'/>
+  </g>
+  <g id='_B4lQYMTxEDqWL_T9UlL7xA'>
+    <line y1='658.0' x1='256.0' y2='658.0' x2='127.0' id='_B4wPgsTxEDqWL_T9UlL7xA' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)'/>
+    <polygon transform='translate(127.0,658.0) rotate(-90.0)' stroke-width='1.0' fill='rgb(0, 0, 0)' stroke='rgb(0, 0, 0)' points='-4.0,12.0 0.0,0.0 4.0,12.0'/>
+  </g>
+  <g id='_ahe4wMTxEDqWL_T9UlL7xA'>
+    <line y1='74.0' x1='127.0' y2='74.0' x2='256.0' id='_ahh8EMTxEDqWL_T9UlL7xA' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)'/>
+    <polyline transform='translate(256.0,74.0) rotate(90.0)' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)' points='-5.0,10.0 0.0,0.0 5.0,10.0'/>
+  </g>
+  <g id='_08Rq8MhyEDq-lqCawanwvA'>
+    <line y1='479.0' x1='272.0' y2='479.0' x2='805.0' stroke-dasharray='1, 2' id='_08V8YshyEDq-lqCawanwvA' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)'/>
+    <polyline transform='translate(805.0,479.0) rotate(90.0)' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)' points='-5.0,10.0 0.0,0.0 5.0,10.0'/>
+  </g>
+  <g id='_UzYmcMhzEDq-lqCawanwvA'>
+    <line y1='151.0' x1='272.0' y2='151.0' x2='391.0' stroke-dasharray='1, 2' id='_UzaboshzEDq-lqCawanwvA' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)'/>
+    <polyline transform='translate(391.0,151.0) rotate(90.0)' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)' points='-5.0,10.0 0.0,0.0 5.0,10.0'/>
+  </g>
+  <g id='_FyRiQMh0EDq-lqCawanwvA'>
+    <line y1='291.0' x1='272.0' y2='291.0' x2='460.0' id='_FyXo4sh0EDq-lqCawanwvA' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)'/>
+    <polyline transform='translate(460.0,291.0) rotate(90.0)' stroke-width='1.0' fill='none' stroke='rgb(0, 0, 0)' points='-5.0,10.0 0.0,0.0 5.0,10.0'/>
+  </g>
+</svg>

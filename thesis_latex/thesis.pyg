@@ -1,0 +1,10 @@
+// create pool & erc20 contract instances:
+const pool = await getPoolContractWrite(provider);
+const erc20Contract = await getERC20ContractWrite(assetAddr, provider)
+// approve the amount of tokens to be deposited into the pool:
+const tx_approve = await erc20Contract.approve(pool.address, amount)
+await tx_approve.wait();
+// deposit tokens into the pool
+const tx_deposit = await pool.supply(asset_addr, amount, account, referralCode)
+await tx_deposit.wait();
+	...
