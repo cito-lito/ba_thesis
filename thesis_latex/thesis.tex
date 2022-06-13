@@ -10,8 +10,7 @@
 \newcommand{\welchethesis}{Bachelor}
 % \newcommand{\welchethesis}{Master}
 \newcommand{\thesisofwas}{of Science - B.Sc.}
-\newcommand{\titel}{Study and implementation of a decentralized application that can provide
-	permissionless financial services using an evm based blockchain}
+\newcommand{\titel}{Study and Implementation of a Decentralized Application That Can Provide Permissionless Financial Services Using an EVM Based Blockchain}
 %\newcommand{\kurztitel}{Template Abschlussarbeit}
 \newcommand{\autor}{Mario Alberto Maita Orozco}
 \newcommand{\datum}{30.06.2022} % Abgabedatum
@@ -74,18 +73,16 @@
 %when it is good, it is very, very good; and when it is bad, 
 %sit is better than nothing.}{\textit{Dick Brandon}}}
 
-
-
 \section{Motivation}
-In the last years' blockchain technology has gained a lot of traction and many developers are willing to build applications on top of this technology.
-The Ethereum network with the Ethereum Virtual Machine, or EVM~\ref{sec:evm}, (whose state is validated and copied by every node of the network) offers a new way of application development. Meaning that developers can now implement some functionality and deploy it to a public EVM blockchain, making the code/functionality tamper-resistant; in addition, the implemented functionality (or smart contract) can be called by any participant or other code/contracts within the network. This composability allows anyone to interact with already deployed contracts and build other applications on top of them. 
-These kinds of applications are called Decentralized applications or Dapps~\ref{sec:dapps}, because they are built on top of a decentralized network such as  Ethereum.
+In the last years, blockchain technology has gained a lot of traction and many developers are willing to build applications on top of this technology.
+The Ethereum network with the Ethereum Virtual Machine, or EVM~\ref{sec:evm}, (whose state is validated and copied by every node of the network) offers a new way of application development. Meaning that developers can now implement some functionality and deploy it to a public EVM blockchain, making the code or functionality tamper-resistant; in addition, the implemented functionality (or smart contract) can be called by any participant or other contracts within the network. This composability allows anyone to interact with already deployed contracts and build other applications on top of them. 
+These kinds of applications are called \textit{Decentralized Applications} or Dapps~\ref{sec:dapps} because they are built on top of a decentralized network such as Ethereum.
 \section{Goals}
-The goals of this Thesis are, to study and provide a better understanding of: 
+The goals of this thesis are to study and provide a better understanding of:
 \begin{itemize}
-	\item How Dapps are built.
-	\item Which technology is used.
-	\item And the development of a Dapp that uses well-known DeFi protocols ~\ref{ch:defi}, to let users access to permissionless financial services such as lending and borrowing of crypto assets.
+	\item The way that dapps are built.
+	\item The used technology.
+	\item Developing a Dapp that uses well-known DeFi protocols ~\ref{ch:defi}, to let users access permissionless financial services such as lending and borrowing of crypto assets.
 \end{itemize}
 
 
@@ -95,9 +92,9 @@ The Thesis is divided into the following chapters:
 	
 	\item \textbf{Chapter ~\ref{ch:background}: Fundamentals } gives a technical overview of blockchain technology, the Ethereum network, and decentralized applications.
 	\item \textbf{Chapter ~\ref{ch:defi}: Decentralized Finance } introduces the concept of decentralized finance or DeFi, and outlines the protocols used in this thesis.
-	\item \textbf{Chapter ~\ref{ch:appreq}: Application Requirements} describes the functional and non-functional requirements that the application developed for this thesis shall have.
-	\item \textbf{Chapter ~\ref{ch:impl}: Implementation} ...
-	\item \textbf{Chapter ~\ref{ch:conclusion} Conclusion} ...
+	\item \textbf{Chapter ~\ref{ch:appreq}: Application Requirements} describes the functional and non-functional requirements that the proposed decentralized application for this thesis shall have.
+	\item \textbf{Chapter ~\ref{ch:impl}: Implementation} outlines the used technology and the important implementation details of the thesis dapp.
+	\item \textbf{Chapter ~\ref{ch:conclusion} Conclusion}  closes with a description of the goals achieved, the challenges faced during dapp development, and possible future work for the dapp.
 \end{itemize}
 
 
@@ -106,8 +103,7 @@ The Thesis is divided into the following chapters:
 \chapter{Fundamentals} \label{ch:background}
 
 \section{Blockchain} \label{sec:bc}
-A blockchain\cite{book:bc}\cite{article:bc} is a type of database (append-only data strucuture), which stores data in blocks. These blocks are chronologically ordered by discrete timestamps and linked to each other using cryptographic hash functions~\ref{sec:chf}. Commonly, a blockchain is used as a public distributed ledger of transactions records, shared and synchronized by a per-to-per network~\ref{subsec:p2p}, where every party can participate in the validation of new blocks based on a consensus protocol, see~\ref{sec:cp}.
-The idea of a cryptographically secured chain of blocks was originally presented by Haber and Stornetta\cite{time-stamp} in 1991. However, the implementation and adoption of this technology started with the conception of the bitcoin cryptocurrency whitepaper\cite{bitcoin} in 2008.
+A blockchain\cite{book:bc}\cite{article:bc} is a type of database (append-only data structure), that stores data in blocks. These blocks are chronologically ordered by discrete timestamps and linked to each other using cryptographic hash functions. Commonly, a blockchain is used as a public distributed ledger of transaction records, shared and synchronized by a peer-to-peer network~\ref{subsec:p2p}, where every party can participate in the validation of new blocks based on a consensus protocol, see~\ref{sec:cp}.The idea of a cryptographically secured chain of blocks was originally presented by Haber and Stornetta\cite{time-stamp} in 1991. However, the implementation and adoption of this technology started with the conception of the bitcoin cryptocurrency whitepaper\cite{bitcoin} in 2008.
 
 \begin{figure}[htp]
 	\centering
@@ -116,12 +112,12 @@ The idea of a cryptographically secured chain of blocks was originally presented
 	\label{fig:bc}
 \end{figure}
 
-Determined by the blockchain implementation, block contents can be different. A block usually has a timestamp, the data or transactions record, and the hash value of the previous block in the chain, see figure~\ref{fig:bc}.
-The way that a blockchain ensures the security and keeps the integrity of the data is through cryptographic hash functions \ref{sec:chf}, and Merkle trees \ref{sec:mt}
+Determined by the blockchain implementation, block contents can be different. A block usually has a timestamp, the data or transaction records, and the hash value of the previous block in the chain. See figure~\ref{fig:bc}.
+The way that a blockchain guarantees the security and keeps the integrity of the data is through cryptographic hash functions \ref{sec:chf}, and Merkle trees \ref{sec:mt}
 
-By adding the cryptographic hash value of the previous block  (Block $n$ to Block $n+1$), blockchains ensure the integrity of previous blocks. Because of the second preimage resistance of cryptographic hash functions, see~\ref{sec:chf}, it is computationally infeasible to  find an input other then Block $n$ in order to generate an output = Hash (Block $n$). Due to that, the further the blockchain grows beyond block $n$, the more secure is the integrity of block $n$ and previous blocks.
+By adding the cryptographic hash value of the previous block  (Block $n$ to Block $n+1$), blockchains guarantee the integrity of previous blocks. Because of the second preimage resistance of cryptographic hash functions, see~\ref{sec:chf}, it is computationally infeasible to find an input other than Block $n$ in order to generate an output = Hash (Block $n$). Due to that, the further the blockchain grows beyond block $n$, the more secure is the integrity of block $n$ and previous blocks.
 
-Depending on who can participate in the consensus protocol, blockchain networks can be divided into two groups: permissionless and permissioned blockchains. This Thesis will be focused on permissionless blockchains that use an EVM~\ref{sec:evm}, such as the Ethereum network~\ref{sec:eth}.
+Depending on who can participate in the consensus protocol, blockchain networks can be divided into two groups: permissionless and permissioned blockchains. This thesis will be focused on permissionless blockchains that use an EVM~\ref{sec:evm}, such as the Ethereum network~\ref{sec:eth}.
 
 \subsubsection{Peer-to-peer (P2P) network}\label{subsec:p2p}
 \begin{figure}[htp]
@@ -130,23 +126,23 @@ Depending on who can participate in the consensus protocol, blockchain networks 
 	\caption{Peer-to-peer network\cite{wiki:Peer-to-peer}}
 	\label{fig:p2p}
 \end{figure}
-A peer-to-peer network\cite{book:masteringBTCp2p}\cite{wiki:Peer-to-peer} is a decentralized communications model where each participant (node) of the network stores and shares data with other nodes without any central party. Every peer is equal and there is no special node. Due to the decentralized design, P2P networks are resilient and robust compared with typical client-server architecture. The distributed ledger or blockchain is managed by the peer-to-peer network based on a set of rules or consensus mechanisms~\ref{sec:cp}, in fact, the term \emph{blockchain network} refers to a set of nodes, of a peer-to-peer network, running the consensus protocol of the specific blockchain. 
 
+A peer-to-peer network\cite{book:masteringBTCp2p}\cite{wiki:Peer-to-peer} is a decentralized communication model where each participant (node) of the network stores and shares data with other nodes without any central party. Every peer is equal and there is no special node. Due to the decentralized design, P2P networks are resilient and robust compared to typical client-server architectures. The distributed ledger or blockchain is managed by the peer-to-peer network based on a set of rules or consensus mechanisms~\ref{sec:cp}. In fact, the term \emph{blockchain network} refers to a set of nodes, of a peer-to-peer network, running the consensus protocol of the specific blockchain.
 
 
 \subsection{Cryptographic hash functions}\label{sec:chf}
-A cryptographic hash function\cite{chf}\cite{book:chf} maps a given data of variable size to a fixed length \emph{n}-bit string called hash value. $ H : \{0,1\}^* \to \{0,1\}^n $ Such hash functions have the following properties:
+A cryptographic hash function\cite{chf}\cite{book:chf} maps a given data of variable size to a fixed length \emph{n}-bit string called \textit{hash value}. $ H : \{0,1\}^* \to \{0,1\}^n $. Such hash functions have the following properties:
 \begin{description}		
-	\item \textbf{Collision resistance}\\ Given $x_1, x_2 $ It should be necessary $ O(2^\frac{n}{2}) $ compute power such that $H(x_1) = H(x_2).$This means, that it will be computationally infeasible that different inputs, i.e., blocks of data, will generate the same hash value.	
-	\item \textbf{Preimage resistance}\\ For a hash value \emph{h}, it should be necessary $ O(2^n) $ computation power in order to obtain an \emph{x} such that $ H(x)=h $.~~In other words, it should be a one-way function. 
+	\item \textbf{Collision resistance}\\ For two inputs $(x_1,~x_2)$, it should require $ O(2^\frac{n}{2})$ computer power, such that $H(x_1) = H(x_2)$. This means, that it will be computationally infeasible that different inputs, i.e., blocks of data, will generate the same hash value.
+	\item \textbf{Preimage resistance}\\ For a hash value \emph{h}, it should require $ O(2^n) $ computation power in order to obtain an \emph{x} such that $ H(x)=h $.~~In other words, it should be a one-way function. 
 	This means that it is computationally infeasible to retrieve the input data from its hash value. For instance, it is nearly impossible to get a private key from its public key.	
-	\item \textbf{Second preimage resistance}\\ For an input $x_1$ and its hash value $h_1$, it should be necessary $ O(2^n) $ computation power in order to obtain a $x_2$ such that $H(x_2)=h_1.$ This means that for a given hash value, it is computationally infeasible to find another input, i.e., a block data input, that generates the same hash value. 	
+	\item \textbf{Second preimage resistance}\\ For an input $x_1$ and its hash value $h_1$, it should require $ O(2^n) $ computation power in order to obtain a $x_2$ such that $H(x_2)=h_1.$ This means that for a given hash value, it is computationally infeasible to find another input, i.e., a block data input, that generates the same hash value. 	
 \end{description}
 
-Such properties prevent attackers from modifying existing blocks keeping the blockchain intact. For example, the bitcoin network uses the SHA-256 hashing algorithm to validate a block, and append it to the chain. This means once a consensus among all the participants is done, and a new block is added, it will be required $ O(2^{256}) $ computation power to tamper with the blockchain. In other words, it is nearly impossible to manipulate an added block as a result of the tremendous computer power that would be needed.
+Such properties prevent attackers from modifying existing blocks keeping the blockchain intact. For example, the bitcoin network uses the SHA-256 hashing algorithm to validate a block, and append it to the chain. This means, that once a consensus among all the participants is done, and a new block is added, $ O(2^{256}) $ computation power is required to tamper with the blockchain. In other words, it is nearly impossible to manipulate an added block as a result of the tremendous computer power that would be needed.
 
 \subsection{Merkle tree}\label{sec:mt}
-A Merkle tree\cite{article:merkle}\cite{book:merkle} or hash tree is a binary tree where every leaf node (nodes at the bottom of the tree) is the cryptographic hash value of some data or transaction. A merkle tree is constructed bottom-up; the upwards nodes are the cryptographic hash values of its two child nodes. Therefore, the root node  will contain a complete fingerprint of the entire set of transactions. 
+A Merkle tree\cite{article:merkle}\cite{book:merkle} or hash tree is a binary tree where every leaf node (nodes at the bottom of the tree) is the cryptographic hash value of some data or transaction. A merkle tree is constructed bottom-up; the upward nodes are the cryptographic hash values of its two child nodes. Therefore, the root node  will contain a complete fingerprint of the entire set of transactions. 
 
 Merkle trees allow secure and efficient data verification using cryptographic hash functions. For example; if a participant in the network needs to verify the validity of these four transactions, see figure~\ref{fig:merkle}, only a check of the root hash value is necessary. Due to the Merkle tree structure, if any of the data blocks is modified, so will be the root hash value. Furthermore, Merkle tree is a very efficient data structure; for instance, checking that a given transaction is included in the tree will take a maximum of $2log (N)$ operations.
 \begin{figure}[htp]
@@ -158,17 +154,17 @@ Merkle trees allow secure and efficient data verification using cryptographic ha
 \subsection{Consensus Protocol}\label{sec:cp}
 The consensus protocol\cite{article:bc} of a blockchain network gives a specific rule for verifying whether a transaction is valid or not. As mentioned in~\ref{sec:bc}, any participant or node of the network, depending on the blockchain type, can append a new block. For the reason that blockchains typically do not have a centralized authority validating transactions, participants on the blockchain must verify any transaction according to the set of rules or consensus protocol of the blockchain. The most common consensus mechanisms nowadays are:
 \begin{description}		
-	\item \textbf{Proof of work (PoW)}\\	In a PoW blockchain, nodes have to solve a cryptographic task in order to validate a block, the first node to find a solution can submit the transaction. Most of the first blockchains in the space use proof-of-work-based protocols; for example, Bitcoin uses PoW based on the cryptographic hash function SHA-256.
+	\item \textbf{Proof of work (PoW)}\\	In a PoW blockchain, nodes have to solve a cryptographic task in order to validate a block; the first node to find a solution can submit the transaction. Most of the first blockchains in the blockchain space use proof-of-work-based protocols; for example, Bitcoin uses PoW based on the cryptographic hash function SHA-256.
 	\item \textbf{Proof of state (PoS)}\\	In a PoS blockchain, the entity that can validate a transaction is randomly selected, depending on the "stake" that a node has on the network. Since nodes have a large stake in the blockchain, they will pursue the integrity of the network. 	
 \end{description}
 
 \subsection{Public-Key Cryptography}\label{publickey}
-In order to interact with a blockchain, participants use public key cryptography or asymmetric key cryptography\cite{book:pkc}. The public key acts as the id of the sender or receiver of a given message; and it can be shared with others without any security downfall. On the other hand, the private key should be kept secure and private by the message sender; it is used to sign (digital signature) the messages or transactions, i.e., give permission to change the state of the user records in the blockchain.
+In order to interact with a blockchain, participants use public key cryptography or asymmetric key cryptography\cite{book:pkc}. The public key acts as the ID of the sender or receiver of a given message; and it can be shared with others without any security downfall. On the other hand, the private key should be kept secure and private by the message sender; it is used to sign (digital signature) the messages or transactions, i.e., giving permission to change the state of the user records in the blockchain.
 \begin{itemize}
-	\item[] \textbf{Digital signature:} The message or transaction can only be signed with a private key, and anyone who knows the public key of the signed message can verify  its authenticity. Meaning that any party of the blockchain can participate in the verification of the transactions/messages.
+	\item[] \textbf{Digital signature:} The message or transaction can only be signed with a private key, and anyone knowing the public key of the signed message can verify  its authenticity. Meaning that any party of the blockchain can participate in the verification of the transactions or messages.
 \end{itemize}
 The private key is a random number and the public key is generated from it using one-way cryptographic hash functions, see \ref{sec:chf} or elliptic curve cryptography\cite{book:pkc}\cite{wiki:ecc}. Elliptic curve cryptography (ECC) is based on the discrete logarithm problem and is the most common public-key algorithm in blockchain networks.
-In mathematics terms, an elliptic curve is a plane curve over all the points $(x, y)$ that satisfy the following equation:  $ y^2 = x^3 +ax + b $
+In mathematical terms, an elliptic curve is a plane curve over all the points $(x, y)$ that satisfy the following equation:  $ y^2 = x^3 +ax + b $
 
 %\subsection{Bitcoin}
 %The bitcoin network is a set of technologies that enabled for the first time a %decentralized, permissionless, trustless, peer-to-peer digital currency system. %The distributed computation system that bitcoin introduced: the proof-of-work %algorithm to produce a consensus in a distributed system without a central %trusted authority, in combination with the blockchain storage system, solved the %double-spend problem and the Byzantine generals problem.
@@ -176,7 +172,7 @@ In mathematics terms, an elliptic curve is a plane curve over all the points $(x
 \section{Ethereum}\label{sec:eth}
 The Bitcoin\cite{bitcoin}\cite{book:masteringBTC} network and its set of technologies enabled for the first time a decentralized, permissionless, trustless, peer-to-peer digital currency system. The distributed computation system that bitcoin introduced: a proof-of-work algorithm to produce a consensus in a distributed system without a central trusted authority, in combination with the blockchain storage system, solved the double-spend problem and the Byzantine generals problem, enabling other applicability beyond digital currencies.  In 2014, Vitalik Butering introduced Ethereum\cite{article:eth}, a platform that moved beyond cryptocurrency applications.
 
-Similar to Bitcoin, Ethereum\cite{article:eth}\cite{book:masteringETH} is a distributed transaction-based state machine. However, it is not only a cryptocurrency system. Ethereum is a decentralized computing platform or a decentralized, pseudo-turning complete virtual machine~\ref{sec:evm}, which runs smart contracts and stores its state changes in its blockchain. Like bitcoin, state changes in ethereum are managed by a consensus mechanism, where everyone can participate in the validation of  blocks or state changes.
+Similar to Bitcoin, Ethereum\cite{article:eth}\cite{book:masteringETH} is a distributed transaction-based state machine. However, it is not only a cryptocurrency system. Ethereum is a decentralized computing platform or a decentralized, pseudo-turning complete virtual machine~\ref{sec:evm}, which runs smart contracts and stores its state changes in its blockchain. Like bitcoin, state changes in Ethereum are managed by a consensus mechanism, where everyone can participate in the validation of  blocks or state changes.
 
 \subsection{Accounts}\label{sec:accounts}
 Ethereum\cite{article:eth}\cite{wood2014ethereum} has an account-based model, where every account represents a state. An account is mapped with a 160 bits address (public key) and there are two types of accounts: \textit{Externally owned account} (EOA), controlled by a private key and (smart) \textit{contract account}, controlled by EVM~\ref{sec:evm} code. Depending on the account type, an account state is represented by the following four fields: \textbf{Nonce} is a counter that represents the number of transactions or contracts created by the account. \textbf{Balance} is the amount of Ether owned by the account, expressed in Wei~\ref{tab:Ether_metrics}. \textbf{Storage hash} is the root hash of a merkle tree that represents the contents of the account. \textbf{Code hash} is the hash that points to the EVM code that the account has.
@@ -191,7 +187,7 @@ Ethereum\cite{article:eth}\cite{wood2014ethereum} has an account-based model, wh
 A \textbf{transaction} is a cryptographically-signed message that can only be sent by an EOA. Transactions can trigger a state change on the blockchain or the execution of EVM code. Transactions can be divided into two groups:
 \begin{itemize}
 	\item  \textbf{Message calls}: The transactions between accounts.
-	\item \textbf{Contract creations}: creation of a new account with EVM code in its data/code field.
+	\item \textbf{Contract creations}: creation of a new account with EVM code in its data or code field.
 \end{itemize}
 \textbf{Messages} can be seen as internal transactions between contracts triggered by a message call. A message is like a transaction but produced by a contract. This way messages enable contracts to interact between them.
 \subsection{Ethereum Virtual Machine (EVM)}\label{sec:evm}
@@ -204,7 +200,7 @@ The EVM\cite{wood2014ethereum}\cite{book:masteringETH-evm} is a quasi-Turing-com
 \end{figure}
 \subsubsection{Ether and Gas}\label{sec:gas}
 Ether (ETH) is the native cryptocurrency of Ethereum. Ether is used to pay for transaction fees or EVM computing power in the form of gas units. For example, the cost or gas limit for sending a transaction is 21000 gas units\cite{wood2014ethereum-Fee}. The price for a gas unit is represented in gwei, and is set by the participants of the consensus protocol (miners), based on the supply and demand of the network computational power\cite{book:masteringETH-gas}.
-For instance, with an average gas price of 15 gwei\cite{gastracker}, sending a transaction at the moment of writing this Thesis would cost: $21000*15 = 315000~Gwei$ or $0.000315~Ether.$
+For instance, with an average gas price of 15 gwei\cite{gastracker}, sending a transaction at the moment of writing this thesis would cost: $21000*15 = 315000~Gwei$ or $0.000315~Ether.$
 \begin{table}[htp]
 \centering
 %\begin{center}
@@ -228,7 +224,7 @@ In the Ethereum network, a smart contract\cite{book:masteringETH-sc-solidity}\ci
 	\item[{\textbf{Immutability}}] When a smart contract is deployed to the Ethereum platform, the code can not be changed. If a modification (fixing a bug or adding new functionality) needs to be made, a new smart contract needs to be deployed.
 	\item[{\textbf{Determinism}}] Given an input and the blockchain state, the result of the execution of the smart contract has to be the same for everyone who calls the contract.
 	\item[{\textbf{Limitations}}] By design, smart contracts can not send $HTTP$ requests; this can be solved using decentralized oracles\cite{oracles}. Furthermore, the context of execution is limited to the EVM, meaning that they can only access their own state and the transaction context of the transaction caller. Lastly, smart contracts can not exceed the size of $24KB$.
-	\item[{\textbf{Lifecycle}}] Once deployed, smart contracts can no be modified. However, they can be deleted if the smart contract was programed with the \verb|selfdestruct()| function.
+	\item[{\textbf{Lifecycle}}] Once deployed, smart contracts can not be modified. However, they can be deleted, if the smart contract was programmed with the \verb|selfdestruct()| function.
 	\item[{\textbf{Composability}}] Since smart contracts can call other smart contracts, functionality of different contracts can be combined. However, such interaction between contracts has to be triggered by a transaction sent by an EOA~\ref{sec:accounts}.
 	\item[{\textbf{Permissionless}}] Anyone can deploy a smart contract to the Ethereum network.    
 \end{description}
@@ -237,7 +233,7 @@ Smart contracts can be written in EVM bytecode\cite{evmbytecode}. However, they 
 {Solidity}\cite{book:masteringETH-sc-solidity}\cite{solidity} is an object-oriented or contract-oriented high-level programming language; it was created by Dr Gavin Wood\cite{gavinwood} and designed to target the EVM.  The Solidity compiler $solc$ converts Solidity contracts into EVM bytecode and also generates the contract application binary interface (ABI)\cite{abi}, which enables the interaction with contracts in both directions; from outside the blockchain and from contract to contract.
  
 \subsection{Tokens}\label{sec:tokens}
-Tokens have a widely used description\cite{wiki:Token}, in the context of Ethereum; a token\cite{tokens} is a digital representation or abstraction of something that lives on the Blockchain. For instance, tokens can represent currencies, shares in a company, or even a virtual pet. Unlike Ether, which is managed by the Ethereum protocol, tokens are created and handled by smart contracts. Everyone can create a token. Nonetheless, because a smart contract can be programed without any restriction, there are standards that need to be followed for the creation of tokens. The two most used standards are:
+Tokens have a widely used description\cite{wiki:Token}, in the context of Ethereum; a token\cite{tokens} is a digital representation or abstraction of something that lives on the Blockchain. For instance, tokens can represent currencies, shares in a company, or even a virtual pet. Unlike Ether, which is managed by the Ethereum protocol, tokens are created and handled by smart contracts. Everyone can create a token. Nonetheless, because a smart contract can be programmed without any restriction, there are standards that need to be followed for the creation of tokens. The two most used standards are:
 \begin{itemize}
 	\item The \textbf{ERC20} Token Standard\cite{erc20}, for the representation of equivalent and interchangeable tokens (fungible tokens). For instance, a token that represents a currency or a share in a company. As defined in the EIP\cite{erc20}, the ERC20 contract is composed of the following elements:
 	\begin{table}[htp]
@@ -262,7 +258,7 @@ Tokens have a widely used description\cite{wiki:Token}, in the context of Ethere
 	\item The \textbf{ERC721} Token Standard\cite{erc721}, for non-fungible tokens or representation of unique goods like an ID or collectibles.
 \end{itemize}
 \subsection{Decentralized Applications (Dapps)}\label{sec:dapps}
-Unlike a web application, a decentralized application or Dapp\cite{book:dapps}\cite{dapps}\cite{dapps_arch} has its backend running on a decentralized per-to-per network such as Ethereum. For dapps running in an EVM-based blockchain, the backend is smart contracts executed by the EVM. This means that a dapp has the same properties as smart contracts and the blockchain network where it lives.
+Unlike a web application, a decentralized application or Dapp\cite{book:dapps}\cite{dapps}\cite{dapps_arch} has its backend running on a decentralized peer-to-peer network such as Ethereum. For dapps running in an EVM-based blockchain, the backend is smart contracts executed by the EVM. This means, that a dapp has the same properties as smart contracts and the blockchain network where it lives.
 \subsubsection{Dapp architecture}\label{dapp}
 The architecture of dapp is still been defined and depends, like any application, on the services that the application should provide. However, there are some main components that a dapp should have: 
 \begin{figure}[htp]
@@ -275,9 +271,9 @@ The architecture of dapp is still been defined and depends, like any application
 	\item \textbf{Frontend}: It enables the users to interact with the smart contracts through interactive graphical components such as buttons, and icons, among others. Like web applications, this user interface runs on any browser.
 	\item \textbf{Wallet}: A wallet is a tool or software application that manages the account's private key and addresses (public keys). Wallets don't have custody of the account crypto assets. A wallet is only an application that enables the account owner to sign transactions, therefore, interact with the blockchain and the smart contracts living in the network.
 	\item \textbf{Node or Node Provider}: Enables communication with the blockchain i.e. reading data or sending transactions. A node will broadcast the transactions and miners will validate the new states that the transactions can produce. Everyone can run a node. Nonetheless, because of the difficulty and costs that running a node could have, Dapps usually rely on a third-party service or Node provider. Every Ethereum client or Node provider implements a JSON-RPC\cite{json_rpc} Specification with a uniform set of methods.
-	\item \textbf{The Blockchain Network}: With the smart contracts that the application will use, the EVM that runs these smart contracts, and the blockchain that stores the states and data produced by the execution of these smart contracts.
+	\item \textbf{The Blockchain Network}: is the base layer, where the EVM executes the dapp smart contracts and stores the new states in the blockchain.
 \end{description}
-Furthermore, the Comunication with the Node provider is done using web3 libraries such as ethers.js\cite{ethersjs} or web3.py\cite{web3py}.
+Furthermore, the Comunication with the Node provider is done using web3 libraries such as \verb|ethers.js|~\ref{ethers} or \verb|web3.py|~\ref{brownie}.
 %%%%% Chapter
 \chapter{Decentralized Finance (DeFi)} \label{ch:defi}
 Decentralized finance or DeFi\cite{article:cefidefi}\cite{article:defi} refers to a set of decentralized applications and protocols that are focused on financial services. The term finance\cite{wiki:Finance} involves the creation, and management of money, in traditional finance systems this is done by financial institutions\cite{wiki:Financial_institution}, which emit, buy and sell financial instruments\cite{wiki:Financial_instrument} on financial markets\cite{wiki:Financial_market}, all regulated by Laws. In DeFi,  these practices and processes are determined by protocols that rely on smart contracts, which means Defi is an open, permissionless, and composable stack of protocols built on top of a permissionless blockchain such as Ethereum~\ref{sec:eth}. 
@@ -288,12 +284,12 @@ Decentralized finance or DeFi\cite{article:cefidefi}\cite{article:defi} refers t
 	\label{fig:tvl}
 \end{figure}
 
-DeFi offers a wide variety of financial services. For example lending and borrowing of crypto-assets, exchange of crypto assets, stable currencies, and investments oportunities, among others. Unlike traditional financial systems, is open to anyone who has internet access, users have total control of their assets and Markets are always open. Furthermore, DeFi has gained a lot of traction in the past years and according to Defipulse\cite{defipulse}, at the moment of writing this Thesis, the total locked value or TVL (held by smart contracts) in all the DeFi applications and protocols is \$58.56B~\ref{fig:tvl}, being the Maker Protocol~\ref{sec:maker}, the Aave Protocol~\ref{sec:aave}, adn he Uniswap Exchange\cite{uniswap}, the three relevant DeFi protocols of the space with $\$14.52$B, $\$8.38$B and $\$7.04$B of TVL respectively. 
+DeFi offers a wide variety of financial services. For example, the lending and borrowing of crypto-assets, exchange of crypto assets, stable currencies, and investment opportunities, among others. Unlike traditional financial systems, it is open to anyone who has internet access; users have total control of their assets and markets are always open. Furthermore, DeFi has gained a lot of traction in the past years and according to Defipulse\cite{defipulse}, at the moment of writing this thesis, the total locked value or TVL (held by smart contracts) in all the DeFi applications and protocols is \$58.56B~\ref{fig:tvl}, being the Maker Protocol~\ref{sec:maker}, the Aave Protocol~\ref{sec:aave}, and the Uniswap Exchange\cite{uniswap}, the three relevant protocols of the DeFi space with $\$14.52$B, $\$8.38$B and $\$7.04$B of TVL respectively. 
 \section{Maker Protocol}\label{sec:maker}
-One essential piece of DeFi is stable coins or stable cryptocurrencies, and DAI~\ref{sec:dai}  is one of the most popular stable coins in the space with a market cap of \$6.5B\cite{stablecoinsmarket} at the moment of writing. Stable coins are cryptocurrencies pegged to a predetermined value, usually to the USD value. It enables DeFi users to access more traditional assets, avoiding the natural volatility of crypto assets at the current moment. In addition, due to the high demand for stable coins in the DeFi space, users can also earn interest on their stablecoins by providing liquidity into lending pools of different protocols such as Aave~\ref{sec:aave} or Compound\cite{compound}.
+One essential piece of DeFi is stable coins or stable cryptocurrencies, and DAI~\ref{sec:dai} is one of the most popular stable coins in the DeFi space with a market cap of \$6.5B\cite{stablecoinsmarket} at the moment of writing. Stable coins are cryptocurrencies pegged to a predetermined value, usually to the USD value. It enables DeFi users to access more traditional assets, avoiding the natural volatility of crypto assets at the current moment. In addition, due to the high demand for stable coins in the DeFi space, users can also earn interest in their stablecoins by providing liquidity into lending pools of different protocols such as Aave~\ref{sec:aave} or Compound\cite{compound}.
 
 The Maker Protocol\cite{maker} is an open-source project built on Ethereum that enables users to generate the stable coin Dai~\ref{sec:dai}. Wich is collateral backed by different crypto assets authorized by the MakerDao, a decentralized autonomous organization (DAO)\cite{wiki:Dao}, made up of all the Maker governance token (MKR) holders. The MKR token is an ERC20 token~\ref{sec:tokens} that enables dao participants to vote on different changes or improvements to the Maker protocol.
-\subsection{DAI}\label{sec:dai}
+\subsubsection{DAI}\label{sec:dai}
 DAI\cite{makerDAI} is the main product of the Maker Protocol. DAI is an ERC20 token~\ref{sec:tokens},  pegged to the USD value and fully backed by different crypto assets, approved by the MakerDao, such as ETH~\ref{sec:gas}. DAI can be generated by depositing any accepted collateral crypto asset into the Maker Vaults. In short, the Maker Vaults are a set of smart contracts~\ref{sec:sc} that lock the deposited asset and generate DAI (let the user borrow DAI). The generated DAI is destroyed by the vault when the generated DAI is repaid to the Vault. Vaults are overcollateralized, for instance, at the time of writing, the Maker ETH-C Vault has a minimum collateral ratio of 170\%\cite{oasisapp}, meaning that for every \$170 of ETH deposit in the Vault a maximum of 100 DAI can be generated.
 \section{Aave Protocol}\label{sec:aave}
 Aave\cite{aaveV1}\cite{aaveV2}\cite{aaveV3} is a DeFi liquidity protocol that enables users to lend and borrow crypto assets. Aave was first deployed on the Ethereum network, however, at the moment of writing, Aave has expanded to other EVM-based blockchain and Layer 2 scaling solutions such as  Polygon\cite{polygon}, Avalanche\cite{avax}, Fanton\cite{fanton}, and Arbitrum\cite{arbitrum}, among many others.
@@ -307,7 +303,7 @@ Using Aave, users that supply liquidity to the protocol (lenders) earn interest 
 	\label{fig:pool}
 \end{figure}
 \subsection{Aave Rates and Risk Parameters}\label{rates}
- As mentioned in the last paragraph, for lenders and borrowers the interest rate is determined by the status of the specific reserve. For \textbf{lenders}, the interest rate depends on  the \textit{current liquidity rate}:
+ As mentioned in the last paragraph, the interest rate, for lenders and borrowers is determined by the status of the specific reserve. For \textbf{lenders}, the interest rate depends on  the \textit{current liquidity rate}:
 \[ R_{t} = R_{o}U \]
 Where $ R_{o} $ is the overall borrow rate of the reserve defined as follows:
 \begin{equation}
@@ -319,7 +315,7 @@ Where $ R_{o} $ is the overall borrow rate of the reserve defined as follows:
 \end{equation}
 With the total amount of borrowed liquidity $B_{t} $ (\textit{total borrows}), expressed as the sum of the total stable borrows plus  the total variable borrows :
 \[ B_{t} = B_{s}+B_{v} \]
-And $ U $ is the \textit{utilization rate}, wich is the representation of the utilization of the deposited assets, defined as follows:
+And $ U $ is the \textit{utilization rate}, which is the representation of the utilization of the deposited assets, defined as follows:
 \begin{equation}
 	U = 
 	\left\{\begin{matrix}
@@ -332,26 +328,26 @@ Where $L_{t}$  is the \textit{total liquidity} available in the reserve.
 \textbf{Borrowers} can borrow crypto assets with variable and stable interest rates. 
 The $R_{v}$\cite{aaveV1RV} is the \textit{variable borrow rate} and $R_{sa}$\cite{aaveV1RS} is the \textit{average stable rate}. \\
 
-Note that the mentioned definitions are from the V1\cite{aaveV1} whitepaper hold for the V2\cite{aaveV2} and the recently V3\cite{aaveV3} release.
+Note that the mentioned definitions are from the V1\cite{aaveV1} whitepaper held for the V2\cite{aaveV2} and the recently V3\cite{aaveV3} release.
 
 \subsubsection{Loan-To-Value (LTV)} 
 A user will be able to borrow a maximum amount depending on the Loan-To-Value (LTV)\cite{aaveV1}\cite{risk} of the desired asset reserve. For instance, if the LTV value of a given asset is  60\%, see fig~\ref{fig:pool}, for every 1 ETH value of collateral deposited, a user can borrow a maximum of 0.6 ETH value of the desired asset reserve. The max LTV is defined as follows:\[ maxLTV = \frac{\sum Collateral_{i}~ETH~\times LTV_{i}}{Total~Collateral~in~ETH} \]
 \subsubsection{Liquidations}\cite{aaveV1}\cite{liquidation} 
 To maintain the solvency of the protocol, anyone can liquidate a borrow position i.e. buy a maximum of 50\% of the borrow position. Every liquidated position has a liquidation bonus, which depends on the asset. For instance, if someone borrows 1 ETH worth of DAI and its~$H_{f}$~\ref{hf} drops below 1, anyone can liquidate the position (max 50\%) for a bonus of 5\% (105\% liquidation ratio, see fig~\ref{fig:pool}) at the movement of writing, the liquidator can claim up to 0.5 + 0.05 ETH by repaying 0.5 ETH worth of DAI.
-\subsubsection{Liquidation Threshold}
+\subsubsection{Liquidation Threshold}\label{liquidation}
 Because of price fluctuations in the market, a borrow position can become close to the collateral position. The percentage at which a borrow position can be liquidated is called the liquidation threshold\cite{aaveV1}\cite{risk} . For instance, if the liquidation threshold of a given asset is 80\% and the borrow position value surpasses 80\% of the collateral value, the position can be liquidated. The liquidation threshold is defined as follows:
 \[ Liquidation~Threshold = \frac{\sum Collateral_{i}~in~ETH~\times Liquidation Threshold_{i}}{Total~Collateral~in~ETH} \]
 The $Liquidation Threshold_{i}$ for a given asset is defined and approved by the aave governance~\ref{governance}.
 \subsubsection{Health Factor}\label{hf}
-In order to maintain solvency in the protocol, every user or account has a health factor\cite{aaveV1}\cite{risk} , which indicates if the borrow position of the user can be liquidated. If~$H_{f} < 1$ the borrow position can be liquidated.
+In order to maintain solvency in the protocol, every user or account has a health factor\cite{aaveV1}\cite{risk} , which indicates if the borrow position of the user can be liquidated. If~$H_{f} < 1$, the borrow position can be liquidated.
 \[ H_{f} = \frac{\sum Collateral_{i}~in~ETH~\times Liquidation Threshold_{i}}{Total~Borrows~in~ETH} \]
 
 \subsubsection{\textit{Ray Math}}\label{ray}
-In order to avoid rounding errors, the aave protocol uses Ray Math\cite{ray}\cite{ray2}, where a Ray is a unit with 27 decimals of precision. All the rates are expressed in Ray.
+To avoid rounding errors, the aave protocol uses Ray Math Concept\cite{ray}\cite{ray2}, where a Ray is a unit with 27 decimals of precision. All the rates are expressed in Ray.
 \subsection{Tokenization: aTokens}\label{atokens}
-Aave Tokens or aTokens\cite{aaveV1aToken}\cite{aaveV2debtToken} are ERC20 tokens~\ref{sec:tokens} that a liquidity provider of the protocol (lenders or depositors) or borrowers, receives once the deposit or borrow transaction is processed; aTokens maps 1:1, the deposited/borrowed asset, also known as the underlying asset. For instance, if a user deposits 100 DAI, 100 aDAI is sent to its account~\ref{sec:accounts}. For lenders, the balance of a specific aTokens grows depending on the interest rate~\ref{rates} of the underlying asset. 
+Aave Tokens or aTokens\cite{aaveV1aToken}\cite{aaveV2debtToken} are ERC20 tokens that liquidity providers (lenders), and borrowers, receive once the deposit or borrow transaction is processed; aTokens maps 1:1, the deposited or borrowed asset, also known as the underlying asset. For instance, if a user deposits 100 DAI, 100 aDAI is sent to its account~\ref{sec:accounts}. For lenders, the balance of a specific aTokens grows depending on the interest rate~\ref{rates} of the underlying asset. 
 \subsection{Lending Pool}
-At the heart of the Aave protocol is the \verb|lendingPool.sol| or \verb|pool.sol|, renamed in the V3\cite{aaveV3} release. The pool handles the most important actions of the protocol. Users and developers can interact with the pool contract to deposit, borrow, and repay a borrow position, among other actions, see fig~\ref{fig:pool_arch}. 
+At the heart of the Aave protocol is the \verb|lendingPool.sol| or \verb|pool.sol|, renamed in the V3\cite{aaveV3} release. The pool handles the most important actions of the protocol. Users and developers can interact with the pool contract to deposit, borrow, and or repay a borrow position, among other actions, see fig~\ref{fig:pool_arch}. 
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=1\textwidth]{./images/pool_arch}
@@ -363,19 +359,19 @@ Aave\cite{aaveV1GOV} uses a decentralized autonomous organization or DAO\cite{wi
 \begin{enumerate}
 	\item \textbf{Governance Forum\cite{govForum}:} The proposals are introduced. Anyone can create an Aave Request for Comments (ARC)\cite{arc} and submit it to the forum.
 	\item \textbf{Snapshot\cite{snapshot}:} The ACR is submitted to vote.
-	\item \textbf{AIP:} If the proposal passes the snapshot, it moves to the Aave Improvement Proposal (AIP), which is reviewed by devs, and risk/security contributors, before any on-chain submission.
+	\item \textbf{AIP:} If the proposal passes the snapshot, it moves to the Aave Improvement Proposal (AIP), which is reviewed by developers, and security contributors, before any on-chain submission.
 	\item \textbf{Create Proposal:} When the AIP has been revised, it can be created on-chain. A user with enough proposition power can call the function \verb|create()|\cite{create} from the aave governance contract.
-	\item \textbf{Voting and Execution:} This will result in the proposal being succeeded or failed. If succeeded the proposal can be executed or expired.
+	\item \textbf{Voting and Execution:} This will result in the proposal being succeeded or failed. If succeeded, the proposal can be executed or expired.
 \end{enumerate}
 
 %%%%% Chapter
 \chapter{Application Requirements} \label{ch:appreq}
-This Chapter describes the application requirements based on ISO/IEC/IEEE 29148:2018\cite{iso} Software Requirements Specification standard.
+This chapter describes the application requirements based on ISO/IEC/IEEE 29148:2018\cite{iso} Software Requirements Specification standard.
 
 \textbf{Project}: Thesis.
 \section{Introduction}
 \subsection{Purpose}
-The main purpose of this Chapter is to provide a detailed description of the Decentralized application developed for this Thesis. 
+The main purpose of this chapter is to provide a detailed description of the decentralized application developed for this thesis. 
 \subsection{Scope}
 Requirements for a decentralized application that can provide
 permissionless financial services using an evm based blockchain.
@@ -479,17 +475,17 @@ The following use case diagram describes the minimum functionality that the appl
 %%%%% Chapter
 \chapter{Implementation} \label{ch:impl}
 \section{Interaction with the Smart Contracts}
-The main purpose of the application is to be able to access the different functionalities, such as deposit and borrow, of \verb|pool.sol|  smart contract within the Aave Protocol~\ref{sec:aave}. In order to test the interaction process with smart contracts, the Brownie framework\cite{brow} is been used. Brownie is a python framework for the development and testing of EVM smart contracts. Brownie enables developers the compilation, test, and deployment of smart contracts with just a few commands, it also uses the ganache-cli\cite{ganache}, which is a built-in local blockchain (test RPC blockchain node) hosted on 127.0.0.1:8545 for fast contract tests. Brownie also lets developers manage accounts and network configurations in an easy and safe way. A new brownie project for this Thesis was created using the \verb|brownie init| command.
+The main purpose of the application is to be able to access the different functionalities, such as deposit and borrow, of \verb|pool.sol|  smart contract within the Aave Protocol~\ref{sec:aave}. In order to test the interaction process with smart contracts, the Brownie framework\cite{brow} is been used. Brownie is a python-based framework for the development and testing of EVM smart contracts. Brownie enables developers the compilation, test, and deployment of smart contracts with just a few commands, it also uses the ganache-cli\cite{ganache}, which is a built-in local blockchain (test RPC blockchain node) hosted on 127.0.0.1:8545 for fast contract tests. Brownie also lets developers manage accounts and network configurations in an easy and safe way. A new brownie project for this thesis was created using the \verb|brownie init| command.
 
-In accordance with its permissionless characteristic, anyone can interact with a smart contract. However, from a developer perspective, to be able to interact with a smart contract the following three items are needed:
+Under its permissionless characteristic, anyone can interact with a smart contract. However, from a developer's perspective, to be able to interact with a smart contract, the following three items are needed:
 \begin{enumerate}\label{sc_interaction}
 	\item An Account: Needed to sign the transactions. Brownie provides developers with a set of test accounts. However, for this project, a new EOA Account~\ref{sec:accounts} was created using Metamask~\ref{metamask}, and imported to the brownie project using its private key~\ref{publickey}.
 	\item The Application Binary Interface (ABI)~\ref{sec:sc}, which is generated in the compilation process, \verb|brownie compile| command.
 	\item The Smart Contract Address: This is the address of the contract account~\ref{sec:accounts}. 
 \end{enumerate}
-This Thesis uses the smart contracts from the V3 release of the Aave Protocol. All the contracts can be found in the Aave GitHub repository\cite{aavegithub}. Since all the contracts are also deployed in different EVM blockchains, the contracts can also be found in their respective blockchains explorers. For instance the \verb|pool.sol| deployment in the Arbitrum Network can be found here\cite{arbiscan}.
+This thesis uses the smart contracts from the V3 release of the Aave Protocol. All the contracts can be found in the Aave GitHub repository\cite{aavegithub}. Since all the contracts are also deployed in different EVM blockchains, the contracts can also be found in their respective blockchains explorers. For instance, the \verb|pool.sol| deployment in the Arbitrum Network can be found here\cite{arbiscan}.
 
-The following figure~\ref{fig:interactionSC} gives an overview of how the account and the  smart contracts (used for this Thesis) interact with each other:
+The following figure~\ref{fig:interactionSC} gives an overview of how the account and the  smart contracts (used for this thesis) interact with each other.
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=1\textwidth]{./images/interactionSC}
@@ -497,31 +493,32 @@ The following figure~\ref{fig:interactionSC} gives an overview of how the accoun
 	\label{fig:interactionSC}
 \end{figure}
 \subsection{The Pool Contract}\label{poolcontract}
-The \verb|pool.sol|\cite{poolContract} contract enables users and other contracts to interact with the main functionality of the Aave Protocol. More specifically, the \verb|IPool.sol|, which is the interface of the \verb|pool.sol|. The \verb|IPool.sol| is placed on top of the pool.sol (inherit) and contains the functions declarations that the \verb|pool.sol| shall implement. Functions in the \verb|IPool.sol| are declared using the keyword \verb|external|, enabling other contracts the interaction with these functions. This interface construction facilitates the interaction between Dapps or contracts. The functions of the \verb|pool.sol| contract used for this thesis are: 
+The \verb|pool.sol|\cite{poolContract} contract enables users and other contracts to interact with the main functionality of the Aave Protocol, more specifically, the \verb|IPool.sol|, which is the interface of the \verb|pool.sol|. The \verb|IPool.sol| is placed on top of the pool.sol (inherit) and contains the functions declarations that the \verb|pool.sol| shall implement. Functions in the \verb|IPool.sol| are declared using the keyword \verb|external|, enabling other contracts the interaction with these functions. This interface construction facilitates the interaction between dapps or contracts. The functions of the \verb|pool.sol| contract used for this thesis are: 
 \begin{itemize}
-	\item{\textbf{Supply:}} The \verb|supply()| function, also known as the deposit function in Aavve V1 and V2, enables accounts to deposit a given amount of a supported crypto asset into its reserve~\ref{reserve}. If the supply transaction success, the account address, set in the parameter \verb|onBehalOf|, will receive the equivalent amount of aTokens. For instance, if an account supplies $100$ DAI, $100$ aDAI will be sent back to the account address set in the \verb|onBehalOf| parameter. Once the supply transaction is done, interest~\ref{rates} is generated according to the status of the reserve of the deposited crypto asset.
+	\item{\textbf{Supply:}} The \verb|supply()| function, also known as the deposit function in Aavve V1 and V2, enables accounts to deposit a given amount of a supported crypto asset into its reserve~\ref{reserve}. If the supply transaction succeeds, the account address, set in the parameter \verb|onBehalOf|, will receive the equivalent amount of aTokens. For instance, if an account supplies $100$ DAI, $100$ aDAI will be sent back to the account address set in the \verb|onBehalOf| parameter. Once the supply transaction is done, interest~\ref{rates} is generated according to the status of the reserve of the deposited crypto asset.
 	\item{\textbf{Withdraw:}} The \verb|withdraw()| function enables accounts to get the deposited asset ( underlying asset ) from the reserve by destroying or burning the generated aToken for the deposited asset. Only accounts holding the aToken will be allowed to withdraw the underlying asset from the reserve. The caller of the withdraw function can decide the receiver of the underlying asset by passing the desired account address to the parameter \verb|to|.
-	\item{\textbf{Borrow:}} This function allows accounts to borrow a maximum amount of a given asset depending on the borrowing power of the account. The borrowing power of the account depends on how much collateral the account has deposited into the collateral reserve. Borrowers can decide the interest rate by setting \verb|theinterestRateMode| parameter to stable or variable~\ref{rates}. The account address set in the \verb|onBehalfOf| parameter will receive the specif amount of debt tokens.
+	\item{\textbf{Borrow:}} This function allows accounts to borrow a maximum amount of a given asset depending on the borrowing power of the account. The borrowing power of the account depends on how much collateral the account has deposited into the collateral reserve. Borrowers can decide the interest rate by setting \verb|theinterestRateMode| parameter to stable or variable~\ref{rates}. The account address set in the \verb|onBehalfOf| parameter will receive the specific amount of debt tokens.
 	\item{\textbf{Repay:}} The \verb|repay()| function allows accounts to pay back borrowed assets by burning the specific debt tokens, reducing or removing the debt tokens of the account address passed in the \verb|onBehalfOf| parameter. 
 	\item{\textbf{Reserve Data:}}\label{reserveData} The \verb|getReserveData()| function returns the detailed reserve state for a given underlying asset. The asset address is passed as a parameter of the function. Using this function, the liquidity rate $R_{t}$, stable borrow rate $R_{s}$ ~\ref{rates}, and other data of the reserve can be retrieved. 
-	\item{\textbf{User Account Data:}} The \verb|getUserAccountData()| function returns the relevant data of the reserves for the passed account address. For instance, the health factor $H_{f}$~\ref{rates} ´and other relevant data can be retrieved using this function.
+	\item{\textbf{User Account Data:}} The \verb|getUserAccountData()| function returns important data of the reserves for the passed account address. For instance, the health factor $H_{f}$~\ref{rates}, and other relevant data can be retrieved using this function.
 \end{itemize}
 \subsection{The Address Provider Contract}
-As mentioned before~\ref{sc_interaction}, for interacting with smart contracts, the address of the contract account is needed. One of the characteristics of a smart contract is its immutability, once a contract is deployed to the blockchain network it can not be changed. However, with the purpose of being able to implement new features or improvements approved by the Aave Governance~\ref{governance}, the pool contract implements the Proxy Upgrade Pattern\cite{ozproxy}, based on \textit{delegatecall}\cite{delegatecall}, where the code is executed in the context of the caller account address. For this reason, to obtain the address of the pool contract, or IPool contract, the \verb|IPoolAddressesProvider.sol|\cite{pooladdrprov} contract is needed. This contract provides the function \verb|getPool()|, which returns the address of the pool proxy contract.
+As mentioned before~\ref{sc_interaction}, in order to interact with smart contracts, the address of the contract account is needed. One of the characteristics of a smart contract is its immutability; once a contract is deployed to the blockchain network, it can not be changed. However, to be able to implement new features approved by the Aave Governance~\ref{governance}, or adjust the contract to the deployed market (blockchain network), the pool contract implements the Proxy Upgrade Pattern\cite{ozproxy}, based on \textit{delegatecall}\cite{delegatecall}, where the code is executed in the context of the caller account address. For this reason, to obtain the address of the pool contract, or IPool contract, the \verb|IPoolAddressesProvider.sol|\cite{pooladdrprov} contract is needed. This contract provides the function \verb|getPool()|, which returns the address of the pool proxy contract.
+
 \subsection{The IERC20 Contract}
 Since ERC20 follows a standard~\ref{sec:tokens}, the \verb|IERC20.sol| allow accounts to interact with any deployed ERC20 token. The project of this thesis needs to interact with ERC20 tokens, for instance, getting the balance of a given token or approving tokens to be deposited into the pool contract. Such actions can be accomplished by calling the \verb|balanceOf()| and \verb|approve()| functions.
 \subsection{The IWETH Contract}
-Because the pool contract can only handle ERC20 tokens, to be able to use ETH within the protocol, it needs to be converted to an ERC20 token. The \verb|IWETH.sol| allow accounts to wrap ETH into an ERC20 token. Accounts that call the \verb|deposit()| method of the IWETH contract will receive the exact amount of the deposited ETH in the form of WETH, which is an ER20 token that represents EHT. Accounts that desire to deposit ETH to the pool contract need first to convert their ETH to WETH. Another option, used in this project, is to use the \verb|IWETHGateway.sol|\cite{wethgateway} contract provided by Aave. This contract takes care of wrapping and unwrapping the deposited ETH.
+Because the pool contract can only handle ERC20 tokens, to be able to use ETH within the protocol, it needs to be converted to an ERC20 token. The \verb|IWETH.sol| allow accounts to wrap ETH into an ERC20 token. Accounts that call the \verb|deposit()| method of the IWETH contract will receive the exact amount of the deposited ETH in the form of WETH, which is an ER20 token that represents EHT. Accounts that desire to deposit ETH to the pool contract need  to convert their ETH to WETH first. Another option, used in this project, is to use the \verb|IWETHGateway.sol|\cite{wethgateway} contract provided by Aave. This contract takes care of wrapping and unwrapping the deposited ETH.
 \subsection{Node Provider}
 As noted earlier~\ref{sec:dapps}, to communicate with the blockchain, more precisely to a node of the network, where the EVM and smart contracts live, a node or node provider service is needed. For this project, the Alchemy\cite{alchemy} and Infura\cite{infura} nodes were used. Both Services offer developers an endpoint (an API KEY) to communicate with the desired blockchain network, allowing developers to interact with the network without the need to run a node.
-\subsection{Web3.py and Brownie}
+\subsection{Web3.py and Brownie}\label{brownie}
 To send transactions to the blockchain (interact with the smart contracts), a connection to the node provider is needed. This connection can be done using well-known web3 libraries such as \verb|web3.py|\cite{web3py}. For instance, using \verb|web3.py| the connection to the node provider can be done using the following code:\\
 \verb|w3 = Web3(Web3.HTTPProvider(|
 
 \hspace{1cm}\verb|'https://rinkeby.infura.io/v3/$WEB3_INFURA_PROJECT_ID')| \verb|)|
 
-Where \verb|WEB3_INFURA_PROJECT_ID| is the APY KEY from the node provider. The \verb|w3| instance enables communication with the blockchain.\\
-The brownie framework\cite{brow} wraps \verb|web3.py| and enables developers an easy and fast configuration of the targeted blockchain node. The configuration options are placed in the \verb|.env| and \verb|.yaml| files of the project. After the configuration is done, python scripts on the targeted network can be run, passing the network name on the \verb|–network| flag. For instance, running a python script that targets the rinkeby test network, can be done as follows:\\
+The \verb|WEB3_INFURA_PROJECT_ID| is the API KEY from the node provider, and the \verb|w3| instance enables communication with the blockchain.\\
+The brownie framework\cite{brow} uses the \verb|web3.py| library and enables developers to easily configure the targeted blockchain node. The configuration options are placed in the \verb|.env| and \verb|.yaml| files of the project. Once the configuration is done, python scripts on the targeted network can be run, passing the network name on the \verb|–network| flag. For instance, running a python script that targets the rinkeby test network, can be done as follows:\\
 \hspace{1cm}\verb| brownie run scripts/my_script.py --network rinkeby|\\
 As an example, using brownie  and the Alchemy node provider, a python script that performs the deposit action, for a given amount of DAI, can be described as follows:
 \begin{itemize}
@@ -534,24 +531,24 @@ As an example, using brownie  and the Alchemy node provider, a python script tha
 	6.- If the desired amount to deposit is less than the account DAI balance, approve the desired amount using the IERC20 object, setting the \verb|spender| parameter to the address of the pool.\\
 	7.- Using IPool contract object, call the \verb|supply()| function with the desired amount of DAI.
 \end{itemize}
-The first interaction with the smart contracts of Aave, for the application of this thesis, was done using the brownie framework. However, in order to let other accounts (users), interact with these smart contracts a frontend with a wallet~\ref{dapp} is needed.
+The first interaction with the smart contracts of Aave, for the application of this thesis, was done using the brownie framework. However, in order to let other accounts (users) interact with these smart contracts, a frontend with a wallet~\ref{dapp} is needed.
 \section{Interaction with the users}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.90\textwidth]{./images/thesis-dapp}
-	\caption{Thesis Dapp User Interface when a user is logged in.}
+	\caption{Thesis dapp user interface when a user is logged in.}
 	\label{fig:tdapp}
 \end{figure}
-To enable any EOA account~\ref{sec:accounts} (users), to interact with the smart contracts, a frontend and a wallet~\ref{dapp} are needed. The frontend or user interface enables users to enter the specific amount to deposit, withdraw or borrow, and to perform these operations using buttons that will perform the interaction with the smart contracts. The frontend shall also display the interest rates of the lending pool. For the frontend implementation of the thesis application the web development framework Next.js\cite{nextjs} and the Material UI\cite{mui} is used. On the other hand, the wallet allows users to sign transactions and see their token balances. The thesis application uses the Metamask~\ref{metamask} wallet provider.
+To enable any EOA account~\ref{sec:accounts} (users) to interact with the smart contracts, a frontend and a wallet~\ref{dapp} are needed. The frontend or user interface enables users to enter the specific amount to deposit, withdraw or borrow, and to perform these operations using buttons that will perform the interaction with the smart contracts. The frontend shall also display the interest rates of the lending pool. For the frontend implementation of the thesis application the web development framework Next.js\cite{nextjs} and the Material UI\cite{mui} is used. On the other hand, the wallet allows users to sign transactions and see their token balances. The thesis application uses the Metamask~\ref{metamask} wallet provider.
 %\subsection{Frontend: Next.js}
 \subsection{Wallet Provider: Metamask}\label{metamask}
-The metamask\cite{wiki:MetaMask}\cite{metamaskDocs} wallet allows users to create and manage their accounts safely. Metamask uses Infura to communicate to the blockchain network and also allows the connection to any blockchain network that implements the JSON-RPC~\ref{dapp} specification. For developers, metamask provides the \verb|ethereum| API to target web3 users using the metamask wallet. For instance, detecting if a user has metamask installed in its browser, can be done as follows:\\
+The metamask\cite{wiki:MetaMask}\cite{metamaskDocs} wallet allows users to create and manage their accounts safely. This wallet uses the Infura node provider to communicate to the blockchain network and also allows the connection to any blockchain network that implements the JSON-RPC~\ref{dapp} specification. For developers, metamask provides the \verb|ethereum| API to target web3 users using the metamask wallet. For instance, detecting if a user has metamask installed in its browser, can be done as follows:\\
 \verb|if (typeof window.ethereum !== 'undefined') {...}|\\
 Metamask allows users and developers to communicate with the blockchain by facilitating:
 a node provider (Provider) that enables communication with the blockchain node, and the management of the private key to sign transactions (Signer).
 
 \subsection{Web3-react}\label{web3-react}
-Web3-react\cite{web3react} is a library that helps developers to keep the users (account) relevant data up-to-date using React Context\cite{reactcontext} to store the data and inject it where is needed. To connect with metamask, One can import the
+Web3-react\cite{web3react} is a library aiming to help developers to keep the users (account) relevant data up-to-date using React Context\cite{reactcontext} to store the data and inject it where needed. To connect with metamask, one can import the
 \verb|InjectedConnector| object, configure it to the application needs, and use this object, along with the \verb|activate|, and \verb|deactivate| modules from the \verb|useWeb3React()| component, to connect with metamask. Once the user is connected, the interaction with the wallet and the node provider can be done using the \verb|useWeb3React()| component. This component can be destructured into the following modules:\\
 \verb|{ activate,  deactivate, active, chainId, account, provider }|
 \begin{description}
@@ -564,7 +561,7 @@ Web3-react\cite{web3react} is a library that helps developers to keep the users 
 Since this application is using metamask, the Infura provider will be used to interact with the blockchain network.
 
 \subsection{Web3 Library: ethers}\label{ethers}
-Given that communication with the frontend is required, and that brownie because of its python nature, is not capable of, the ethers library is used to communicate with the users and the node provider. Using ethers, communication between users and smart contracts can be achieved by taking care of the following abstractions:
+Given that communication with the frontend is required, and that brownie because of its python nature, is not capable of this, the ethers library is used to communicate with the users and the node provider. Using ethers, communication between users, and smart contracts can be achieved by taking care of the following abstractions:
 \begin{itemize}
 	\item \textbf{Contract}: Enables the interaction with the specific smart contract. As noted above~\ref{sc_interaction}, to generate the contract object, the contract address and ABI is needed, and to send a transaction using the contract object, a provider or signer is required, through web3-react~\ref{web3-react}, the provider and the signer from metamask can be accessed. To sum up, creating a contract instance that enables the interaction with the smart contract on the blockchain can be achieved as follows:\\
 	\verb|new ethers.Contract( address , abi , signerOrProvider )|
@@ -595,7 +592,7 @@ const tx_deposit = await pool.supply(asset_addr, amount, account, referralCode)
 await tx_deposit.wait();
 	...
 \end{lstlisting}
-Note that the amount is passed to the contract instances in the form of Wei~\ref{sec:gas} using ethers~\ref{ethers}. Ultimately, the withdraw, borrow, and repay functionalities follow the same pattern. For instacne, the Pay Scenario:
+Note that the amount is passed to the contract instances in the form of Wei~\ref{sec:gas} using ethers~\ref{ethers}. Ultimately, the withdraw, borrow, and repay functionalities follow the same pattern. For instance, the Pay Scenario~\ref{fig:sd-pay}.
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{./images/sequence-repay}
@@ -603,15 +600,31 @@ Note that the amount is passed to the contract instances in the form of Wei~\ref
 	\label{fig:sd-pay}
 \end{figure}
 \subsubsection{Deposit APY, Stable Borrow APY, and other User Account Info}
-As shown in Figure ~\ref{fig:tdapp}, the application also displays the deposit and borrow Annual Percentage Yield (APY). Following the Aave documentation\cite{apr-apy}, the APY (compounded per second) for the deposited and borrowed assets is calculated is calculated as follows:\[ APY = (1 + ({APR}/{secondsPerYear}) )^{secondsPerYear} -1\]
+As shown in Figure ~\ref{fig:tdapp}, the application also displays the deposit and borrow Annual Percentage Yield (APY). Following the Aave documentation\cite{apr-apy}, the APY (compounded per second) for the deposited and borrowed assets is calculated as follows:\[ APY = (1 + ({APR}/{secondsPerYear}) )^{secondsPerYear} -1\]
 Where the $APR$ is the \textit{currentLiquidityRate} or \textit{currentStableBorrowRate} obtained from the \verb|getReserveData()|~\ref{poolcontract} function and divided by $10^{27}$ (Ray Math~\ref{ray}). For instance, getting the deposit APY is done this way:
 \begin{lstlisting}[frame=single]
 depositAPY = ((1 + (depositAPR / SECONDS_PER_YEAR)) ** SECONDS_PER_YEAR) - 1
 \end{lstlisting}
-Users balances for each currency are fetched by using the ERC20 contract instance and the corresponding token address (DAI, aDAI, aWeth, aDebtToken). The ETH balance can be retrieved by using the provider and account modules~\ref{web3-react}: \\\verb|provider.getBalance(account)|. The health factor and the borrowing power are both retrieved from the \verb|getUserAccountData()|~\ref{poolcontract} function. And borrowing power (max borrowable) is set to 95\% to avoid liquidations. More implementation details and the code for the thesis app can be found in the GitHub repository\cite{thesisDappRepo}.
+Users balances for each currency are fetched by using the ERC20 contract instance and the corresponding token address (DAI, aDAI, aWeth, aDebtToken). The ETH balance can be retrieved by using the provider and account modules~\ref{web3-react}: \\\verb|provider.getBalance(account)|. The health factor and the borrowing power are both retrieved from the \verb|getUserAccountData()|~\ref{poolcontract} function. And borrowing power (max borrowable) is set to 95\% to avoid liquidations~\ref{liquidation}. More implementation details and the code for the thesis dapp can be found in its GitHub repository\cite{thesisDappRepo}.
 %%%%%
 %%%%% Chapter
-\chapter{Conclusion and future work} \label{ch:conclusion}
+\chapter{Conclusion} \label{ch:conclusion}
+The aim of this chapter is to provide a comprehensive overview of the conclusions obtained during the development of this thesis.
+
+\subsection{Goals}
+The main goal of this thesis was to study the technology behind decentralized applications and implement a decentralized application that provides financial services such as lending and borrowing crypto assets.
+
+To reach this goal, chapter~\ref{ch:background} describes the set of technologies that compose a blockchain network, as well as the Ethereum network. It also outlines why this blockchain platform is so important in the space of decentralized applications. Finally, it presents the architecture of dapps. The requirements in chapter~\ref{ch:appreq} were brought up for developing the thesis dapp. After struggling with the decision of the protocols for the dapp, the Aave protocol was chosen. The main reasons to use Aave for the thesis app development are its maturity in the Defi space and the well-produced developer documentation. Once studying the Aave protocol and its core functionalities in chapter~\ref{ch:defi}, along with the different web3 tools, the implementation was possible, as disclosed in chapter~\ref{ch:impl}.
+\subsubsection{Challenges}
+While developing the thesis, a few challenges had to be resolved. Since blockchain technology and its whole ecosystem are still in their early stages, there are not that many resources to work with. For instance, during the development process of the thesis dapp, I had to rely only on the official documentation. There is no extensive database of best practices or common errors to avoid, such as there is for other technologies. However, the community is welcoming and I was quickly able to find help in forums such as the Ethereum Stack Exchange\cite{ethstack} or even on Discord\cite{discord} servers. I found the appropriate answer to my questions during the development process on the Aave developer's Discord server.
+\subsection{Future work}
+The thesis dapp is a DeFi dapp (running on the rinkeby testnet) that enables users to deposit ETH and DAI and earn interest on it. It also enables users to borrow DAI at a stable interest rate. The dapp relies on the Aave protocol to provide such financial services. However, it is just a small part of the DeFi products available today.  The future work that can be implemented is:
+\begin{itemize}
+	\item Improve the User Interface.
+	\item Continue to study the Aave protocol and add new features such as flash loans\cite{flashloan}.
+	\item Thanks to the composability nature of dapps, the thesis dapp could add more protocols to interact with. For instance, creating a yield strategy to get the best APY combining different protocols such as Compound\cite{compound} or Curve finance\cite{curve}.
+\end{itemize}
+
 \newpage
 
 \bibliographystyle{plain} % Literaturverzeichnis
