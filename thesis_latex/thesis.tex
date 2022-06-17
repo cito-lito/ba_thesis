@@ -437,13 +437,20 @@ The application runs in the latest version of Chrome, Firefox, Brave browsers on
 \subsubsection{Performance}
 [Thesis-SRS-21] The application will be deployed in the Ethereum Rinkeby test network.
 \subsection{Use Case}
-The following use case diagram describes the minimum functionality that the application shall have.
+The following~\ref{fig:usecase-mvp} use case diagram describes the minimum functionality that the application shall have. The thesis-dapp is the subject (system) that enables EOA accounts~\ref{sec:accounts} or users to access decentralized financial services. The user (primary actor) uses the thesis-dapp to perform the following use cases:
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=0.99\textwidth]{./images/USECASE-full_nofl}
+	\includegraphics[width=0.7\textwidth]{./images/USECASE-full_nofl1}
 	\caption{Use Case Diagram: Minimum Viable Product.}
 	\label{fig:usecase-mvp}
 \end{figure}
+\begin{itemize}
+	\item \textbf{Connect wallet} use case describes the authentification of the user. Connect wallet involves the wallet provider (secondary actor), and it's necessary to perform the other use cases (deposit, withdraw, borrow, pay). The wallet allows users to sign transactions, i.e., enabling users to submit the mentioned use cases.
+	\item \textbf{Deposit} use cases describe the cases in which the user performs a deposit transaction to the Lending Protocol (secondary actor). 
+	\item \textbf{Withdraw} use case describes cases when a user, who already has deposited into the lending pool, needs to withdraw their deposited ETH or DAI.
+	\item \textbf{Borrow} use case describes the scenario when a user, who has deposited collateral, aims to borrow an amount of DAI.
+	\item \textbf{Pay} use case describes the situation when a user wants to pay its borrowed DAI position.
+\end{itemize}
 %\subsection{Sequence Diagrams}
 %\subsubsection{Deposit:}
 
@@ -607,7 +614,7 @@ User's ERC20 token balances are fetched using the ERC20 contract instance and th
 \chapter{Conclusion} \label{ch:conclusion}
 The aim of this chapter is to provide a comprehensive overview of the conclusions obtained during the development of this thesis.
 
-\subsection{Goals}
+\subsection{Achieved Goals}
 The main goals of this thesis were to study the technology behind decentralized applications and implement a decentralized application that provides financial services such as lending and borrowing crypto assets.
 
 To reach these goals, chapter~\ref{ch:background} describes the set of technologies that compose a blockchain network, as well as the Ethereum network. It also outlines why this blockchain platform is so important in the space of decentralized applications. Finally, it presents the architecture of dapps. The requirements in chapter~\ref{ch:appreq} were brought up for developing the thesis dapp. After struggling with the decision of the protocols for the dapp, the Aave protocol was chosen. The main reasons to use Aave for the thesis app development were its maturity in the Defi space and the well-produced developer documentation. Once studying the Aave protocol and its core functionalities in chapter~\ref{ch:defi}, along with the different web3 tools, the implementation was possible, as disclosed in chapter~\ref{ch:impl}.
