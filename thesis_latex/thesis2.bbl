@@ -1,0 +1,499 @@
+\begin{thebibliography}{10}
+
+\bibitem{name}
+{}.
+\newblock \url{}.
+\newblock [Accessed June 21, 2022.].
+
+\bibitem{ethstack}
+{ Ethereum Stack Exchange}.
+\newblock \url{https://ethereum.stackexchange.com/}.
+\newblock [Accessed June 13, 2022.].
+
+\bibitem{aaveV1}
+{aave v1 whitepaper}.
+\newblock
+  \url{https://github.com/aave/aave-protocol/blob/master/docs/Aave_Protocol_Whitepaper_v1_0.pdf}.
+\newblock [Accessed May 23, 2022.].
+
+\bibitem{aaveV1RV}
+{aave v1 whitepaper}.
+\newblock
+  \url{https://github.com/aave/aave-protocol/blob/master/docs/Aave_Protocol_Whitepaper_v1_0.pdf}.
+\newblock [page 3, Accessed May 25, 2022.].
+
+\bibitem{aaveV1RS}
+{aave v1 whitepaper}.
+\newblock
+  \url{https://github.com/aave/aave-protocol/blob/master/docs/Aave_Protocol_Whitepaper_v1_0.pdf}.
+\newblock [page 18, Accessed May 25, 2022.].
+
+\bibitem{aaveV1GOV}
+{aave v1 whitepaper}.
+\newblock
+  \url{https://github.com/aave/aave-protocol/blob/master/docs/Aave_Protocol_Whitepaper_v1_0.pdf}.
+\newblock [page 7, Accessed May 27, 2022.].
+
+\bibitem{aaveV1aToken}
+{aave v1 whitepaper}.
+\newblock
+  \url{https://github.com/aave/aave-protocol/blob/master/docs/Aave_Protocol_Whitepaper_v1_0.pdf}.
+\newblock [page 16, Accessed May 27, 2022.].
+
+\bibitem{aaveV2}
+{aave v2 whitepaper}.
+\newblock
+  \url{https://github.com/aave/protocol-v2/blob/master/aave-v2-whitepaper.pdf}.
+\newblock [Accessed May 23, 2022.].
+
+\bibitem{aaveV2debtToken}
+{aave v2 whitepaper}.
+\newblock
+  \url{https://github.com/aave/protocol-v2/blob/master/aave-v2-whitepaper.pdf}.
+\newblock [pages 3-5, Accessed May 23, 2022.].
+
+\bibitem{aaveV3}
+{aave v3 technical paper}.
+\newblock
+  \url{https://github.com/aave/aave-v3-core/blob/master/techpaper/Aave_V3_Technical_Paper.pdf}.
+\newblock [Accessed May 23, 2022.].
+
+\bibitem{aavegithub}
+{aave/aave-v3-core: This repository contains the core smart contracts of the
+  Aave V3 protocol.}
+\newblock \url{https://github.com/aave/aave-v3-core}.
+\newblock [Accessed May 28, 2022.].
+
+\bibitem{apr-apy}
+{APY and APR - Developers}.
+\newblock
+  \url{https://docs.aave.com/developers/v/2.0/guides/apy-and-apr#apr-greater-than-apy}.
+\newblock [Accessed June 7, 2022].
+
+\bibitem{arbitrum}
+{Arbitrum}.
+\newblock \url{https://arbitrum.io/}.
+\newblock [Accessed May 23, 2022.].
+
+\bibitem{arbiscan}
+{Arbitrum (ETH) Blockchain Explorer}.
+\newblock
+  \url{https://arbiscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD#code}.
+\newblock [Accessed May 28, 2022.].
+
+\bibitem{alchemy}
+{Blockchain APIs and Node Infrastructure}.
+\newblock \url{https://www.alchemy.com/}.
+\newblock [Accessed May 30, 2022.].
+
+\bibitem{polygon}
+{Bring the World to Ethereum | Polygon - Polygon}.
+\newblock \url{https://polygon.technology}.
+\newblock [Accessed May 23, 2022.].
+
+\bibitem{brow}
+{Brownie}.
+\newblock \url{https://eth-brownie.readthedocs.io/en/stable/toctree.html}.
+\newblock [Accessed May 28, 2022.].
+
+\bibitem{bizantine}
+{Byzantine fault}.
+\newblock \url{https://en.wikipedia.org/wiki/Byzantine_fault}.
+\newblock [Accessed June 13, 2022.].
+
+\bibitem{abi}
+{Contract ABI Specification}.
+\newblock \url{https://docs.soliditylang.org/en/latest/abi-spec.html}.
+\newblock [Accessed 18 Apr. 2022.].
+
+\bibitem{curve}
+{Curve Finance: Stats, Charts and Guides: DeFi Pulse}.
+\newblock \url{https://www.defipulse.com/projects/curve-finance}.
+\newblock [Accessed June 13, 2022.].
+
+\bibitem{avax}
+{Dapps Platform}.
+\newblock \url{https://www.avax.network/}.
+\newblock [Accessed May 23, 2022.].
+
+\bibitem{wiki:Dao}
+{Decentralized autonomous organization}.
+\newblock \url{
+  https://en.wikipedia.org/wiki/Decentralized_autonomous_organization}.
+\newblock [Accessed May 23, 2022.].
+
+\bibitem{defi}
+Decentralized finance (defi).
+\newblock \url{https://ethereum.org/en/defi/#ethereum-and-defi}.
+\newblock [Accessed 5 Apr. 2022.].
+
+\bibitem{defipulse}
+{DeFi Pulse - The Decentralized Finance Leaderboard: Stats, Charts and Guides:
+  DeFi Pulse}.
+\newblock \url{https://www.defipulse.com/}.
+\newblock [Accessed May 18, 2022.].
+
+\bibitem{discord}
+{Discord, Your Place to Talk and Hang Out}.
+\newblock \url{https://discord.com/}.
+\newblock [Accessed June 13, 2022.].
+
+\bibitem{dlproblem}
+{Discrete logarithm}.
+\newblock \url{https://en.wikipedia.org/wiki/Discrete_logarithm}.
+\newblock [Accessed June 13, 2022.].
+
+\bibitem{doublespend}
+{Double-spending}.
+\newblock \url{https://en.wikipedia.org/wiki/Double-spending}.
+\newblock [Accessed June 13, 2022.].
+
+\bibitem{ray2}
+{DS-Math}.
+\newblock \url{https://dappsys.readthedocs.io/en/latest/ds_math.html}.
+\newblock [Accessed May 26, 2022.].
+
+\bibitem{infura}
+{Ethereum API: IPFS API & Gateway: ETH Nodes as a Service}.
+\newblock \url{https://infura.io/}.
+\newblock [Accessed May 30, 2022.].
+
+\bibitem{ens}
+{Ethereum Name Service}.
+\newblock \url{https://ens.domains/}.
+\newblock [Accessed 22 Apr. 2022.].
+
+\bibitem{evm}
+Ethereum virtual machine (evm).
+\newblock \url{https://ethereum.org/en/developers/docs/evm/#top}.
+\newblock [Accessed 5 Apr. 2022.].
+
+\bibitem{evmbytecode}
+Ethereum virtual machine opcodes.
+\newblock \url{https://ethervm.io/}.
+\newblock [Accessed 18 Apr. 2022.].
+
+\bibitem{fanton}
+{Fantom}.
+\newblock \url{https://www.fantom.foundation/}.
+\newblock [Accessed May 23, 2022.].
+
+\bibitem{flashloan}
+{Flash Loans - FAQ}.
+\newblock \url{https://docs.aave.com/faq/flash-loans}.
+\newblock [Accessed June 13, 2022.].
+
+\bibitem{gastracker}
+Gas tracker.
+\newblock \url{https://etherscan.io/gastracker}.
+\newblock [Accessed 17 Apr. 2022.].
+
+\bibitem{gavinwood}
+{Gavin Wood}.
+\newblock \url{https://en.wikipedia.org/wiki/Gavin_Wood}.
+\newblock [Accessed 18 Apr. 2022.].
+
+\bibitem{gov}
+{General Governance Process}.
+\newblock \url{https://docs.aave.com/developers/guides/governance-guide}.
+\newblock [Accessed May 27, 2022.].
+
+\bibitem{govForum}
+{Governance Forum}.
+\newblock \url{https://governance.aave.com/}.
+\newblock [Accessed May 27, 2022.].
+
+\bibitem{ray}
+{Important considerations - Developers}.
+\newblock
+  \url{https://docs.aave.com/developers/v/1.0/developing-on-aave/important-considerations}.
+\newblock [Accessed May 26, 2022.].
+
+\bibitem{dapps}
+Introduction to dapps.
+\newblock \url{https://ethereum.org/en/developers/docs/dapps/}.
+\newblock [Accessed 5 Apr. 2022.].
+
+\bibitem{smartcontracts}
+Introduction to smart contracs.
+\newblock \url{https://ethereum.org/en/developers/docs/smart-contracts/}.
+\newblock [Accessed 18 Apr. 2022.].
+
+\bibitem{delegatecall}
+{Introduction to Smart Contracts - Solidity 0.8.14 documentation}.
+\newblock \url{
+  https://docs.soliditylang.org/en/v0.8.14/introduction-to-smart-contracts.html?highlight=delegatecall#delegatecall-callcode-and-libraries}.
+\newblock [Accessed May 30, 2022.].
+
+\bibitem{iso}
+{ISO}.
+\newblock \url{
+  https://www.iso.org/obp/ui/#iso:std:iso-iec-ieee:29148:ed-2:v1:en}.
+\newblock [Accessed 21 Apr. 2022.].
+
+\bibitem{liquidation}
+{Liquidations - FAQ}.
+\newblock \url{https://docs.aave.com/faq/liquidations}.
+\newblock [Accessed May 27, 2022.].
+
+\bibitem{mui}
+{Material UI}.
+\newblock \url{https://mui.com/material-ui/getting-started/overview/}.
+\newblock [Accessed May June 1, 2022].
+
+\bibitem{metamaskDocs}
+{MetaMask Docs}.
+\newblock \url{https://docs.metamask.io/guide/#why-metamask}.
+\newblock [Accessed June 1, 2022.].
+
+\bibitem{fe}
+A next generation, statically typed, future-proof smart contract language for
+  the ethereum virtual machine.
+\newblock \url{https://fe-lang.org/}.
+\newblock [Accessed 18 Apr. 2022.].
+
+\bibitem{szabo}
+Nick szabo.
+\newblock \url{https://en.wikipedia.org/wiki/Nick_Szabo#cite_note-1}.
+\newblock [Accessed 5 Apr. 2022.].
+
+\bibitem{web3react}
+{NoahZinsmeister/web3-react at v6}.
+\newblock \url{https://github.com/NoahZinsmeister/web3-react/tree/v6}.
+\newblock [Accessed June 1, 2022].
+
+\bibitem{oasisapp}
+{Oasis.app}.
+\newblock \url{https://oasis.app/borrow}.
+\newblock [Accessed May 23, 2022.].
+
+\bibitem{oracles}
+{Oracles}.
+\newblock \url{https://ethereum.org/en/developers/docs/oracles/}.
+\newblock [Accessed 18 Apr. 2022.].
+
+\bibitem{poolContract}
+{Pool - Developers}.
+\newblock \url{https://docs.aave.com/developers/core-contracts/pool}.
+\newblock [Accessed May 30, 2022.].
+
+\bibitem{pooladdrprov}
+{PoolAddressesProvider}.
+\newblock
+  \url{https://docs.aave.com/developers/core-contracts/pooladdressesprovider}.
+\newblock [Accessed May 30, 2022.].
+
+\bibitem{ozproxy}
+{Proxy Upgrade Pattern}.
+\newblock \url{https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies}.
+\newblock [Accessed May 30, 2022.].
+
+\bibitem{reactcontext}
+{React - Context}.
+\newblock \url{https://reactjs.org/docs/context.html}.
+\newblock [Accessed June 1, 2022].
+
+\bibitem{risk}
+{Risk Parameters - Risk}.
+\newblock \url{https://docs.aave.com/risk/asset-risk/risk-parameters}.
+\newblock [Accessed May 27, 2022.].
+
+\bibitem{json_rpc}
+{RPC 2.0 Specification}.
+\newblock \url{https://www.jsonrpc.org/specification#conventions}.
+\newblock [Accessed May 16, 2022.].
+
+\bibitem{sha256}
+{SHA-256}.
+\newblock \url{https://en.bitcoin.it/wiki/SHA-256}.
+\newblock [Accessed June 21, 2022.].
+
+\bibitem{snapshot}
+{Snapshot}.
+\newblock \url{ https://snapshot.org/#/aave.eth}.
+\newblock [Accessed May 27, 2022.].
+
+\bibitem{solidity}
+Solidity.
+\newblock \url{https://docs.soliditylang.org/en/v0.8.13/index.html}.
+\newblock [Accessed 18 Apr. 2022.].
+
+\bibitem{arc}
+{Submitting an ARC}.
+\newblock \url{https://docs.aave.com/governance/arcs}.
+\newblock [Accessed May 27, 2022.].
+
+\bibitem{dapps_arch}
+{The Architecture of a Web 3.0 application}.
+\newblock \url{
+  https://www.preethikasireddy.com/post/the-architecture-of-a-web-3-0-application}.
+\newblock [Accessed May 16, 2022.].
+
+\bibitem{compound}
+{The Compound protocol}.
+\newblock \url{https://compound.finance/markets}.
+\newblock [Accessed May 21, 2022.].
+
+\bibitem{ethersjs}
+{The ethers.js library}.
+\newblock \url{https://docs.ethers.io/v5/}.
+\newblock [Accessed May 16, 2022.].
+
+\bibitem{maker}
+{The Maker Protocol White Paper: Feb 2020}.
+\newblock \url{https://makerdao.com/en/whitepaper/}.
+\newblock [Accessed May 23, 2022.].
+
+\bibitem{makerDAI}
+{The Maker Protocol White Paper: Feb 2020}.
+\newblock \url{https://makerdao.com/en/whitepaper#the-dai-stablecoin}.
+\newblock [Accessed May 23, 2022.].
+
+\bibitem{thesisDappRepo}
+{Thesis Dapp GitHub Repository}.
+\newblock \url{https://github.com/cito-lito/thesis_dapp}.
+\newblock [Accessed June 7, 2022].
+
+\bibitem{tokens}
+{Tokens}.
+\newblock \url{https://docs.openzeppelin.com/contracts/4.x/tokens}.
+\newblock [Accessed 18 Apr. 2022.].
+
+\bibitem{stablecoinsmarket}
+{Top Stablecoin Tokens by Market Capitalization}.
+\newblock \url{https://coinmarketcap.com/view/stablecoin/}.
+\newblock [Accessed May 24, 2022.].
+
+\bibitem{ganache}
+{trufflesuite/ganache: A tool for creating a local blockchain for fast Ethereum
+  development.}
+\newblock \url{ https://github.com/trufflesuite/ganache}.
+\newblock [Accessed May 28, 2022.].
+
+\bibitem{uniswap}
+{Uniswap Info}.
+\newblock \url{https://info.uniswap.org/#/}.
+\newblock [Accessed May 19, 2022.].
+
+\bibitem{nextjs}
+{vercel/next.js: The React Framework}.
+\newblock \url{https://github.com/vercel/next.js}.
+\newblock [Accessed May 31, 2022.].
+
+\bibitem{create}
+{Voting & Governance - Developers}.
+\newblock
+  \url{https://docs.aave.com/developers/v/2.0/protocol-governance/governance#create}.
+\newblock [Accessed May 27, 2022.].
+
+\bibitem{vyper}
+Vyper.
+\newblock \url{https://vyper.readthedocs.io/en/latest/}.
+\newblock [Accessed 18 Apr. 2022.].
+
+\bibitem{web3py}
+{Web3.py 5.28.0 documentation}.
+\newblock \url{https://web3py.readthedocs.io/en/stable/}.
+\newblock [Accessed May 16, 2022.].
+
+\bibitem{WETH}
+{wETH}.
+\newblock \url{https://weth.io/}.
+\newblock [Accessed June 13, 2022.].
+
+\bibitem{wethgateway}
+{WETHGateway}.
+\newblock
+  \url{https://docs.aave.com/developers/periphery-contracts/wethgateway}.
+\newblock [Accessed May 30, 2022.].
+
+\bibitem{erc20}
+Vitalik~Buterin Fabian~Vogelsteller.
+\newblock {EIP-20: Token standard}.
+\newblock \url{https://eips.ethereum.org/EIPS/eip-20}, 2015.
+\newblock [Accessed 18 Apr. 2022.].
+
+\bibitem{bitcoin}
+Satoshi Nakamoto.
+\newblock Bitcoin: A peer-to-peer electronic cash system.
+\newblock \url{https://bitcoin.org/bitcoin.pdf}.
+\newblock [Accessed 5 Apr. 2022.].
+
+\bibitem{evm-illustrate}
+Takenobu T.
+\newblock Ethereum evm illustrated.
+\newblock
+  \url{https://takenobu-hs.github.io/downloads/ethereum_evm_illustrated.pdf}.
+\newblock [accessed 15-April-2022].
+
+\bibitem{wiki:ecc}
+Wikipedia.
+\newblock {Elliptic-curve cryptography} --- {W}ikipedia{,} the free
+  encyclopedia.
+\newblock
+  \url{http://en.wikipedia.org/w/index.php?title=Elliptic-curve\%20cryptography&oldid=1081874678},
+  2022.
+\newblock [accessed 13-April-2022].
+
+\bibitem{wiki:Finance}
+Wikipedia.
+\newblock {Finance} --- {W}ikipedia{,} the free encyclopedia.
+\newblock
+  \url{http://en.wikipedia.org/w/index.php?title=Finance&oldid=1088464612},
+  2022.
+\newblock [accessed 18-May-2022].
+
+\bibitem{wiki:Financial_institution}
+Wikipedia.
+\newblock {Financial institution} --- {W}ikipedia{,} the free encyclopedia.
+\newblock
+  \url{http://en.wikipedia.org/w/index.php?title=Financial\%20institution&oldid=1074029593},
+  2022.
+\newblock [accessed 18-May-2022].
+
+\bibitem{wiki:Financial_instrument}
+Wikipedia.
+\newblock {Financial instrument} --- {W}ikipedia{,} the free encyclopedia.
+\newblock
+  \url{http://en.wikipedia.org/w/index.php?title=Financial\%20instrument&oldid=1071762966},
+  2022.
+\newblock [accessed 18-May-2022].
+
+\bibitem{wiki:Financial_market}
+Wikipedia.
+\newblock {Financial market} --- {W}ikipedia{,} the free encyclopedia.
+\newblock
+  \url{http://en.wikipedia.org/w/index.php?title=Financial\%20market&oldid=1083352146},
+  2022.
+\newblock [accessed 18-May-2022].
+
+\bibitem{wiki:MetaMask}
+Wikipedia.
+\newblock {MetaMask} --- {W}ikipedia{,} the free encyclopedia.
+\newblock
+  \url{http://en.wikipedia.org/w/index.php?title=MetaMask&oldid=1083935548},
+  2022.
+\newblock [accessed 22-April-2022].
+
+\bibitem{wiki:Peer-to-peer}
+Wikipedia.
+\newblock {Peer-to-peer} --- {W}ikipedia{,} the free encyclopedia.
+\newblock
+  \url{http://en.wikipedia.org/w/index.php?title=Peer-to-peer&oldid=1084324791},
+  2022.
+\newblock [accessed 16-May-2022].
+
+\bibitem{wiki:Token}
+Wikipedia.
+\newblock {Token} --- {W}ikipedia{,} the free encyclopedia.
+\newblock
+  \url{http://en.wikipedia.org/w/index.php?title=Token&oldid=1066372445}, 2022.
+\newblock [Accessed 18 Apr. 2022.].
+
+\bibitem{erc721}
+Dieter~Shirley William Entriken~(@fulldecent).
+\newblock {EIP-721: Non-Fungible Token Standard}.
+\newblock \url{https://eips.ethereum.org/EIPS/eip-721}, 2018.
+\newblock [Accessed 18 Apr. 2022.].
+
+\end{thebibliography}

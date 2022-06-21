@@ -55,6 +55,11 @@ $(MAIN)1.aux:
 $(MAIN)2.aux: 
 	$(PDFLATEX) $(MAIN).tex
 
+### copy the pdf outside the build folder
+copythesis:
+	cp thesis.pdf ../
+
+
 .PHONY: clean
 
 RERUN = "(There were undefined |Rerun to get (cross-references|the bars))"

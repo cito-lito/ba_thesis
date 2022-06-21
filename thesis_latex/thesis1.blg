@@ -1,0 +1,69 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis1.aux
+The style file: plain.bst
+Database file #1: thesis.bib
+Warning--I'm ignoring article:eth's extra "note" field
+--line 7 of file thesis.bib
+I was expecting a `,' or a `}'---line 17 of file thesis.bib
+ :  
+ :  note = "[Accessed 5 Apr. 2022.]"
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 37 of file thesis.bib
+ :  
+ :  edition   = "first"
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty journal in article:eth
+Warning--empty journal in article:merkle
+Warning--can't use both author and editor fields in book:bc
+Warning--empty journal in article:defi
+Warning--empty year in article:defi
+Warning--empty journal in wood2014ethereum
+Warning--empty year in wood2014ethereum
+Warning--empty journal in wood2014ethereum-Fee
+Warning--empty year in wood2014ethereum-Fee
+Warning--empty journal in article:bc
+You've used 20 entries,
+            2118 wiz_defined-function locations,
+            594 strings with 6515 characters,
+and the built_in function-call counts, 6777 in all, are:
+= -- 659
+> -- 235
+< -- 12
++ -- 95
+- -- 74
+* -- 367
+:= -- 1052
+add.period$ -- 61
+call.type$ -- 20
+change.case$ -- 88
+chr.to.int$ -- 0
+cite$ -- 30
+duplicate$ -- 326
+empty$ -- 576
+format.name$ -- 74
+if$ -- 1526
+int.to.chr$ -- 0
+int.to.str$ -- 20
+missing$ -- 30
+newline$ -- 104
+num.names$ -- 40
+pop$ -- 164
+preamble$ -- 1
+purify$ -- 77
+quote$ -- 0
+skip$ -- 255
+stack$ -- 0
+substring$ -- 401
+swap$ -- 109
+text.length$ -- 12
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 58
+warning$ -- 10
+while$ -- 65
+width$ -- 22
+write$ -- 214
+(There were 2 error messages)

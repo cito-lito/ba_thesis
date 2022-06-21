@@ -1,0 +1,132 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis2.aux
+The style file: plain.bst
+Database file #1: online.bib
+Repeated entry---line 154 of file online.bib
+ : @misc{dapps
+ :            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 526 of file online.bib
+ : @misc{name
+ :           ,
+I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in dapps
+Warning--to sort, need author or key in defi
+Warning--to sort, need author or key in evm
+Warning--to sort, need author or key in szabo
+Warning--to sort, need author or key in gastracker
+Warning--to sort, need author or key in solidity
+Warning--to sort, need author or key in smartcontracts
+Warning--to sort, need author or key in evmbytecode
+Warning--to sort, need author or key in vyper
+Warning--to sort, need author or key in fe
+Warning--to sort, need author or key in abi
+Warning--to sort, need author or key in tokens
+Warning--to sort, need author or key in gavinwood
+Warning--to sort, need author or key in oracles
+Warning--to sort, need author or key in iso
+Warning--to sort, need author or key in ens
+Warning--to sort, need author or key in dapps_arch
+Warning--to sort, need author or key in json_rpc
+Warning--to sort, need author or key in ethersjs
+Warning--to sort, need author or key in web3py
+Warning--to sort, need author or key in uniswap
+Warning--to sort, need author or key in defipulse
+Warning--to sort, need author or key in compound
+Warning--to sort, need author or key in maker
+Warning--to sort, need author or key in stablecoinsmarket
+Warning--to sort, need author or key in makerDAI
+Warning--to sort, need author or key in oasisapp
+Warning--to sort, need author or key in wiki:Dao
+Warning--to sort, need author or key in aaveV1
+Warning--to sort, need author or key in aaveV1RV
+Warning--to sort, need author or key in aaveV1RS
+Warning--to sort, need author or key in aaveV2
+Warning--to sort, need author or key in aaveV3
+Warning--to sort, need author or key in polygon
+Warning--to sort, need author or key in avax
+Warning--to sort, need author or key in fanton
+Warning--to sort, need author or key in arbitrum
+Warning--to sort, need author or key in ray
+Warning--to sort, need author or key in ray2
+Warning--to sort, need author or key in risk
+Warning--to sort, need author or key in liquidation
+Warning--to sort, need author or key in gov
+Warning--to sort, need author or key in aaveV1GOV
+Warning--to sort, need author or key in govForum
+Warning--to sort, need author or key in arc
+Warning--to sort, need author or key in snapshot
+Warning--to sort, need author or key in create
+Warning--to sort, need author or key in aaveV1aToken
+Warning--to sort, need author or key in brow
+Warning--to sort, need author or key in ganache
+Warning--to sort, need author or key in arbiscan
+Warning--to sort, need author or key in aavegithub
+Warning--to sort, need author or key in ozproxy
+Warning--to sort, need author or key in delegatecall
+Warning--to sort, need author or key in pooladdrprov
+Warning--to sort, need author or key in wethgateway
+Warning--to sort, need author or key in poolContract
+Warning--to sort, need author or key in alchemy
+Warning--to sort, need author or key in infura
+Warning--to sort, need author or key in nextjs
+Warning--to sort, need author or key in metamaskDocs
+Warning--to sort, need author or key in mui
+Warning--to sort, need author or key in reactcontext
+Warning--to sort, need author or key in web3react
+Warning--to sort, need author or key in apr-apy
+Warning--to sort, need author or key in thesisDappRepo
+Warning--to sort, need author or key in aaveV2debtToken
+Warning--to sort, need author or key in ethstack
+Warning--to sort, need author or key in discord
+Warning--to sort, need author or key in flashloan
+Warning--to sort, need author or key in curve
+Warning--to sort, need author or key in dlproblem
+Warning--to sort, need author or key in bizantine
+Warning--to sort, need author or key in doublespend
+Warning--to sort, need author or key in WETH
+Warning--to sort, need author or key in sha256
+Warning--to sort, need author or key in name
+You've used 89 entries,
+            2118 wiz_defined-function locations,
+            816 strings with 13078 characters,
+and the built_in function-call counts, 15556 in all, are:
+= -- 1571
+> -- 161
+< -- 0
++ -- 114
+- -- 24
+* -- 457
+:= -- 1916
+add.period$ -- 279
+call.type$ -- 89
+change.case$ -- 279
+chr.to.int$ -- 0
+cite$ -- 166
+duplicate$ -- 623
+empty$ -- 2036
+format.name$ -- 24
+if$ -- 3809
+int.to.chr$ -- 0
+int.to.str$ -- 89
+missing$ -- 0
+newline$ -- 460
+num.names$ -- 24
+pop$ -- 870
+preamble$ -- 1
+purify$ -- 190
+quote$ -- 0
+skip$ -- 454
+stack$ -- 0
+substring$ -- 446
+swap$ -- 89
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 356
+warning$ -- 77
+while$ -- 24
+width$ -- 91
+write$ -- 837
+(There were 2 error messages)

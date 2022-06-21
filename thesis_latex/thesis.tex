@@ -75,8 +75,10 @@
 
 \section{Motivation}
 In the last years, blockchain technology has gained a lot of traction and many developers are willing to build applications on top of this technology.
-The Ethereum network with the Ethereum Virtual Machine, or EVM~\ref{sec:evm}, (whose state is validated and copied by every node of the network) offers a new way of application development. Meaning that developers can now implement some functionality and deploy it to a public EVM blockchain, making the code or functionality tamper-resistant; in addition, the implemented functionality (or smart contract) can be called by any participant or other contracts within the network. This composability allows anyone to interact with already deployed contracts and build other applications on top of them. 
-These kinds of applications are called \textit{Decentralized Applications} or Dapps~\ref{sec:dapps} because they are built on top of a decentralized network such as Ethereum.
+The Ethereum network with the Ethereum Virtual Machine, or EVM (whose state is validated and copied by every node of the network) offers a new way of application development. Meaning that developers can now implement some functionality and deploy it to a public EVM blockchain, making the code or functionality tamper-resistant; in addition, the implemented functionality (or smart contract) can be called by any participant or other contracts within the network. 
+
+This composability allows anyone to interact with already deployed contracts and build other applications on top of them. 
+These kinds of applications are called \textit{Decentralized Applications} or Dapps because they are built on top of a decentralized network such as Ethereum. A set of Dapps composes DeFi or \textit{Decentralized Finance}, which replicates and goes beyond traditional financial infrastructure without any centralized institution, enabling for the first time in history access to financial services for anyone with an internet connection.
 \section{Goals}
 The goals of this thesis are to study and provide a better understanding of:
 \begin{itemize}
@@ -94,7 +96,7 @@ The Thesis is divided into the following chapters:
 	\item \textbf{Chapter ~\ref{ch:defi}: Decentralized Finance } introduces the concept of decentralized finance or DeFi, and outlines the protocols used in this thesis.
 	\item \textbf{Chapter ~\ref{ch:appreq}: Application Requirements} describes the functional and non-functional requirements that the proposed decentralized application for this thesis shall have.
 	\item \textbf{Chapter ~\ref{ch:impl}: Implementation} outlines the used technology and the important implementation details of the thesis dapp.
-	\item \textbf{Chapter ~\ref{ch:conclusion} Conclusion}  closes with a description of the goals achieved, the challenges faced during dapp development, and possible future work for the dapp.
+	\item \textbf{Chapter ~\ref{ch:conclusion}: Conclusion} closes with a description of the goals achieved, the challenges faced during dapp development, and possible future work for the dapp.
 \end{itemize}
 
 
@@ -115,7 +117,7 @@ A blockchain\cite{book:bc}\cite{article:bc} is a type of database (append-only d
 Determined by the blockchain implementation, block contents can be different. A block usually has a timestamp, the data or transaction records, and the hash value of the previous block in the chain. See figure~\ref{fig:bc}.
 The way that a blockchain guarantees the security and keeps the integrity of the data is through cryptographic hash functions \ref{sec:chf}, and Merkle trees \ref{sec:mt}
 
-By adding the cryptographic hash value of the previous block (Block $n$ to Block $n+1$), blockchains guarantee the integrity of previous blocks. Because of the second preimage resistance of cryptographic hash functions, see~\ref{sec:chf}, it is computationally infeasible to find an input other than $Block~n$ in order to generate an output = $Hash (Block~n)$. Due to that, the further the blockchain grows beyond block $n$, the more secure is the integrity of block $n$ and previous blocks.
+By adding the cryptographic hash value of the previous block (Block $n$ to Block $n+1$), blockchains ensure the integrity of previous blocks. Because of the second preimage resistance of cryptographic hash functions~\ref{sec:chf}, it is computationally infeasible to find an input other than $Block~n$ in order to generate an output = $Hash (Block~n)$. Due to that, the further the blockchain grows beyond block $n$, the more secure is the integrity of block $n$ and previous blocks.
 
 Depending on who can participate in the consensus protocol, blockchain networks can be divided into two groups: permissionless and permissioned blockchains. This thesis will be focused on permissionless blockchains that use an EVM~\ref{sec:evm}, such as the Ethereum network~\ref{sec:eth}.
 
@@ -139,7 +141,7 @@ A cryptographic hash function\cite{chf}\cite{book:chf} maps a given data of vari
 	\item \textbf{Second preimage resistance}\\ For an input $x_1$ and its hash value $h_1$, it should require $ O(2^n) $ computation power in order to obtain a $x_2$ such that $H(x_2)=h_1.$ This means that for a given hash value, it is computationally infeasible to find another input, i.e., a block data input, that generates the same hash value. 	
 \end{description}
 
-Such properties prevent attackers from modifying existing blocks keeping the blockchain intact. For example, the bitcoin network uses the SHA-256 hashing algorithm to validate a block, and append it to the chain. This means, that once a consensus among all the participants is done, and a new block is added, $ O(2^{256}) $ computation power is required to tamper with the blockchain. In other words, it is nearly impossible to manipulate an added block as a result of the tremendous computer power that would be needed.
+Such properties prevent attackers from modifying existing blocks keeping the blockchain intact. For example, the bitcoin network uses the SHA-256\cite{sha256} hashing algorithm to validate a block, and append it to the chain. This means, that once a consensus among all the participants is done, and a new block is added, $ O(2^{256}) $ computation power is required to tamper with the blockchain. In other words, it is nearly impossible to manipulate an added block as a result of the tremendous computer power that would be needed.
 
 \subsection{Merkle tree}\label{sec:mt}
 A Merkle tree\cite{article:merkle}\cite{book:merkle} or hash tree is a binary tree where every leaf node (nodes at the bottom of the tree) is the cryptographic hash value of some data or transaction. A merkle tree is constructed bottom-up; the upward nodes are the cryptographic hash values of its two child nodes. Therefore, the root node  will contain a complete fingerprint of the entire set of transactions. 
@@ -270,7 +272,7 @@ The architecture of dapp is still been defined and depends, like any application
 \begin{description}		
 	\item \textbf{Frontend}: It enables the users to interact with the smart contracts through interactive graphical components such as buttons, and icons, among others. Like web applications, this user interface runs on any browser.
 	\item \textbf{Wallet}: A wallet is a tool or software application that manages the account's private key and addresses (public keys). Wallets don't have custody of the account crypto assets. A wallet is only an application that enables the account owner to sign transactions, therefore, interact with the blockchain and the smart contracts living in the network.
-	\item \textbf{Node or Node Provider}: Enables communication with the blockchain i.e. reading data or sending transactions. A node will broadcast the transactions and miners will validate the new states that the transactions can produce. Everyone can run a node. Nonetheless, because of the difficulty and costs that running a node could have, Dapps usually rely on a third-party service or Node provider. Every Ethereum client or Node provider implements a JSON-RPC\cite{json_rpc} Specification with a uniform set of methods.
+	\item \textbf{Node or Node Provider}: Enables communication with the blockchain, i.e., reading data or sending transactions. A node will broadcast the transactions and miners will validate the new states that the transactions can produce. Everyone can run a node. Nonetheless, because of the difficulty and costs that running a node could have, Dapps usually rely on a third-party service or Node provider. Every Ethereum client or Node provider implements a JSON-RPC\cite{json_rpc} Specification with a uniform set of methods.
 	\item \textbf{The Blockchain Network}: is the base layer, where the EVM executes the dapp smart contracts and stores the new states in the blockchain.
 \end{description}
 Furthermore, the Comunication with the Node provider is done using web3 libraries such as \verb|ethers.js|~\ref{ethers} or \verb|web3.py|~\ref{brownie}.
@@ -416,7 +418,7 @@ The application runs in the latest version of Chrome, Firefox, Brave browsers on
 [Thesis-SRS-11] The application shall display the user's balance after any withdrawal transaction.
 
 \subsubsection{Borrow}
-[Thesis-SRS-12] The application shall set the maximum borrowable DAI at 95\%, to avoid liquidations and display it.
+[Thesis-SRS-12] The application shall set the maximum borrowable DAI at 95\% to avoid liquidations and display it.
 
 [Thesis-SRS-13] The application shall let users borrow DAI based on users' deposited collateral.
 
@@ -436,8 +438,8 @@ The application runs in the latest version of Chrome, Firefox, Brave browsers on
 [Thesis-SRS-20] The application should display a notification after any repay transaction.
 \subsubsection{Performance}
 [Thesis-SRS-21] The application will be deployed in the Ethereum Rinkeby test network.
-\subsection{Use Case}
-The following~\ref{fig:usecase-mvp} use case diagram describes the minimum functionality that the application shall have. The thesis-dapp is the subject (system) that enables EOA accounts~\ref{sec:accounts} or users to access decentralized financial services. The user (primary actor) uses the thesis-dapp to perform the following use cases:
+\subsection{Use Cases}
+The following use case diagram~\ref{fig:usecase-mvp} describes the minimum functionality that the application shall have. The thesis-dapp is the subject (system) that enables EOA accounts~\ref{sec:accounts} or users to access decentralized financial services. The user (primary actor) uses the thesis-dapp to perform the following use cases:
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=0.7\textwidth]{./images/USECASE-full_nofl1}
@@ -451,6 +453,17 @@ The following~\ref{fig:usecase-mvp} use case diagram describes the minimum funct
 	\item \textbf{Borrow} use case describes the scenario when a user, who has deposited collateral, aims to borrow an amount of DAI.
 	\item \textbf{Pay} use case describes the situation when a user wants to pay its borrowed DAI position.
 \end{itemize}
+%\newpage
+%\subsection{Sequence Diagrams}
+%\subsubsection{Deposit}
+%an ERC20 contract instance and check the balance of the user account. If the inserted amount is correct, the deposit action can continue.
+%The thesis dapp will start the "approve" transaction and wait for the user to sign it. Next, get the pool address to create the pool contract, and start the deposit or supply transaction. Once the user %has signed the deposit transaction, and the transaction is processed, the deposit action will be finished.
+%\begin{figure}[htp]
+%	\centering
+%	\includegraphics[width=1\textwidth]{./images/sequence-deposit}
+%	\caption{Deposit Scenario}
+%	\label{fig:sd-deposit}
+%\end{figure}
 %\subsection{Sequence Diagrams}
 %\subsubsection{Deposit:}
 
@@ -543,6 +556,8 @@ The first interaction with the smart contracts of Aave, for the application of t
 	\label{fig:tdapp}
 \end{figure}
 To enable any EOA account~\ref{sec:accounts} (users) to interact with the smart contracts, a frontend and a wallet~\ref{dapp} are needed. The frontend or user interface enables users to enter the specific amount to deposit, withdraw or borrow, and to perform these operations using buttons that will perform the interaction with the smart contracts. The frontend shall also display the interest rates of the lending pool. For the frontend implementation of the thesis application the web development framework Next.js\cite{nextjs} and the Material UI\cite{mui} is used. On the other hand, the wallet allows users to sign transactions and see their token balances. The thesis dapp uses the Metamask~\ref{metamask} wallet provider.
+
+Fig.~\ref{fig:tdapp} shows the user interface when a user is connected. In the top right, the user's account address is displayed. The three boxes with their input controls allow users to perform the deposit, withdraw, borrow and pay actions to the given asset. The boxes also display the user account info~\ref{accountinfo}: balances, APYs, debt, borrow power, and $Hf$~\ref{rates}.
 %\subsection{Frontend: Next.js}
 \subsection{Wallet Provider: Metamask}\label{metamask}
 The metamask\cite{wiki:MetaMask}\cite{metamaskDocs} wallet allows users to create and manage their accounts safely. This wallet uses the Infura node provider to communicate to the blockchain network and also allows the connection to any blockchain network that implements the JSON-RPC~\ref{dapp} specification. For developers, metamask provides the \verb|ethereum| API to target web3 users using the metamask wallet. For instance, detecting if a user has metamask installed in its browser, can be done as follows:\\
@@ -581,7 +596,7 @@ The application can be implemented by using the concepts previously outlined, wh
 \end{figure}
 Once the user account is connected to the Rinkeby testnet  network (which is done using the activate and deactivate modules of web3-react), a user can deposit, withdraw, and borrow DAI if the user account has enough collateral. For instance, the interaction between the user interface, the application methods, and the Smart contracts for depositing DAI can be seen in the ~\ref{fig:sd-deposit} sequence diagram (see~\ref{lst:depsosit} for implementation code).
 
-The deposit button will trigger the deposit method, which creates the pool contract and erc20 contract instances; gives DAI allowance to the pool contract, waits for the user to sign the transaction, and the transaction to be confirmed (by the consensus protocol~\ref{sec:cp}). When the approve transaction is processed and confirmed, the deposit transaction can be started. Furthermore, if the supply or deposit transaction is processed and confirmed, the account address will receive the exact amount of the deposited asset, in the form of aTokens~\ref{atokens} (aDAI).
+The deposit button will trigger the deposit method, which creates the ERC20 contract and the pool contract instances; gives DAI allowance to the pool contract, waits for the user to sign the transaction, and the transaction to be confirmed (by the consensus protocol~\ref{sec:cp}). When the approve transaction is processed and confirmed, the deposit transaction can be started. Furthermore, if the supply or deposit transaction is processed and confirmed, the account address will receive the exact amount of the deposited asset, in the form of aTokens~\ref{atokens} (aDAI).
 \begin{lstlisting}[frame=single, caption={Deposit Procedure},label={lst:depsosit}]
 	...
 // create pool & erc20 contract instances:
@@ -598,11 +613,11 @@ await tx_deposit.wait();
 Note that the amount is passed to the contract instances in the form of Wei~\ref{sec:gas} using ethers~\ref{ethers}. Ultimately, the withdraw, borrow, and repay functionalities follow the same pattern. For instance, the Pay Scenario~\ref{fig:sd-pay}.
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=0.95\textwidth]{./images/sequence-repay}
+	\includegraphics[width=0.9\textwidth]{./images/sequence-repay2}
 	\caption{Pay Scenario}
 	\label{fig:sd-pay}
 \end{figure}
-\subsubsection{Deposit APY, Stable Borrow APY, and other User Account Info}
+\subsubsection{Deposit APY, Stable Borrow APY, and other User Account Info}\label{accountinfo}
 As shown in Figure ~\ref{fig:tdapp}, the application also displays the deposit and borrow Annual Percentage Yield (APY). Following the Aave documentation\cite{apr-apy}, the APY (compounded per second) for the deposited and borrowed assets is calculated as follows:\[ APY = (1 + ({APR}/{secondsPerYear}) )^{secondsPerYear} -1\]
 Where the $APR$ is the \textit{currentLiquidityRate} or \textit{currentStableBorrowRate} obtained from the \verb|getReserveData()|~\ref{poolcontract} function and divided by $10^{27}$ (Ray Math~\ref{ray}). For instance, getting the deposit APY is done this way:
 \begin{lstlisting}[frame=single]
@@ -619,15 +634,16 @@ The main goals of this thesis were to study the technology behind decentralized 
 
 To reach these goals, chapter~\ref{ch:background} describes the set of technologies that compose a blockchain network, as well as the Ethereum network. It also outlines why this blockchain platform is so important in the space of decentralized applications. Finally, it presents the architecture of dapps. The requirements in chapter~\ref{ch:appreq} were brought up for developing the thesis dapp. After struggling with the decision of the protocols for the dapp, the Aave protocol was chosen. The main reasons to use Aave for the thesis app development were its maturity in the Defi space and the well-produced developer documentation. Once studying the Aave protocol and its core functionalities in chapter~\ref{ch:defi}, along with the different web3 tools, the implementation was possible, as disclosed in chapter~\ref{ch:impl}.
 \subsubsection{Challenges}
-While developing the thesis, a few challenges had to be resolved. Since blockchain technology and its whole ecosystem are still in their early stages, there are not that many resources to work with. For instance, during the development process of the thesis dapp, I had to rely only on the official documentation. There is no extensive literature on best practices or common errors to avoid, such as there is for other technologies. However, the community is welcoming and I was quickly able to find help in forums such as the Ethereum Stack Exchange\cite{ethstack} or even on Discord\cite{discord} servers. I found the appropriate answer to my questions during the development process on the Aave developer's Discord server.
+While developing the thesis, a few challenges had to be resolved. Since blockchain technology and its whole ecosystem are still in their early stages, there were not that many resources to work with. For instance, during the development process of the thesis dapp, I had to rely only on the official documentation. There was no extensive literature on best practices or common errors to avoid, such as there is for other technologies. However, the community was welcoming and I was quickly able to find help in forums such as the Ethereum Stack Exchange\cite{ethstack} or even on Discord\cite{discord} servers. I found the appropriate answers to my questions during the development process on the Aave developer's Discord server.
 \subsection{Future work}
 The thesis dapp is a DeFi dapp (running on the rinkeby testnet) that enables users to deposit ETH and DAI and earn interest on it. It also enables users to borrow DAI at a stable interest rate. The dapp relies on the Aave protocol to provide such financial services. However, it is just a small part of the DeFi products available today.  The future work that can be implemented is:
 \begin{itemize}
 	\item Improve the User Interface.
 	\item Continue to study the Aave protocol and add new features such as flash loans\cite{flashloan}.
 	\item Thanks to the composability nature of dapps, the thesis dapp could add more protocols to interact with. For instance, creating a yield strategy to get the best APY combining different protocols such as Compound\cite{compound} or Curve finance\cite{curve}.
+	\item Rigorous unit and integration test and add support to an EVM mainnet.
 \end{itemize}
-
+Thanks to decentralized networks, such as Ethereum~\ref{sec:eth}, and the different DeFi protocols, such as Maker~\ref{sec:maker} or Aave~\ref{sec:aave}, anyone can access more stable currencies and other financial services that may not be possible in their traditional financial infrastructures. This could allow people in regions that may suffer from inflation to have an option to protect their assets using these emerging technologies. Moreover, any developer can use this set of technologies to build a new dapp, like the dapp developed for this thesis, that enables users to access these protocols.
 \newpage
 
 \bibliographystyle{plain} % Literaturverzeichnis

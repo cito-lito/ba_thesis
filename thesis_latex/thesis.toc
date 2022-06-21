@@ -1,0 +1,69 @@
+\babel@toc {german}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation}{4}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Goals}{4}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Thesis Structure}{5}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Fundamentals}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Blockchain}{6}{section.2.1}%
+\contentsline {subsubsection}{Peer-to-peer (P2P) network}{7}{section*.5}%
+\contentsline {subsection}{\numberline {2.1.1}Cryptographic hash functions}{7}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Merkle tree}{8}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Consensus Protocol}{9}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Public-Key Cryptography}{9}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Ethereum}{10}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Accounts}{10}{subsection.2.2.1}%
+\contentsline {subsubsection}{Transactions and Messages}{11}{section*.9}%
+\contentsline {subsection}{\numberline {2.2.2}Ethereum Virtual Machine (EVM)}{11}{subsection.2.2.2}%
+\contentsline {subsubsection}{Ether and Gas}{12}{section*.11}%
+\contentsline {subsection}{\numberline {2.2.3}Smart Contracts}{13}{subsection.2.2.3}%
+\contentsline {subsubsection}{Solidity}{14}{section*.13}%
+\contentsline {subsection}{\numberline {2.2.4}Tokens}{14}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Decentralized Applications (Dapps)}{14}{subsection.2.2.5}%
+\contentsline {subsubsection}{Dapp architecture}{15}{section*.15}%
+\contentsline {chapter}{\numberline {3}Decentralized Finance (DeFi)}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Maker Protocol}{18}{section.3.1}%
+\contentsline {subsubsection}{DAI}{18}{section*.18}%
+\contentsline {section}{\numberline {3.2}Aave Protocol}{18}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Aave Rates and Risk Parameters}{19}{subsection.3.2.1}%
+\contentsline {subsubsection}{Loan-To-Value (LTV)}{20}{section*.20}%
+\contentsline {subsubsection}{Liquidations}{20}{section*.21}%
+\contentsline {subsubsection}{Liquidation Threshold}{21}{section*.22}%
+\contentsline {subsubsection}{Health Factor}{21}{section*.23}%
+\contentsline {subsubsection}{\textit {Ray Math}}{21}{section*.24}%
+\contentsline {subsection}{\numberline {3.2.2}Tokenization: aTokens}{21}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Lending Pool}{21}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Aave Governance}{22}{subsection.3.2.4}%
+\contentsline {chapter}{\numberline {4}Application Requirements}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction}{23}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Purpose}{23}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Scope}{23}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Product Perspective}{24}{subsection.4.1.3}%
+\contentsline {subsubsection}{Interface}{24}{section*.26}%
+\contentsline {section}{\numberline {4.2}Requirements}{24}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Functional}{24}{subsection.4.2.1}%
+\contentsline {subsubsection}{Login}{24}{section*.27}%
+\contentsline {subsubsection}{Deposit}{24}{section*.28}%
+\contentsline {subsubsection}{Withdrawal}{25}{section*.29}%
+\contentsline {subsubsection}{Borrow}{25}{section*.30}%
+\contentsline {subsubsection}{Repay}{25}{section*.31}%
+\contentsline {subsection}{\numberline {4.2.2}Nonfunctional}{25}{subsection.4.2.2}%
+\contentsline {subsubsection}{Performance}{26}{section*.32}%
+\contentsline {subsection}{\numberline {4.2.3}Use Cases}{26}{subsection.4.2.3}%
+\contentsline {chapter}{\numberline {5}Implementation}{28}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Interaction with the Smart Contracts}{28}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}The Pool Contract}{29}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}The Address Provider Contract}{30}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}The IERC20 Contract}{31}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}The IWETH Contract}{31}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}Node Provider}{31}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Web3.py and Brownie}{31}{subsection.5.1.6}%
+\contentsline {section}{\numberline {5.2}Interaction with the users}{32}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Wallet Provider: Metamask}{33}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Web3-react}{34}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Web3 Library: ethers}{34}{subsection.5.2.3}%
+\contentsline {subsubsection}{Deposit APY, Stable Borrow APY, and other User Account Info}{36}{section*.38}%
+\contentsline {chapter}{\numberline {6}Conclusion}{38}{chapter.6}%
+\contentsline {subsection}{\numberline {6.0.1}Achieved Goals}{38}{subsection.6.0.1}%
+\contentsline {subsubsection}{Challenges}{38}{section*.39}%
+\contentsline {subsection}{\numberline {6.0.2}Future work}{39}{subsection.6.0.2}%
