@@ -20,7 +20,7 @@ TOPACK= $(STYLES) $(BIB) $(DRAWINGS) $(IMAGES) $(TEXFILES) Makefile
 $(MAIN): $(MAIN).pdf
 
 # bewusst nicht erstes Ziel
-all: bib $(MAIN).pdf LaTeXThesis.zip #bibtex thesis1 bibtex thesis2
+all: bib $(MAIN).pdf LaTeXThesis.zip copythesis #bibtex thesis1 bibtex thesis2
 
 LaTeXThesis.zip: $(TOPACK) 
 	-$(RM) -rf LaTeXThesis
