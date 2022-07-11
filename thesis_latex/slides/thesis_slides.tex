@@ -1,0 +1,246 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+\usepackage{listings}
+\usepackage{url}
+\usepackage[export]{adjustbox}
+\mode<presentation> {
+\usepackage{listings}
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+
+
+\usepackage{wrapfig}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+%
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[]{Study and Implementation of a Decentralized
+	Application That Can Provide Permissionless
+	Financial Services Using an EVM Based Blockchain} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+
+\author{Mario M. Orozco} % Your name
+\institute[HSRM] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Bachelor Colloquium
+\medskip
+%\textit{} % Your email address
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Contents} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+%------------------------------------------------
+\section{Goals}
+\begin{frame}
+\frametitle{Goals}
+The \textbf{goals} of the Thesis were to provide a better understanding of:
+\linebreak
+\begin{itemize}
+	\item The way that decentralized applications or \textbf{dapps} are \textbf{built}. \\ 
+	\item The used \textbf{technology}.\\ 
+	\item \textbf{Developing} \textbf{a} \textbf{Dapp} that uses well-known DeFi protocols, to let users access
+	permissionless financial services such as lending and borrowing of crypto
+	assets.\\ 
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\section{Blockchain}
+\begin{frame}
+\frametitle{Blockchain}
+\begin{itemize}
+	\item 2015 von Wind River Systems  entwickelt\\
+	\item Februar 2016: Projekt der Linux Foundation mit der Version 1.0. (aktuelle Version: 2.1)\\
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+\section{GPOS und RTOS } % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+
+\begin{frame}
+\frametitle{GPOS und RTOS:}
+"General Purpose Operating System"\linebreak 
+\textbf{Ein Programm, das alle Betriebsmittel eines Rechensystems verwaltet}\linebreak 
+\linebreak"Real  Time Operating System"\linebreak 
+Ein Betriebsystem, das  \textbf{Echtzeit-Anforderungen einer Anwendung erfuellt\\}
+
+\end{frame}
+
+
+
+
+
+
+%------------------------------------------------
+
+
+\section{Eigenschaften}
+\begin{frame}
+\frametitle{Cross Architecture: }
+-ARM Cortex-M, Intel x86, ARC, NIOS II, Tensilica Xtensa and RISC-V 32.\\
+-\textbf{Boards 2016:}\\
+%\includegraphics[width=0.6\linewidth]{z2}\\
+%-\textbf{Heutzutage mehr als 80 Boards}\\
+%\href{https://docs.zephyrproject.org/latest/boards/index.html}{\beamergotobutton{Link}}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Highly configurable:}
+\textbf{In einer Anwendung, werden nur die benoetigten Funktionen/Module eingebunden.}\\
+\end{frame}
+\begin{frame}
+\frametitle{Highly configurable:}
+%\includegraphics[width=0.67\linewidth]{z3}
+\end{frame}
+
+\begin{frame}
+\frametitle{Highly configurable:}
+
+\textbf{\underline{*Kconfig:}}\\
+-Der Zephyr-Kernel und die Subsysteme koennen zur "Build Time" konfiguriert werden\\
+-Die Konfiguration erfolgt ueber Kconfig, (wie beim Linux-Kernel).\\
+-Ziel: Konfiguration, ohne den Quellcode aendern zu muessen.\\
+-kconfig dateien:"Symbols"(Einstellungs+Abhaengigkeiten).\\
+-output: \textit{"autoconfig.h"} (macros, die zur "Build Time“ gestestet werden koennen).\\
+-Die Konfigurationsdatei, die waehrend des Builds verwendet wird, ist in: \textit{../build/zephyr/.config}\\
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Highly configurable:}
+
+\textbf{\underline{*Devicetree:}}\\
+-Datenstruktur zur Beschreibung der \textbf{Hardware }in eine Board.
+%\includegraphics[width=0.95\textwidth,left]{z4}
+
+
+
+
+\end{frame}
+
+%------------------------------------------------
+\section{Anwendungsbeispiel}
+\begin{frame}
+	:)
+\end{frame}
+\section{Fazit }
+\begin{frame}
+Fazit
+\end{frame}
+
+\section{Bibliographie }
+\begin{frame}
+\frametitle{Bibliographie}
+\begin{thebibliography}{10}
+	
+The Zephyr Project{
+	 :  \url{www.zephyrproject.org}
+}
+
+\end{thebibliography}
+
+
+\end{frame}
+
+
+\section{Noch Fragen?}
+\begin{frame}
+\Huge{\centerline{Danke fuer eure Aufmerksamkeit!}}
+
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 

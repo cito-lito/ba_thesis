@@ -1,0 +1,8 @@
+\beamer@sectionintoc {1}{Goals}{3}{0}{1}
+\beamer@sectionintoc {2}{Blockchain}{4}{0}{2}
+\beamer@sectionintoc {3}{GPOS und RTOS }{5}{0}{3}
+\beamer@sectionintoc {4}{Eigenschaften}{6}{0}{4}
+\beamer@sectionintoc {5}{Anwendungsbeispiel}{11}{0}{5}
+\beamer@sectionintoc {6}{Fazit }{12}{0}{6}
+\beamer@sectionintoc {7}{Bibliographie }{13}{0}{7}
+\beamer@sectionintoc {8}{Noch Fragen?}{14}{0}{8}
