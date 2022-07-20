@@ -193,15 +193,7 @@ The term blockchain usually refers to a \textbf{public ledger} of transaction re
 \end{frame}
 
 
-\begin{frame}
-	\frametitle{Consensus Protocol}
-	\includegraphics[width=0.15\textwidth,right]{bc}
-	Who can append a new data block?\linebreak
-		\begin{itemize}
-		\item[$\bullet$] \textbf{Any participant} or node of the network, depending on the blockchain type, \textbf{can append a new block}.\linebreak
-		\item[$\bullet$] \textbf{Participants} on the blockchain \textbf{must verify} any transaction according to the set of rules or consensus protocol of the blockchain network.
-	\end{itemize}				
-\end{frame}
+
 
 \begin{frame}
 	\frametitle{Consensus Protocol}
@@ -211,7 +203,7 @@ The term blockchain usually refers to a \textbf{public ledger} of transaction re
 		\item[$\bullet$] \textbf{Proof of work (PoW)}: Nodes have to solve a cryptographic task in order to
 		validate a block; the first node to find a solution can submit the transaction.
 		\linebreak
-		\item[$\bullet$] \textbf{Proof of state (PoS)}: The node that can validate a transaction is randomly
+		\item[$\bullet$] \textbf{Proof of stake (PoS)}: The node that can validate a transaction is randomly
 		selected, depending on the "stake" that a node has on the network.
 	\end{itemize}	
 	
@@ -228,7 +220,6 @@ The term blockchain usually refers to a \textbf{public ledger} of transaction re
 	SHA-256,\\
 	POW
 \end{minipage}
-
 
 	%\includegraphics[width=0.6\textwidth, center]{btcblocks}
 \end{frame}
@@ -248,30 +239,7 @@ The distributed computation system that bitcoin\\ introduced: a \textbf{proof-of
 \begin{frame}
 \frametitle{Ethereum}
 \includegraphics[width=0.1\textwidth,right]{bc}
-Ethereum is a decentralized computing platform or a \textbf{decentralized pseudo-turning complete virtual machine}, \\which runs \textbf{smart contracts} and stores its state changes in its blockchain.
-\end{frame}
-
-\begin{frame}
-\frametitle{Ethereum has an account-based model}
-	\begin{itemize}
-	\item[$\bullet$] Every \textbf{account} represents a \textbf{state}.
-	\item[$\bullet$] An account is \textbf{mapped with} a 160 bits address (\textbf{public key}).
-	\item[$\bullet$] \textbf{Two types} of accounts: Externally owned account (\textbf{EOA}), controlled by a private key and (smart) \textbf{contract account}, controlled by EVM code.
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Ethereum has an account-based model}
-	\includegraphics[width=0.8\textwidth, center]{../images/accounts}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{Transactions and Messages}
-	\begin{itemize}
-	\item[$\bullet$] Two types of transactions: \textbf{Message calls}, \textbf{Contract creations}. \linebreak
-	\item[$\bullet$] \textbf{Messages} can be seen as \textbf{internal transactions between contracts} triggered by a message call.
-	\end{itemize}
+Ethereum is a decentralized computing platform or a \textbf{decentralized pseudo-turing complete virtual machine}, \\which runs \textbf{smart contracts} and stores its state changes in its blockchain.
 \end{frame}
 
 \begin{frame}
@@ -282,6 +250,8 @@ Ethereum is a decentralized computing platform or a \textbf{decentralized pseudo
 		\item[$\bullet$] The quasi means that its computation is limited by the available \textbf{gas} that the executed contract has.
 	\end{itemize}
 \end{frame}
+
+
 
 \begin{frame}
 	\frametitle{Ether and Gas}
@@ -318,13 +288,6 @@ Ethereum is a decentralized computing platform or a \textbf{decentralized pseudo
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Solidity}
-	\begin{itemize}
-		\item[$\bullet$]  Solidity is an object-oriented or contract-oriented high-level programming Language, designed to \textbf{target the EVM}.
-		\item[$\bullet$] The \textbf{Solidity compiler} converts Solidity contracts into \textbf{EVM bytecode} and generates the contract \textbf{Application Binary Interface (ABI)}, which enables the interaction with contracts.
-	\end{itemize}
-\end{frame}
 
 \begin{frame}
 	\frametitle{Tokens}
@@ -333,18 +296,11 @@ Ethereum is a decentralized computing platform or a \textbf{decentralized pseudo
 		\item[$\bullet$] For instance, tokens can represent \textbf{currencies}, \textbf{shares in a company}, or even a \textbf{virtual pet}. 
 		\item[$\bullet$] Unlike Ether, which is managed by the Ethereum protocol, tokens are \textbf{created and handled by smart contracts}. 
 		\item[$\bullet$] Everyone can create a token. However, some \textbf{standards} need to be followed \textbf{for the creation of tokens}. 
+		\item[$\bullet$] \textbf{ERC20} Token Standard, for the representation of \textbf{fungible tokens}. For instance, a token that represents a currency or a share in a company. 
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Tokens}
-	\begin{itemize}
-		\item[$\bullet$] \textbf{ERC20} Token Standard, for the representation of \textbf{fungible tokens}. For instance, a token that represents a currency or a share in a company. 
-		\linebreak
-		\linebreak
-		\item[$\bullet$] The \textbf{ERC721} Token Standard, for \textbf{non-fungible tokens} or representation of unique goods like an ID or collectibles.  
-	\end{itemize}
-\end{frame}
+
 
 \begin{frame}
 \frametitle{Decentralized Applications (Dapps)}
@@ -387,8 +343,8 @@ Ethereum is a decentralized computing platform or a \textbf{decentralized pseudo
 	\frametitle{Decentralized Finance (DeFi) }
 	\begin{itemize}
 		\item[$\bullet$]  DeFi has gained a lot of traction in the past years
-		and according to Defipulse, the Total Locked Value or TVL (held by smart contracts) in all the DeFi applications and protocols today is: \\
-		\href{https://www.defipulse.com/}{ TOTAL VALUE LOCKED (USD) }
+		and according to Defipulse, the Total Locked Value or TVL (held by smart contracts) in all the DeFi applications and protocols today is: $~40$B USD \\
+		\includegraphics[width=0.95\textwidth, center]{tvl}
 	\end{itemize}
 \end{frame}
 
@@ -426,7 +382,7 @@ Ethereum is a decentralized computing platform or a \textbf{decentralized pseudo
 	\frametitle{Aave Protocol: Rates and Risk Parameters}
 	%\includegraphics[width=0.65\textwidth, center]{../images/lp_reserves}
 	\begin{itemize}
-		\item[$\bullet$] The interest rate, for lenders and borrowers, is determined by the status of the specific reserve.
+		\item[$\bullet$] The \textbf{interest rate}, for lenders and borrowers, is \textbf{determined by} the \textbf{status} of the specific \textbf{reserve}.
 		\item[$\bullet$] For \textbf{lenders}, the interest rate depends on  the \textit{current liquidity rate}: $ R_{t} = R_{o}U $, where $ R_{o} $ is the overall \textbf{borrow rate} of the reserve.
 	\end{itemize}
 \begin{equation}
@@ -442,9 +398,9 @@ Ethereum is a decentralized computing platform or a \textbf{decentralized pseudo
 	\frametitle{Aave Protocol: Rates and Risk Parameters}
 	%\includegraphics[width=0.65\textwidth, center]{../images/lp_reserves}
 	\begin{itemize}
-		\item[] With the total amount of borrowed liquidity $B_{t} $ (\textit{total borrows}), expressed as the sum of the total stable borrows plus  the total variable borrows :
+		\item[] With the \textbf{total} amount of \textbf{borrowed} liquidity $B_{t} $ (\textit{total borrows}), expressed as the sum of the \textbf{total stable borrows} \textbf{plus}  the \textbf{total variable borrows} :
 		\[ B_{t} = B_{s}+B_{v} \]
-		And $ U $ is the \textit{utilization rate}, which is the representation of the utilization of the deposited assets, defined as follows:
+		And $ U $ is the \textit{utilization rate}, which is the representation of the \textbf{utilization of the deposited assets}, defined as follows:
 		\begin{equation}
 			U = 
 			\left\{\begin{matrix}
@@ -481,6 +437,20 @@ Ethereum is a decentralized computing platform or a \textbf{decentralized pseudo
 	
 \end{frame}
 
+
+\begin{frame}	
+	\frametitle{Aave Protocol: Rates and Risk Parameters}
+	%\includegraphics[width=0.65\textwidth, center]{../images/lp_reserves}
+	\begin{itemize}
+		\item[] \textbf{Liquidations}
+		\linebreak
+		\item[$\bullet$] To maintain the solvency of the protocol, anyone can liquidate a borrow position, i.e., buy a maximum of 50\% of the borrow position.
+		\item[$\bullet$] Every liquidated position has a liquidation bonus, which depends on the asset. 
+		\item[$\bullet$] For instance, if someone borrows 1 ETH worth of DAI and its~$H_{f}$~\ drops below 1, anyone can liquidate the position (max 50\%) for a bonus of 5\% (105\% liquidation ratio), and the liquidator can claim up to 0.5 + 0.05 ETH by repaying 0.5 ETH worth of DAI.
+	\end{itemize}
+	
+\end{frame}
+
 \begin{frame}	
 	\frametitle{Aave Protocol: Rates and Risk Parameters}
 	%\includegraphics[width=0.65\textwidth, center]{../images/lp_reserves}
@@ -495,6 +465,125 @@ Ethereum is a decentralized computing platform or a \textbf{decentralized pseudo
 	
 \end{frame}
 
+
+%------------------------------------------------
+\section{Implementation}
+
+\begin{frame}
+\frametitle{Implementation}
+\includegraphics[width=0.6\textwidth, center]{../images/USECASE-full_nofl1}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Interaction with the Smart Contracts}
+	\includegraphics[width=0.8\textwidth, center]{../images/interactionSC}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Interaction with the users}
+	\includegraphics[width=0.75\textwidth, center]{../images/thesis-dapp1}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Implementation: Example deposit DAI}
+	\includegraphics[width=0.8\textwidth, center]{../images/sequence-deposit}
+\end{frame}
+
+%------------------------------------------------
+\section{Demo}
+
+\begin{frame}
+\frametitle{Live Demo}
+\includegraphics[width=0.8\textwidth, center]{demo}
+\end{frame}
+
+%------------------------------------------------
+
+\section{Conclusions}
+
+\begin{frame}
+\frametitle{Conclusions}
+\begin{itemize}
+	\item[$\bullet$]  \textbf{Achieved Goals}
+	\item[$\bullet$]  \textbf{Challenges}
+	\item[$\bullet$]  \textbf{Future work}
+	\item[$\bullet$]  \textbf{Personally}
+\end{itemize}
+\end{frame}
+
+
+\section{Questions}
+
+\begin{frame}
+\frametitle{Questions}
+
+\Huge{\centerline{Thanks!}}
+\end{frame}
+
+%-------- EXTRAS
+
+
+\section{}
+
+\begin{frame}
+	\frametitle{Extras}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ethereum has an account-based model}
+	\begin{itemize}
+		\item[$\bullet$] Every \textbf{account} represents a \textbf{state}.
+		\item[$\bullet$] An account is \textbf{mapped with} a 160 bits address (\textbf{public key}).
+		\item[$\bullet$] \textbf{Two types} of accounts: Externally owned account (\textbf{EOA}), controlled by a private key and (smart) \textbf{contract account}, controlled by EVM code.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ethereum has an account-based model}
+	\includegraphics[width=0.8\textwidth, center]{../images/accounts}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Transactions and Messages}
+	\begin{itemize}
+		\item[$\bullet$] Two types of transactions: \textbf{Message calls}, \textbf{Contract creations}. \linebreak
+		\item[$\bullet$] \textbf{Messages} can be seen as \textbf{internal transactions between contracts} triggered by a message call.
+	\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+	\frametitle{Consensus Protocol}
+	\includegraphics[width=0.15\textwidth,right]{bc}
+	Who can append a new data block?\linebreak
+	\begin{itemize}
+		\item[$\bullet$] \textbf{Any participant} or node of the network, depending on the blockchain type, \textbf{can append a new block}.\linebreak
+		\item[$\bullet$] \textbf{Participants} on the blockchain \textbf{must verify} any transaction according to the set of rules or consensus protocol of the blockchain network.
+	\end{itemize}				
+\end{frame}
+\begin{frame}
+	\frametitle{Tokens}
+	\begin{itemize}
+		\item[$\bullet$] \textbf{ERC20} Token Standard, for the representation of \textbf{fungible tokens}. For instance, a token that represents a currency or a share in a company. 
+		\linebreak
+		\linebreak
+		\item[$\bullet$] The \textbf{ERC721} Token Standard, for \textbf{non-fungible tokens} or representation of unique goods like an ID or collectibles.  
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Solidity}
+	\begin{itemize}
+		\item[$\bullet$]  Solidity is an object-oriented or contract-oriented high-level programming Language, designed to \textbf{target the EVM}.
+		\item[$\bullet$] The \textbf{Solidity compiler} converts Solidity contracts into \textbf{EVM bytecode} and generates the contract \textbf{Application Binary Interface (ABI)}, which enables the interaction with contracts.
+	\end{itemize}
+\end{frame}
+
+
 \begin{frame}	
 	\frametitle{Aave Protocol: Tokenization, aTokens}
 	%\includegraphics[width=0.65\textwidth, center]{../images/USECASE-full_nofl1}
@@ -507,41 +596,6 @@ Ethereum is a decentralized computing platform or a \textbf{decentralized pseudo
 	\end{itemize}
 	
 \end{frame}
-
-%------------------------------------------------
-\section{Implementation}
-
-\begin{frame}
-\frametitle{Implementation}
-\includegraphics[width=0.6\textwidth, center]{../images/USECASE-full_nofl1}
-\end{frame}
-
-%------------------------------------------------
-\section{Demo}
-
-\begin{frame}
-\frametitle{Live Demo}
-	:)
-\end{frame}
-
-%------------------------------------------------
-
-\section{Conclusion}
-
-\begin{frame}
-\frametitle{Conclusion}
-conclusions
-\end{frame}
-
-
-\section{Questions}
-
-\begin{frame}
-\frametitle{Questions}
-
-\Huge{\centerline{Thanks!}}
-\end{frame}
-
 %----------------------------------------------------------------------------------------
 
 \end{document} 
